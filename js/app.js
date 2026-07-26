@@ -163,3 +163,30 @@ function openModal(key){
 document.querySelectorAll('.open-detail').forEach(button=>button.addEventListener('click',()=>openModal(button.dataset.reservation)));
 document.querySelectorAll('[data-close-modal]').forEach(button=>button.addEventListener('click',closeModal));
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal()});
+
+// v2.4 — cinematic opening for the share release
+const intro=document.getElementById('intro');
+const introCountdown=document.getElementById('introCountdown');
+const introEnter=document.getElementById('introEnter');
+const introSkip=document.getElementById('introSkip');
+const replayIntro=document.getElementById('replayIntro');
+if(introCountdown) introCountdown.textContent=diff>=0?String(diff):'0';
+function closeIntro(){
+  if(!intro)return;
+  intro.classList.add('is-hidden');
+  document.body.classList.remove('is-intro-lock');
+  sessionStorage.setItem('espana-intro-seen','1');
+  window.setTimeout(()=>intro.setAttribute('aria-hidden','true'),850);
+}
+function openIntro(){
+  if(!intro)return;
+  intro.setAttribute('aria-hidden','false');
+  intro.classList.remove('is-hidden');
+  document.body.classList.add('is-intro-lock');
+  window.scrollTo({top:0,behavior:'auto'});
+}
+introEnter?.addEventListener('click',closeIntro);
+introSkip?.addEventListener('click',closeIntro);
+replayIntro?.addEventListener('click',openIntro);
+if(sessionStorage.getItem('espana-intro-seen')==='1') closeIntro();
+else window.setTimeout(()=>introEnter?.focus(),1100);
