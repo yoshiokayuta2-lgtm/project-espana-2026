@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#fbf6ee">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="description" content="佑太と裕子のスペイン新婚旅行アプリ">
+<meta name="description" content="YutaとYukoのスペイン新婚旅行アプリ">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>Project España 2026</title>
@@ -16,27 +16,42 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<svg class="icon-sprite" aria-hidden="true" focusable="false">
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11.2 12 4l8.5 7.2v8.3H15v-5h-6v5H3.5z"/></symbol>
+<symbol id="i-plan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="m14.8 9.2-1.9 3.7-3.7 1.9 1.9-3.7z"/></symbol>
+<symbol id="i-flight" viewBox="0 0 24 24"><path d="m3 14 7.2-1.8 3.5-7.3 2 .5-1.1 6 4.8-1.2c1.2-.3 2.3.4 2.6 1.6.3 1.2-.4 2.3-1.6 2.6l-5 1.2-4.4 4.2-1.8.5 1.4-4-5.8 1.4z"/></symbol>
+<symbol id="i-hotel" viewBox="0 0 24 24"><path d="M4 20V5h10v15M14 10h6v10M7 8h1M11 8h1M7 12h1M11 12h1M7 16h1M11 16h1M17 13h1M17 16h1M2 20h20"/></symbol>
+<symbol id="i-food" viewBox="0 0 24 24"><path d="M6 3v8M3.5 3v5.5A2.5 2.5 0 0 0 6 11v10M8.5 3v5.5A2.5 2.5 0 0 1 6 11M16 3c-2.2 2.5-2.2 7.5 0 10v8M20 3v18"/></symbol>
+<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 7.5h18v4a2.5 2.5 0 0 0 0 5v4H3v-4a2.5 2.5 0 0 0 0-5zM9 8v12"/></symbol>
+<symbol id="i-bag" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2M8 11v6M16 11v6"/></symbol>
+<symbol id="i-today" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7 3v4M17 3v4M3.5 9.5h17M8 14h8M8 17h5"/></symbol>
+<symbol id="i-emergency" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M2 9h20v-4H2zM12 5v16M12 5c-1.5-3.5-6-3.2-6 0 0 2.2 3.2 2.5 6 0ZM12 5c1.5-3.5 6-3.2 6 0 0 2.2-3.2 2.5-6 0Z"/></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v10H2V9a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></symbol>
+</svg>
+
 <div class="opening" id="opening" aria-hidden="true">
   <button class="opening-skip" id="openingSkip">Skip</button>
   <div class="opening-inner">
     <p>Our First Adventure</p>
     <h1>Project España</h1>
     <strong>2026</strong>
-    <img src="images/couple.png" alt="佑太と裕子の線画">
+    <img src="images/couple.png" alt="YutaとYukoの線画">
     <button id="openingEnter">Enter our journey</button>
   </div>
 </div>
 <header class="topbar">
   <button class="brand" data-route="home"><span>Project España</span><small>2026</small></button>
   <p class="script">Our First Adventure</p>
-  <button class="couple-pill" data-route="letter">佑太 &amp; 裕子 <span>♡</span></button>
+  <button class="couple-pill" data-route="letter">Yuta &amp; Yuko <span>♡</span></button>
 </header>
 <main>
 <section id="home" class="screen active">
   <section class="hero reveal">
     <div class="hero-copy">
       <p class="eyebrow">A journey for two</p>
-      <h1>Hola, 裕子。</h1>
+      <h1>Hola, Yuko.</h1>
       <p class="lead">私たちのスペイン旅行が、いよいよ近づいてきたね。<br>一緒に、最高の8日間にしよう。</p>
       <div class="countdown"><strong id="countdown">—</strong><span>days to go</span></div>
       <p class="dates">Oct 8, 2026 – Oct 15, 2026</p>
@@ -45,15 +60,16 @@
     <figure class="hero-art"><img src="images/planning.png" alt="二人でスペイン旅行を計画している線画"></figure>
   </section>
   <section class="quickbar reveal" aria-label="クイックメニュー">
-    <button data-route="plan"><span>⌖</span><b>Plan</b><small>旅程</small></button>
-    <button data-route="flight"><span>✈</span><b>Flight</b><small>フライト</small></button>
-    <button data-route="hotel"><span>▤</span><b>Hotel</b><small>ホテル</small></button>
-    <button data-route="restaurant"><span>♢</span><b>Restaurant</b><small>レストラン</small></button>
-    <button data-route="booked"><span>◎</span><b>Booked</b><small>予約</small></button>
-    <button data-route="prepare"><span>▣</span><b>Prepare</b><small>準備</small></button>
-    <button data-route="today"><span>□</span><b>Today</b><small>今日</small></button>
-    <button data-route="emergency"><span>＋</span><b>Emergency</b><small>緊急時</small></button>
-    <button data-route="souvenirs"><span>◇</span><b>Souvenirs</b><small>お土産</small></button>
+    <button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><b>Plan</b><small>旅程</small></button>
+    <button data-route="flight"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><b>Flight</b><small>フライト</small></button>
+    <button data-route="hotel"><svg class="line-icon" aria-hidden="true"><use href="#i-hotel"></use></svg><b>Hotel</b><small>ホテル</small></button>
+    <button data-route="restaurant"><svg class="line-icon" aria-hidden="true"><use href="#i-food"></use></svg><b>Restaurant</b><small>レストラン</small></button>
+    <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><b>Booked</b><small>予約</small></button>
+    <button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-bag"></use></svg><b>Prepare</b><small>準備</small></button>
+    <button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><b>Today</b><small>今日</small></button>
+    <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><b>Emergency</b><small>緊急時</small></button>
+    <button data-route="souvenirs"><svg class="line-icon" aria-hidden="true"><use href="#i-gift"></use></svg><b>Souvenirs</b><small>お土産</small></button>
+    <button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><b>Memories</b><small>写真</small></button>
   </section>
   <section class="home-grid reveal">
     <article class="today-card card">
@@ -76,11 +92,12 @@
       <article class="quick-info card">
         <div class="card-heading"><div><p class="section-label">Quick Info</p><h2>ひと目で確認</h2></div></div>
         <div class="info-grid">
-          <button data-route="booked"><span>▣</span><small>Reservations</small><b>4件</b></button>
-          <button data-route="prepare"><span>✓</span><small>Checklist</small><b id="checkProgress">0 / 5</b></button>
-          <button data-route="flight"><span>✈</span><small>Flights</small><b>4便</b></button>
-          <button data-route="emergency"><span>＋</span><small>Emergency</small><b>緊急連絡</b></button>
-          <button data-route="souvenirs"><span>◇</span><small>Souvenirs</small><b id="souvenirProgress">0件</b></button>
+          <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><small>Reservations</small><b>4件</b></button>
+          <button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-check"></use></svg><small>Checklist</small><b id="checkProgress">0 / 5</b></button>
+          <button data-route="flight"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><small>Flights</small><b>4便</b></button>
+          <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><small>Emergency</small><b>緊急連絡</b></button>
+          <button data-route="souvenirs"><svg class="line-icon" aria-hidden="true"><use href="#i-gift"></use></svg><small>Souvenirs</small><b id="souvenirProgress">0件</b></button>
+          <button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Memories</small><b id="memoryProgress">0枚</b></button>
         </div>
       </article>
     </div>
@@ -125,7 +142,7 @@
       <form id="souvenirForm" class="souvenir-form">
         <label><span>渡す相手</span><input id="souvenirPerson" maxlength="40" required placeholder="例：母、職場のみんな"></label>
         <div class="form-row">
-          <label><span>担当</span><select id="souvenirOwner"><option value="佑太">佑太</option><option value="裕子">裕子</option><option value="二人">二人</option></select></label>
+          <label><span>担当</span><select id="souvenirOwner"><option value="Yuta">Yuta</option><option value="Yuko">Yuko</option><option value="Together">Together</option></select></label>
           <label><span>個数</span><input id="souvenirQty" type="number" min="1" max="99" value="1"></label>
         </div>
         <label><span>お土産候補</span><input id="souvenirItem" maxlength="60" placeholder="例：個包装のお菓子"></label>
@@ -137,7 +154,7 @@
       <div class="souvenir-toolbar">
         <div><p class="section-label">List</p><h2>買うもの</h2></div>
         <div class="souvenir-filters" id="souvenirFilters">
-          <button class="active" data-filter="all">すべて</button><button data-filter="open">未購入</button><button data-filter="佑太">佑太</button><button data-filter="裕子">裕子</button>
+          <button class="active" data-filter="all">すべて</button><button data-filter="open">未購入</button><button data-filter="Yuta">Yuta</button><button data-filter="Yuko">Yuko</button>
         </div>
       </div>
       <div class="souvenir-summary"><b id="souvenirSummary">0件</b><span>購入済みは下にまとまります</span></div>
@@ -175,9 +192,30 @@
   <p class="source-note">連絡先確認：在スペイン日本国大使館・在バルセロナ日本国総領事館（2026年7月確認）。渡航直前にも公式情報をご確認ください。</p>
 </section>
 <section id="today" class="screen inner"><header class="page-head"><p class="eyebrow">TODAY</p><h1 id="todayTitle">今日の物語</h1><p id="todayLead">旅の時期に合わせて自動で切り替わります。</p></header><div class="feature-image"><img id="todayHero" src="images/departure.png" alt="今日のイラスト"></div><article class="detail-card today-detail"><h2 id="todayCity">Before the journey</h2><ul id="todaySchedule"></ul></article></section>
-<section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">佑太</p><img src="images/couple.png" alt="二人の線画"></div></section>
+
+<section id="memories" class="screen inner memories-screen">
+  <header class="page-head"><p class="eyebrow">MEMORIES</p><h1>Our Spain Memories</h1><p>撮った写真を日ごとに残す、二人だけの端末内アルバム。</p></header>
+  <div class="memory-intro">
+    <div><p class="section-label">Before → After</p><h2>イラストの旅が、本当の思い出になっていく。</h2><p>写真は自動で縮小し、この端末のブラウザ内に保存します。別端末への共有や自動同期は行いません。</p></div>
+    <img src="images/selfie.png" alt="スペインで写真を撮る二人">
+  </div>
+  <article class="detail-card memory-upload-card">
+    <div class="card-heading"><div><p class="section-label">Add photos</p><h2>写真を追加</h2></div><b id="memoryCount">0枚</b></div>
+    <form id="memoryForm" class="memory-form">
+      <label><span>日付</span><select id="memoryDay"><option value="2026-10-08">Day 1 · Oct 8</option><option value="2026-10-09">Day 2 · Oct 9</option><option value="2026-10-10">Day 3 · Oct 10</option><option value="2026-10-11">Day 4 · Oct 11</option><option value="2026-10-12">Day 5 · Oct 12</option><option value="2026-10-13">Day 6 · Oct 13</option><option value="2026-10-14">Day 7 · Oct 14</option><option value="2026-10-15">Day 8 · Oct 15</option></select></label>
+      <label><span>ひとこと</span><input id="memoryCaption" maxlength="80" placeholder="例：マドリード最初の夜"></label>
+      <label class="photo-picker"><input id="memoryFiles" type="file" accept="image/*" multiple><span>写真を選ぶ</span><small>複数選択できます</small></label>
+      <button class="wide-button" type="submit">アルバムに追加 <span>＋</span></button>
+    </form>
+    <p class="save-status" id="memoryStatus">写真はこの端末だけに保存されます。</p>
+  </article>
+  <div id="memoryGallery" class="memory-gallery"></div>
+  <p id="memoryEmpty" class="empty-state">まだ写真がありません。旅が始まったら最初の一枚を追加しよう。</p>
+</section>
+<div id="memoryModal" class="memory-modal" hidden><button id="memoryModalClose" aria-label="閉じる">×</button><img id="memoryModalImage" alt="思い出の写真"><p id="memoryModalCaption"></p></div>
+<section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">Yuta</p><img src="images/couple.png" alt="二人の線画"></div></section>
 </main>
-<nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><span>⌂</span><small>Home</small></button><button data-route="plan"><span>⌖</span><small>Plan</small></button><button data-route="souvenirs"><span>◇</span><small>Gifts</small></button><button data-route="today"><span>□</span><small>Today</small></button><button data-route="prepare"><span>✓</span><small>Prepare</small></button></nav>
+<nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-bag"></use></svg><small>Prepare</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
 <script src="js/app.js"></script>
 </body>

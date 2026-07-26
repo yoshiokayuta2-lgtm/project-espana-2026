@@ -124,3 +124,59 @@ emergencyFields.forEach(input=>{
 });
 document.querySelectorAll('.mini-call.disabled').forEach(link=>link.addEventListener('click',e=>{if(link.classList.contains('disabled')){e.preventDefault();document.querySelector('[data-emergency-field="'+(link.id==='cardCallLink'?'cardPhone':'insurancePhone')+'"]').focus()}}));
 updateEmergencyCallLinks();
+
+// v4.0 name migration for data saved in older versions.
+(function migrateOwnerNames(){
+  try{
+    let changed=false;
+    souvenirs.forEach(item=>{if(item.owner==='佑太'){item.owner='Yuta';changed=true}if(item.owner==='裕子'){item.owner='Yuko';changed=true}if(item.owner==='二人'){item.owner='Together';changed=true}});
+    if(changed){localStorage.setItem('espana-souvenirs-v1',JSON.stringify(souvenirs));renderSouvenirs()}
+  }catch{}
+})();
+
+// Memories: photos are compressed and stored in IndexedDB on this device only.
+const memoryDbName='espana-memories-db';
+const memoryStore='photos';
+const memoryDayLabels={
+  '2026-10-08':'Day 1 · Oct 8','2026-10-09':'Day 2 · Oct 9','2026-10-10':'Day 3 · Oct 10','2026-10-11':'Day 4 · Oct 11',
+  '2026-10-12':'Day 5 · Oct 12','2026-10-13':'Day 6 · Oct 13','2026-10-14':'Day 7 · Oct 14','2026-10-15':'Day 8 · Oct 15'
+};
+function openMemoryDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open(memoryDbName,1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(memoryStore)){const store=db.createObjectStore(memoryStore,{keyPath:'id'});store.createIndex('day','day')}};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function memoryAll(){const db=await openMemoryDb();return new Promise((resolve,reject)=>{const req=db.transaction(memoryStore,'readonly').objectStore(memoryStore).getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error)})}
+async function memoryPut(item){const db=await openMemoryDb();return new Promise((resolve,reject)=>{const req=db.transaction(memoryStore,'readwrite').objectStore(memoryStore).put(item);req.onsuccess=()=>resolve();req.onerror=()=>reject(req.error)})}
+async function memoryDelete(id){const db=await openMemoryDb();return new Promise((resolve,reject)=>{const req=db.transaction(memoryStore,'readwrite').objectStore(memoryStore).delete(id);req.onsuccess=()=>resolve();req.onerror=()=>reject(req.error)})}
+function fileToCompressedBlob(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=()=>reject(reader.error);reader.onload=()=>{const img=new Image();img.onerror=()=>reject(new Error('画像を読み込めませんでした'));img.onload=()=>{const max=1600;const scale=Math.min(1,max/Math.max(img.width,img.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('画像を保存できませんでした')),'image/jpeg',.82)};img.src=reader.result};reader.readAsDataURL(file)})}
+const memoryGallery=document.getElementById('memoryGallery');
+const memoryEmpty=document.getElementById('memoryEmpty');
+const memoryStatus=document.getElementById('memoryStatus');
+let memoryObjectUrls=[];
+function clearMemoryUrls(){memoryObjectUrls.forEach(URL.revokeObjectURL);memoryObjectUrls=[]}
+function openMemoryModal(src,caption){const modal=document.getElementById('memoryModal');document.getElementById('memoryModalImage').src=src;document.getElementById('memoryModalCaption').textContent=caption||'';modal.hidden=false;document.body.classList.add('memory-modal-open')}
+function closeMemoryModal(){const modal=document.getElementById('memoryModal');modal.hidden=true;document.getElementById('memoryModalImage').src='';document.body.classList.remove('memory-modal-open')}
+document.getElementById('memoryModalClose').addEventListener('click',closeMemoryModal);document.getElementById('memoryModal').addEventListener('click',e=>{if(e.target.id==='memoryModal')closeMemoryModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMemoryModal()});
+async function renderMemories(){
+  if(!memoryGallery)return;
+  clearMemoryUrls();memoryGallery.textContent='';
+  let items=[];try{items=await memoryAll()}catch{memoryStatus.textContent='このブラウザでは写真保存を利用できません。';return}
+  items.sort((a,b)=>a.day.localeCompare(b.day)||a.created-b.created);
+  const grouped={};items.forEach(item=>(grouped[item.day]??=[]).push(item));
+  Object.entries(grouped).forEach(([day,photos])=>{
+    const section=document.createElement('section');section.className='memory-day';
+    const head=document.createElement('div');head.className='memory-day-head';head.innerHTML=`<h2>${memoryDayLabels[day]||day}</h2><span>${photos.length} photos</span>`;
+    const grid=document.createElement('div');grid.className='memory-grid';
+    photos.forEach(item=>{
+      const figure=document.createElement('figure');figure.className='memory-card';
+      const url=URL.createObjectURL(item.blob);memoryObjectUrls.push(url);
+      const img=document.createElement('img');img.src=url;img.alt=item.caption||memoryDayLabels[item.day]||'思い出の写真';img.loading='lazy';img.addEventListener('click',()=>openMemoryModal(url,item.caption));
+      const del=document.createElement('button');del.className='memory-delete';del.type='button';del.textContent='×';del.setAttribute('aria-label','写真を削除');del.addEventListener('click',async()=>{if(confirm('この写真を端末内のアルバムから削除しますか？')){await memoryDelete(item.id);renderMemories()}});
+      figure.append(img,del);if(item.caption){const cap=document.createElement('figcaption');cap.textContent=item.caption;figure.appendChild(cap)}grid.appendChild(figure)
+    });section.append(head,grid);memoryGallery.appendChild(section)
+  });
+  const count=items.length;document.getElementById('memoryCount').textContent=`${count}枚`;document.getElementById('memoryProgress').textContent=`${count}枚`;memoryEmpty.hidden=count>0;
+}
+document.getElementById('memoryForm').addEventListener('submit',async e=>{
+  e.preventDefault();const files=[...document.getElementById('memoryFiles').files];if(!files.length){memoryStatus.textContent='追加する写真を選んでください。';return}
+  const day=document.getElementById('memoryDay').value;const caption=document.getElementById('memoryCaption').value.trim();const button=e.currentTarget.querySelector('button[type="submit"]');button.disabled=true;memoryStatus.textContent=`${files.length}枚を保存しています…`;
+  try{for(const [index,file] of files.entries()){const blob=await fileToCompressedBlob(file);await memoryPut({id:`${Date.now()}-${index}-${Math.random().toString(36).slice(2,7)}`,day,caption,blob,created:Date.now()+index})}document.getElementById('memoryFiles').value='';document.getElementById('memoryCaption').value='';memoryStatus.textContent=`${files.length}枚をこの端末に保存しました。`;await renderMemories()}catch(error){console.error(error);memoryStatus.textContent='保存できませんでした。端末の空き容量や写真形式を確認してください。'}finally{button.disabled=false}
+});
+renderMemories();
