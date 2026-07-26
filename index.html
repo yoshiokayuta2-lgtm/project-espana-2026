@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.2">
+<link rel="stylesheet" href="css/style.css?v=4.3">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -29,6 +29,10 @@
 <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M2 9h20v-4H2zM12 5v16M12 5c-1.5-3.5-6-3.2-6 0 0 2.2 3.2 2.5 6 0ZM12 5c1.5-3.5 6-3.2 6 0 0 2.2-3.2 2.5-6 0Z"/></symbol>
 <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v10H2V9a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></symbol>
+<symbol id="i-fun" viewBox="0 0 24 24"><path d="M8 4h8l1 4 3 2-2 8-4-2-2 4-2-4-4 2-2-8 3-2z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M9 14c2 1.4 4 1.4 6 0"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0zM7 6H3v2a4 4 0 0 0 4 4M17 6h4v2a4 4 0 0 1-4 4M12 14v4M8 21h8M9 18h6"/></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="8" ry="9"/><path d="M9 8.5h6M12 8.5v7M9.5 15.5h5"/></symbol>
+<symbol id="i-phrase" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
 </svg>
 
 <div class="opening" id="opening" aria-hidden="true">
@@ -76,6 +80,7 @@
     <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><b>Emergency</b><small>緊急時</small></button>
     <button data-route="souvenirs"><svg class="line-icon" aria-hidden="true"><use href="#i-gift"></use></svg><b>Souvenirs</b><small>お土産</small></button>
     <button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><b>Memories</b><small>写真</small></button>
+    <button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><b>Fun</b><small>二人で遊ぶ</small></button>
   </section>
   <section class="home-grid reveal">
     <article class="today-card card">
@@ -219,10 +224,44 @@
   <p id="memoryEmpty" class="empty-state">まだ写真がありません。旅が始まったら最初の一枚を追加しよう。</p>
 </section>
 <div id="memoryModal" class="memory-modal" hidden><button id="memoryModalClose" aria-label="閉じる">×</button><img id="memoryModalImage" alt="思い出の写真"><p id="memoryModalCaption"></p></div>
+
+<section id="fun" class="screen inner fun-screen">
+  <header class="page-head"><p class="eyebrow">FUN FOR TWO</p><h1>旅を、もっと遊ぼう。</h1><p>迷ったときも、待ち時間も、二人なら思い出になる。</p></header>
+  <div class="fun-hero reveal">
+    <div><span>Yuta &amp; Yuko's Playground</span><h2>Three little games.<br>One unforgettable journey.</h2><p>コインで決めて、実績を集めて、スペイン語を一つずつ覚えよう。</p></div>
+    <div class="fun-hero-orbit" aria-hidden="true"><b>¡Vamos!</b><i>♡</i></div>
+  </div>
+  <div class="fun-grid">
+    <article class="fun-card coin-card reveal">
+      <div class="fun-card-head"><svg class="line-icon"><use href="#i-coin"></use></svg><div><p class="eyebrow">COIN FLIP</p><h2>今日はどっちが決める？</h2></div></div>
+      <label class="fun-select"><span>決めたいこと</span><select id="coinTopic"><option>レストラン</option><option>ワイン</option><option>デザート</option><option>お土産</option><option>次に行く場所</option><option>カフェ</option><option>写真スポット</option><option>どっちの道を行く？</option></select></label>
+      <div class="coin-stage"><div class="coin" id="coin"><span class="coin-front">Y</span><span class="coin-back">Y</span></div></div>
+      <p class="coin-result" id="coinResult">二人の運に任せよう。</p>
+      <button class="wide-button" id="flipCoin">Flip the coin <span>↻</span></button>
+    </article>
+    <article class="fun-card gacha-card reveal">
+      <div class="fun-card-head"><svg class="line-icon"><use href="#i-phrase"></use></svg><div><p class="eyebrow">PHRASE GACHA · 100</p><h2>実用スペイン語ガチャ</h2></div></div>
+      <div class="phrase-card" id="phraseCard"><div class="phrase-rarity" id="phraseRarity">READY</div><small id="phraseNumber">Tap to draw</small><h3 id="phraseSpanish">¿Listos?</h3><p class="phrase-reading" id="phraseReading">リストス？</p><strong id="phraseJapanese">準備はいい？</strong><em id="phraseScene">旅行前から使えるフレーズを100種類収録</em></div>
+      <div class="gacha-actions"><button class="wide-button" id="drawPhrase">Phrase Gacha <span>✦</span></button><button class="favorite-button" id="favoritePhrase" aria-label="お気に入り">♡</button></div>
+      <button class="book-toggle" id="togglePhraseBook">Phrase Bookを見る <span>＋</span></button>
+    </article>
+  </div>
+  <article class="achievements-panel reveal">
+    <div class="achievement-summary"><div class="fun-card-head"><svg class="line-icon"><use href="#i-trophy"></use></svg><div><p class="eyebrow">ACHIEVEMENTS</p><h2>二人の旅の実績</h2></div></div><div class="achievement-score"><strong id="achievementCount">0 / 36</strong><span>complete</span></div></div>
+    <div class="achievement-track"><i id="achievementBar"></i></div>
+    <div class="achievement-filters" id="achievementFilters"><button class="active" data-ach-filter="all">All</button><button data-ach-filter="journey">Journey</button><button data-ach-filter="food">Food</button><button data-ach-filter="couple">Couple</button><button data-ach-filter="hidden">Hidden</button></div>
+    <div class="achievement-grid" id="achievementGrid"></div>
+  </article>
+  <article class="phrase-book-panel" id="phraseBookPanel" hidden>
+    <div class="phrase-book-head"><div><p class="eyebrow">PHRASE BOOK</p><h2>もう一度使いたい言葉</h2></div><span id="phraseBookCount">0 favorites</span></div>
+    <div class="phrase-filters" id="phraseFilters"><button class="active" data-phrase-filter="favorites">Favorites</button><button data-phrase-filter="all">All 100</button><button data-phrase-filter="greeting">あいさつ</button><button data-phrase-filter="food">食事</button><button data-phrase-filter="hotel">ホテル</button><button data-phrase-filter="shopping">買い物</button><button data-phrase-filter="transport">移動</button><button data-phrase-filter="trouble">困った時</button></div>
+    <div class="phrase-list" id="phraseList"></div>
+  </article>
+</section>
 <section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">Yuta</p><img src="images/couple.png" alt="二人の線画"></div></section>
 </main>
-<nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-bag"></use></svg><small>Prepare</small></button></nav>
+<nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.2"></script>
+<script src="js/app.js?v=4.3"></script>
 </body>
 </html>

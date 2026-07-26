@@ -18,3 +18,7 @@ GitHub Pages向けの静的Webアプリです。
 - Original illustrations preserved and displayed with contain/auto height
 - SVG icon sizing stabilized
 - Service worker cache updated to prevent stale CSS/JS
+
+
+## v4.3
+- Fun tab: Coin Flip, 36 Achievements, 100 practical Spanish phrases, Phrase Book and favorites.
