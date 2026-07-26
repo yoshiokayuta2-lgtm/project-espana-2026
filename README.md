@@ -18,3 +18,9 @@ GitHub Pages向けの静的Webアプリです。
 - Original illustrations preserved and displayed with contain/auto height
 - SVG icon sizing stabilized
 - Service worker cache updated to prevent stale CSS/JS
+
+
+## v4.3.1
+- Cinematic opening: stars, dawn, flight route, Spain map and title.
+- Full opening on first launch, short title opening thereafter.
+- Replay Opening always launches the full sequence.

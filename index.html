@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.3.0">
+<link rel="stylesheet" href="css/style.css?v=4.3.1">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -33,13 +33,30 @@
 </svg>
 
 <div class="opening" id="opening" aria-hidden="true">
-  <button class="opening-skip" id="openingSkip">Skip</button>
-  <div class="opening-inner">
-    <p>Our First Adventure</p>
+  <button class="opening-skip" id="openingSkip" type="button">Skip</button>
+  <div class="opening-sky" aria-hidden="true">
+    <span class="star star-1"></span><span class="star star-2"></span><span class="star star-3"></span><span class="star star-4"></span><span class="star star-5"></span><span class="star star-6"></span>
+    <div class="opening-dawn"></div>
+  </div>
+  <div class="opening-flight" aria-hidden="true">
+    <svg class="opening-route" viewBox="0 0 760 220" role="img">
+      <path class="route-line" d="M45 166 C190 54 390 38 600 112 C660 133 700 120 716 91 C725 74 714 60 698 67 C684 73 684 93 699 103 C714 113 731 99 725 83"/>
+    </svg>
+    <span class="opening-city opening-tokyo">Tokyo</span>
+    <span class="opening-city opening-spain">España</span>
+    <span class="opening-plane">✈</span>
+  </div>
+  <div class="opening-map" aria-hidden="true">
+    <svg viewBox="0 0 320 250">
+      <path d="M42 74 76 48l41 8 24-18 39 18 34-8 29 25 37 8-5 35 17 20-24 26-4 31-36 7-17 25-36-2-23 22-39-18-39 2-19-27-30-15 13-34-16-27 20-22Z"/>
+      <circle cx="132" cy="116" r="5"/><circle cx="226" cy="142" r="5"/>
+      <path class="map-link" d="M132 116 C164 106 194 118 226 142"/>
+    </svg>
+  </div>
+  <div class="opening-title">
+    <p>Yuta &amp; Yuko</p>
     <h1>Project España</h1>
-    <strong>2026</strong>
-    <img src="images/couple.png" alt="YutaとYukoの線画">
-    <button id="openingEnter">Enter our journey</button>
+    <span>Our First Journey Together</span>
   </div>
 </div>
 <header class="topbar">
@@ -250,6 +267,6 @@
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.3.0"></script>
+<script src="js/app.js?v=4.3.1"></script>
 </body>
 </html>

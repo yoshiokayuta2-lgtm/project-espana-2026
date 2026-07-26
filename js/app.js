@@ -50,7 +50,26 @@ const notes=document.getElementById('notes');notes.value=localStorage.getItem('e
 const tripDays={'2026-10-08':{city:'Tokyo / Narita',title:'出発の日',img:'images/departure.png',items:[['Day','東京で過ごす','夜便に備えて余裕を持って移動'],['22:30','QR809 成田発','ドーハへ向けて出発']]},'2026-10-09':{city:'Madrid',title:'マドリード到着',img:'images/madrid.png',items:[['Morning','QR147','ドーハからマドリードへ'],['Afternoon','ホテルへ','Puerta del Sol 周辺'],['Evening','最初の街歩き','無理のないペースで']]},'2026-10-10':{city:'Madrid',title:'芸術とフラメンコ',img:'images/corral.png',items:[['Morning','王宮・美術館','マドリードの文化を楽しむ'],['21:30','Corral de la Morería','Dinner + Show']]},'2026-10-11':{city:'Madrid → Barcelona',title:'AVEで移動',img:'images/madrid.png',items:[['Morning','Atochaへ','余裕をもって駅へ'],['Train','AVE','Madrid → Barcelona']]},'2026-10-12':{city:'Barcelona',title:'バルセロナを歩く',img:'images/madrid.png',items:[['Morning','旧市街散策','ゴシック地区候補'],['Afternoon','ガウディ建築','街の空気を楽しむ']]},'2026-10-13':{city:'Barcelona',title:'旅のハイライト',img:'images/sagrada.png',items:[['Morning','サグラダ・ファミリア','受難のファサード候補'],['19:00','Cinc Sentits','特別なディナー']]},'2026-10-14':{city:'Barcelona → Doha',title:'スペイン最終日',img:'images/selfie.png',items:[['Morning','最後の街歩き','買い物とカフェ'],['16:35','QR146','ドーハへ']]},'2026-10-15':{city:'Doha → Narita',title:'帰国の日',img:'images/flight.png',items:[['Flight','QR806','成田へ'],['19:10','成田到着','おつかれさまでした']]}};
 function key(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}function renderItems(el,items){el.innerHTML='';items.forEach(([time,title,desc])=>{const li=document.createElement('li');li.innerHTML=`<time>${time}</time><div><b>${title}</b><small>${desc}</small></div>`;el.appendChild(li)})}
 function renderToday(){const now=new Date(),day=tripDays[key(now)];let data;if(day)data=day;else if(now<departure)data={city:'Before the journey',title:'旅が始まるまで',img:'images/planning.png',items:[['Next','サグラダ予約','10月13日午前候補'],['Check','AVEの並び席','2名並びを確認'],['Pack','通信と荷物','eSIM・変換プラグ']]};else data={city:'Our memories',title:'旅を振り返る',img:'images/selfie.png',items:[['Photos','写真を選ぶ','お気に入りをアルバムへ'],['Diary','言葉を残す','旅の空気を短い日記に']]};document.getElementById('todayPlace').textContent=data.city;document.getElementById('todayHomeTitle').textContent=data.title;document.getElementById('todayChip').textContent=day?key(now).slice(5).replace('-','/'):days+' days';document.getElementById('todayHomeImage').src=data.img;renderItems(document.getElementById('todayList'),data.items);document.getElementById('todayCity').textContent=data.city;document.getElementById('todayTitle').textContent=data.title;document.getElementById('todayHero').src=data.img;renderItems(document.getElementById('todaySchedule'),data.items)}renderToday();
-const opening=document.getElementById('opening');function openOpening(){opening.classList.add('open');opening.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}function closeOpening(){opening.classList.remove('open');opening.setAttribute('aria-hidden','true');document.body.style.overflow='';sessionStorage.setItem('espana-opening','seen')}document.getElementById('openingEnter').addEventListener('click',closeOpening);document.getElementById('openingSkip').addEventListener('click',closeOpening);document.getElementById('replayOpening').addEventListener('click',openOpening);if(!sessionStorage.getItem('espana-opening'))openOpening();
+const opening=document.getElementById('opening');
+let openingTimer=0;
+function closeOpening(){
+  if(!opening.classList.contains('open'))return;
+  clearTimeout(openingTimer);
+  opening.classList.add('closing');
+  setTimeout(()=>{opening.className='opening';opening.setAttribute('aria-hidden','true');document.body.style.overflow=''},560);
+  localStorage.setItem('espana-opening-v431','seen');
+}
+function openOpening(mode='full'){
+  clearTimeout(openingTimer);
+  opening.className=`opening open ${mode}`;
+  opening.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  openingTimer=setTimeout(closeOpening,mode==='full'?6500:1450);
+}
+document.getElementById('openingSkip').addEventListener('click',closeOpening);
+document.getElementById('replayOpening').addEventListener('click',()=>openOpening('full'));
+opening.addEventListener('click',event=>{if(event.target===opening&&opening.classList.contains('short'))closeOpening()});
+openOpening(localStorage.getItem('espana-opening-v431')?'short':'full');
 function observeReveals(){const els=document.querySelectorAll('.screen.active .reveal:not(.visible)');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('visible'));return}const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}}),{threshold:.12});els.forEach(e=>obs.observe(e))}observeReveals();
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 
