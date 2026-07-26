@@ -6,15 +6,19 @@
   <meta name="theme-color" content="#fbf8f3">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Yuta & Yuko のスペイン新婚旅行プランナー">
   <title>Project España 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#home" data-route="home" aria-label="ホームへ">
-      <span class="sun" aria-hidden="true">☼</span>
+    <button class="brand" data-route="home" aria-label="ホームへ">
+      <span class="brand-mark" aria-hidden="true">☼</span>
       <span>Project España 2026</span>
-    </a>
+    </button>
     <nav class="desktop-nav" aria-label="メインナビゲーション">
       <button class="active" data-route="home">Home</button>
       <button data-route="plan">Plan</button>
@@ -29,30 +33,30 @@
       <div class="hero-wrap">
         <div class="hero-copy">
           <p class="kicker">Our First Adventure</p>
-          <h1>Project España<br><span>2026</span><em>♡</em></h1>
-          <div class="countdown-block">
-            <span class="count-label">出発まであと</span>
+          <h1>Project España<span>2026 <em>♡</em></span></h1>
+
+          <div class="countdown-block" aria-label="出発までの日数">
+            <p><span aria-hidden="true">▣</span> 出発まであと</p>
             <div><strong id="countdown">—</strong><span>days</span></div>
           </div>
+
           <div class="trip-meta">
             <div><span>出発日</span><strong>2026.10.8（Thu）</strong></div>
             <div><span>旅行者</span><strong>Yuta &amp; Yuko</strong></div>
           </div>
+
           <div class="hero-actions">
-            <button class="primary" data-route="plan">旅程を見る</button>
-            <button class="secondary" data-route="booked">予約一覧</button>
+            <button class="primary" data-route="plan"><span aria-hidden="true">⌖</span> 旅程を見る</button>
+            <button class="secondary" data-route="booked"><span aria-hidden="true">▣</span> 予約一覧</button>
           </div>
         </div>
-        <div class="hero-visual" aria-label="スペインの街並みと二人の線画イラスト">
-          <img src="images/hero.png" alt="スペインの街並みを背景にした二人の線画イラスト">
-        </div>
+
+        <figure class="hero-visual">
+          <img src="images/hero.png" alt="スペインの街並みを背景に寄り添う二人の線画イラスト">
+        </figure>
       </div>
 
-      <section class="quick-section" aria-labelledby="quick-title">
-        <div class="section-title-row">
-          <div><p class="eyebrow">QUICK ACCESS</p><h2 id="quick-title">旅のすべて</h2></div>
-          <p>必要な情報へ、1タップで。</p>
-        </div>
+      <section class="quick-section" aria-label="クイックアクセス">
         <div class="quick-grid">
           <button class="quick-card" data-route="plan"><span>⌖</span><b>旅程</b><small>スケジュールを確認</small></button>
           <button class="quick-card" data-route="booked"><span>▣</span><b>予約</b><small>すべての予約一覧</small></button>
@@ -66,34 +70,43 @@
 
       <section class="dashboard-grid">
         <article class="panel itinerary-panel">
-          <div class="panel-head"><div><p class="eyebrow">TRIP TIMELINE</p><h3>旅程（概要）</h3></div><button data-route="plan">すべて見る →</button></div>
+          <div class="panel-head"><div><p class="eyebrow">TRIP TIMELINE</p><h2>旅程（概要）</h2></div><button data-route="plan">すべて見る →</button></div>
           <div class="mini-timeline">
             <div><time>10.8</time><span>✈</span><p><b>出発・ドーハ経由でマドリードへ</b><small>Narita → Doha → Madrid</small></p></div>
             <div><time>10.9</time><span>▤</span><p><b>マドリード到着</b><small>ホテルチェックイン・街歩き</small></p></div>
             <div><time>10.10</time><span>♢</span><p><b>フラメンコ鑑賞</b><small>Corral de la Morería 21:30</small></p></div>
-            <div><time>10.11</time><span>▭</span><p><b>バルセロナへ移動</b><small>AVE：Atocha → Sants</small></p></div>
+            <div><time>10.11</time><span>▭</span><p><b>AVEでバルセロナへ</b><small>Atocha → Sants</small></p></div>
             <div><time>10.13</time><span>⌂</span><p><b>サグラダ・ファミリア</b><small>午前候補・塔付き</small></p></div>
             <div><time>10.15</time><span>✈</span><p><b>帰国</b><small>Barcelona → Doha → Narita</small></p></div>
           </div>
+          <div class="route-map" aria-label="マドリードからバルセロナへのルート"><span>Madrid</span><i></i><span>Barcelona</span></div>
         </article>
 
         <article class="panel booked-panel">
-          <div class="panel-head"><div><p class="eyebrow">BOOKED</p><h3>予約一覧</h3></div><button data-route="booked">すべて見る →</button></div>
+          <div class="panel-head"><div><p class="eyebrow">BOOKED</p><h2>予約一覧</h2></div><button data-route="booked">すべて見る →</button></div>
           <div class="booking-list">
             <button data-route="restaurant"><span class="round-photo coral">♪</span><p><b>Corral de la Morería</b><small>2026.10.10 21:30</small></p><i>確定</i></button>
             <button data-route="restaurant"><span class="round-photo sagrada">⌂</span><p><b>サグラダ・ファミリア</b><small>2026.10.13 午前候補</small></p><i class="pending">予約前</i></button>
             <button data-route="hotel"><span class="round-photo hotel">H</span><p><b>ホテル（マドリード）</b><small>2026.10.9–10.11</small></p><i>確定</i></button>
             <button data-route="hotel"><span class="round-photo hotel">H</span><p><b>ホテル（バルセロナ）</b><small>2026.10.11–10.14</small></p><i>確定</i></button>
           </div>
+          <button class="panel-wide-action" data-route="booked">すべての予約を確認する →</button>
         </article>
 
         <article class="panel checklist-panel">
-          <div class="panel-head"><div><p class="eyebrow">CHECKLIST</p><h3>準備チェックリスト</h3></div><button data-route="prepare">すべて見る →</button></div>
+          <div class="panel-head"><div><p class="eyebrow">CHECKLIST</p><h2>準備チェックリスト</h2></div><button data-route="prepare">すべて見る →</button></div>
           <label><input type="checkbox" data-check="passport"><span>パスポート（有効期限確認）</span></label>
           <label><input type="checkbox" data-check="insurance"><span>海外旅行保険（カード付帯を確認）</span></label>
           <label><input type="checkbox" data-check="sagrada"><span>サグラダ・ファミリア予約</span></label>
           <label><input type="checkbox" data-check="ave"><span>AVEの並び席を確認</span></label>
           <label><input type="checkbox" data-check="esim"><span>eSIM・海外通信の準備</span></label>
+        </article>
+
+        <article class="panel memo-panel">
+          <div class="panel-head"><div><p class="eyebrow">MEMO</p><h2>メモ</h2></div><button data-route="prepare">すべて見る →</button></div>
+          <button data-route="prepare"><span>▤</span><p><b>やりたいことリスト</b><small>旅行中に叶えたいこと</small></p><i>›</i></button>
+          <button data-route="prepare"><span>▤</span><p><b>レストラン候補リスト</b><small>気になるお店を保存</small></p><i>›</i></button>
+          <button class="panel-wide-action" data-route="prepare">新しいメモを追加 ＋</button>
         </article>
       </section>
     </section>
@@ -101,25 +114,25 @@
     <section id="plan" class="screen inner-screen">
       <div class="page-head"><p class="eyebrow">ITINERARY</p><h2>旅の流れ</h2><p>移動・観光・食事を日ごとに整理。</p></div>
       <div class="day-list">
-        <article><header><time>10.8 <small>Thu</small></time><span>Departure</span></header><h3>成田からドーハへ</h3><p>Qatar Airways QR809。余裕を持って空港へ。</p></article>
-        <article><header><time>10.9 <small>Fri</small></time><span>Madrid</span></header><h3>ドーハ経由でマドリード到着</h3><p>QR147。ホテルへ移動後、無理のない街歩き。</p></article>
-        <article><header><time>10.10 <small>Sat</small></time><span>Madrid</span></header><h3>王宮・美術館・フラメンコ</h3><p>21:30 Corral de la Morería。予約番号 W10102026084153。</p></article>
-        <article><header><time>10.11 <small>Sun</small></time><span>Barcelona</span></header><h3>AVEでバルセロナへ</h3><p>Atocha → Sants。到着後にホテルチェックイン。</p></article>
-        <article><header><time>10.13 <small>Tue</small></time><span>Barcelona</span></header><h3>サグラダ・ファミリアとCinc Sentits</h3><p>午前にサグラダ候補。19:00 Cinc Sentits。</p></article>
-        <article><header><time>10.14–15</time><span>Return</span></header><h3>バルセロナから帰国</h3><p>QR146 → QR806。10月15日19:10成田着。</p></article>
+        <article><header><time>10.8 <small>Thu</small></time><span>Departure</span></header><div><h3>成田からドーハへ</h3><p>Qatar Airways QR809。夜便に備えて余裕を持って空港へ。</p></div></article>
+        <article><header><time>10.9 <small>Fri</small></time><span>Madrid</span></header><div><h3>マドリード到着</h3><p>QR147。ホテルへ移動後、無理のない範囲で街歩き。</p></div></article>
+        <article><header><time>10.10 <small>Sat</small></time><span>Madrid</span></header><div><h3>王宮・美術館・フラメンコ</h3><p>21:30 Corral de la Morería。予約番号 W10102026084153。</p></div></article>
+        <article><header><time>10.11 <small>Sun</small></time><span>Barcelona</span></header><div><h3>AVEでバルセロナへ</h3><p>Atocha → Sants。到着後にホテルチェックイン。</p></div></article>
+        <article><header><time>10.13 <small>Tue</small></time><span>Barcelona</span></header><div><h3>サグラダ・ファミリアとCinc Sentits</h3><p>午前にサグラダ候補。19:00 Cinc Sentits。</p></div></article>
+        <article><header><time>10.14–15</time><span>Return</span></header><div><h3>バルセロナから帰国</h3><p>QR146 → QR806。10月15日19:10成田着。</p></div></article>
       </div>
     </section>
 
     <section id="booked" class="screen inner-screen">
       <div class="page-head"><p class="eyebrow">RESERVATIONS</p><h2>予約一覧</h2><p>当日に必要な情報だけを、すぐ取り出せる形に。</p></div>
       <div class="detail-grid">
-        <article class="detail-card"><span class="badge">確定</span><p class="eyebrow">MADRID · OCT 10 · 21:30</p><h3>Corral de la Morería</h3><dl><div><dt>予約番号</dt><dd>W10102026084153</dd></div><div><dt>内容</dt><dd>Dinner + Show</dd></div><div><dt>注意</dt><dd>座席保持15分・最低利用額あり</dd></div></dl><a href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank">Google Maps</a></article>
-        <article class="detail-card"><span class="badge">確定</span><p class="eyebrow">BARCELONA · OCT 13 · 19:00</p><h3>Cinc Sentits</h3><dl><div><dt>住所</dt><dd>Carrer d'Entença, 60</dd></div><div><dt>電話</dt><dd>+34 93 323 94 90</dd></div><div><dt>到着目安</dt><dd>18:50</dd></div></dl><a href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank">Google Maps</a></article>
+        <article class="detail-card reservation-card"><span class="badge">確定</span><p class="eyebrow">MADRID · OCT 10 · 21:30</p><h3>Corral de la Morería</h3><dl><div><dt>予約番号</dt><dd>W10102026084153</dd></div><div><dt>内容</dt><dd>Dinner + Show</dd></div><div><dt>注意</dt><dd>座席保持15分・最低利用額あり</dd></div></dl><div class="card-actions"><button class="open-detail" data-reservation="corral">詳細を見る</button><a href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank" rel="noopener">Google Maps</a></div></article>
+        <article class="detail-card reservation-card"><span class="badge">確定</span><p class="eyebrow">BARCELONA · OCT 13 · 19:00</p><h3>Cinc Sentits</h3><dl><div><dt>住所</dt><dd>Carrer d'Entença, 60</dd></div><div><dt>電話</dt><dd>+34 93 323 94 90</dd></div><div><dt>到着目安</dt><dd>18:50</dd></div></dl><div class="card-actions"><button class="open-detail" data-reservation="cinc">詳細を見る</button><a href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank" rel="noopener">Google Maps</a></div></article>
       </div>
     </section>
 
     <section id="prepare" class="screen inner-screen">
-      <div class="page-head"><p class="eyebrow">PREPARE</p><h2>旅の準備</h2><p>チェック内容とメモはこの端末に保存されます。</p></div>
+      <div class="page-head"><p class="eyebrow">PREPARE</p><h2>旅の準備</h2><p>チェック内容とメモは、この端末に保存されます。</p></div>
       <div class="detail-grid">
         <article class="detail-card"><h3>チェックリスト</h3><div id="fullChecklist"></div></article>
         <article class="detail-card"><h3>旅行メモ</h3><textarea id="notes" placeholder="やりたいこと、確認事項、持ち物など"></textarea></article>
@@ -127,43 +140,80 @@
     </section>
 
     <section id="today" class="screen inner-screen">
-      <div class="page-head"><p class="eyebrow">TODAY</p><h2>今日だけ見ればいい</h2><p id="todaySubtitle">旅行中は、現在地と予定に合わせて表示します。</p></div>
-      <article class="today-card">
-        <div><span id="todayCity">Before the journey</span><h3 id="todayDate">出発までの準備</h3></div>
-        <ul><li><time>Next</time><p><b>サグラダ・ファミリア予約</b><small>10月13日午前候補</small></p></li><li><time>Check</time><p><b>AVEの並び席</b><small>2名並びで取れているか確認</small></p></li><li><time>Pack</time><p><b>海外通信</b><small>eSIMまたはローミング</small></p></li></ul>
-      </article>
+      <div class="page-head"><p class="eyebrow">TODAY</p><h2>今日だけ見ればいい</h2><p id="todayLead">旅行前は次にやること、旅行中は当日の予定を表示します。</p></div>
+      <div class="today-layout">
+        <article class="today-card today-main">
+          <div class="today-heading"><div><span id="todayCity">Before the journey</span><h3 id="todayDate">出発までの準備</h3></div><div class="today-count"><strong id="todayCountdown">—</strong><small>days</small></div></div>
+          <ul id="todaySchedule"></ul>
+        </article>
+        <aside class="today-side">
+          <article class="status-card"><p class="eyebrow">NEXT ACTION</p><h3 id="nextActionTitle">サグラダ・ファミリア予約</h3><p id="nextActionText">10月13日午前、受難のファサードの塔付きチケットを確認。</p><button data-route="prepare">準備画面を開く →</button></article>
+          <article class="status-card compact"><p class="eyebrow">TRIP AT A GLANCE</p><dl><div><dt>出発</dt><dd>2026.10.8</dd></div><div><dt>都市</dt><dd>Madrid / Barcelona</dd></div><div><dt>日数</dt><dd>8日間</dd></div></dl></article>
+        </aside>
+      </div>
     </section>
 
     <section id="hotel" class="screen inner-screen">
-      <div class="page-head"><p class="eyebrow">HOTEL</p><h2>宿泊先</h2><p>正式なホテル名・予約番号が決まり次第、ここへ統合。</p></div>
+      <div class="page-head"><p class="eyebrow">HOTEL</p><h2>宿泊先</h2><p>ホテル情報を街ごとに整理。</p></div>
       <div class="detail-grid"><article class="detail-card"><p class="eyebrow">MADRID · OCT 9–11</p><h3>Puerta del Sol 周辺</h3><dl><div><dt>泊数</dt><dd>2泊</dd></div><div><dt>希望</dt><dd>中心部・朝食・アクセス重視</dd></div></dl></article><article class="detail-card"><p class="eyebrow">BARCELONA · OCT 11–14</p><h3>Plaça Catalunya 周辺</h3><dl><div><dt>泊数</dt><dd>3泊</dd></div><div><dt>希望</dt><dd>観光・空港アクセス重視</dd></div></dl></article></div>
     </section>
 
     <section id="flight" class="screen inner-screen">
-      <div class="page-head"><p class="eyebrow">FLIGHT</p><h2>航空券</h2><p>Apple Walletのように、必要情報を大きく表示。</p></div>
+      <div class="page-head"><p class="eyebrow">FLIGHT</p><h2>航空券</h2><p>旅行当日に必要な情報を大きく表示。</p></div>
       <div class="flight-stack">
         <article class="boarding-pass"><header><span>QATAR AIRWAYS</span><b>QR809</b></header><div class="route"><div><strong>NRT</strong><small>Narita</small></div><i>→</i><div><strong>DOH</strong><small>Doha</small></div></div><footer><span>2026.10.8</span><span>Outbound</span></footer></article>
         <article class="boarding-pass"><header><span>QATAR AIRWAYS</span><b>QR147</b></header><div class="route"><div><strong>DOH</strong><small>Doha</small></div><i>→</i><div><strong>MAD</strong><small>Madrid</small></div></div><footer><span>2026.10.9</span><span>Outbound</span></footer></article>
-        <article class="boarding-pass"><header><span>QATAR AIRWAYS</span><b>QR146</b></header><div class="route"><div><strong>BCN</strong><small>Barcelona</small></div><i>→</i><div><strong>DOH</strong><small>Doha</small></div></div><footer><span>2026.10.14 16:35</span><span>Return</span></footer></article>
-        <article class="boarding-pass"><header><span>QATAR AIRWAYS</span><b>QR806</b></header><div class="route"><div><strong>DOH</strong><small>Doha</small></div><i>→</i><div><strong>NRT</strong><small>Narita</small></div></div><footer><span>2026.10.15 19:10着</span><span>Return</span></footer></article>
+        <article class="boarding-pass"><header><span>QATAR AIRWAYS</span><b>QR146</b></header><div class="route"><div><strong>BCN</strong><small>Barcelona</small></div><i>→</i><div><strong>DOH</strong><small>Doha</small></div></div><footer><span>2026.10.14 · 16:35</span><span>Return</span></footer></article>
+        <article class="boarding-pass"><header><span>QATAR AIRWAYS</span><b>QR806</b></header><div class="route"><div><strong>DOH</strong><small>Doha</small></div><i>→</i><div><strong>NRT</strong><small>Narita</small></div></div><footer><span>2026.10.15 · 19:10</span><span>Return</span></footer></article>
       </div>
     </section>
 
-    <section id="restaurant" class="screen inner-screen"><div class="page-head"><p class="eyebrow">RESTAURANT</p><h2>食事の予約</h2><p>予約済みの2軒を中心に整理。</p></div><div class="detail-grid"><article class="detail-card"><span class="badge">確定</span><h3>Corral de la Morería</h3><p>フラメンコとディナー。10月10日21:30。</p></article><article class="detail-card"><span class="badge">確定</span><h3>Cinc Sentits</h3><p>10月13日19:00。ハネムーン連絡済み。</p></article></div></section>
+    <section id="restaurant" class="screen inner-screen">
+      <div class="page-head"><p class="eyebrow">DINING</p><h2>レストラン</h2><p>予約、地図、注意事項をまとめて確認。</p></div>
+      <div class="detail-grid">
+        <article class="detail-card"><p class="eyebrow">MADRID</p><h3>Corral de la Morería</h3><dl><div><dt>日時</dt><dd>10月10日 21:30</dd></div><div><dt>内容</dt><dd>Dinner + Show</dd></div><div><dt>メモ</dt><dd>ハネムーンと連絡済み</dd></div></dl></article>
+        <article class="detail-card"><p class="eyebrow">BARCELONA</p><h3>Cinc Sentits</h3><dl><div><dt>日時</dt><dd>10月13日 19:00</dd></div><div><dt>形式</dt><dd>Tasting Menu</dd></div><div><dt>メモ</dt><dd>ハネムーンと連絡済み</dd></div></dl></article>
+      </div>
+    </section>
 
-    <section id="budget" class="screen inner-screen"><div class="page-head"><p class="eyebrow">BUDGET</p><h2>予算</h2><p>旅行中の支出を入力し、端末内で保存します。</p></div><article class="budget-card"><label>項目<input id="expenseName" placeholder="例：ランチ"></label><label>金額（円）<input id="expenseAmount" type="number" inputmode="numeric" placeholder="0"></label><button id="addExpense" class="primary">追加</button><div class="budget-total"><span>合計</span><strong id="budgetTotal">¥0</strong></div><ul id="expenseList"></ul></article></section>
+    <section id="budget" class="screen inner-screen">
+      <div class="page-head"><p class="eyebrow">BUDGET</p><h2>旅の支出</h2><p>入力内容はこの端末に保存されます。</p></div>
+      <article class="budget-card">
+        <label>項目<input id="expenseName" type="text" placeholder="例：ランチ"></label>
+        <label>金額（円）<input id="expenseAmount" type="number" inputmode="numeric" placeholder="5000"></label>
+        <button id="addExpense" class="primary">支出を追加</button>
+        <div class="budget-total"><span>合計</span><strong id="budgetTotal">¥0</strong></div>
+        <ul id="expenseList"></ul>
+      </article>
+    </section>
 
-    <section id="memories" class="screen inner-screen"><div class="page-head"><p class="eyebrow">MEMORIES</p><h2>思い出</h2><p>旅行後は、ここが二人のアルバムになります。</p></div><div class="memory-placeholder"><span>♡</span><h3>Our First Adventure</h3><p>写真・日記機能は次のアップデートで追加します。</p></div></section>
+    <section id="memories" class="screen inner-screen">
+      <div class="page-head"><p class="eyebrow">MEMORIES</p><h2>旅の思い出</h2><p>帰国後は、この画面が二人のアルバムになります。</p></div>
+      <article class="memory-placeholder"><span>♡</span><div><h3>Our memories begin here.</h3><p>写真と短い日記を追加できる機能を次の更新で実装します。</p></div></article>
+    </section>
   </main>
 
+
+  <div class="modal" id="reservationModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-backdrop" data-close-modal aria-label="閉じる"></button>
+    <section class="modal-panel">
+      <button class="modal-close" data-close-modal aria-label="閉じる">×</button>
+      <p class="eyebrow" id="modalEyebrow"></p>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-summary" id="modalSummary"></p>
+      <dl id="modalDetails"></dl>
+      <div class="modal-actions" id="modalActions"></div>
+    </section>
+  </div>
   <nav class="mobile-nav" aria-label="モバイルナビゲーション">
     <button class="active" data-route="home"><span>⌂</span>Home</button>
-    <button data-route="plan"><span>▱</span>Plan</button>
+    <button data-route="plan"><span>⌖</span>Plan</button>
     <button data-route="booked"><span>▣</span>Booked</button>
     <button data-route="prepare"><span>☑</span>Prepare</button>
     <button data-route="today"><span>☼</span>Today</button>
   </nav>
 
+  <footer class="site-footer">© 2026 Project España 2026 <span>｜</span> Yuta &amp; Yuko</footer>
   <script src="js/app.js"></script>
 </body>
 </html>
