@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#143b33">
+  <meta name="description" content="Yuta & Yuko Spain Honeymoon 2026">
+  <title>Project España 2026</title>
+  <style>
+    :root{--green:#143b33;--green2:#1f5648;--paper:#f5f1e9;--card:#fffdf8;--ink:#1c302b;--muted:#6c7773;--gold:#ba8d55;--line:rgba(28,48,43,.13);--shadow:0 18px 55px rgba(22,50,43,.10)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:"BIZ UDPGothic","Yu Gothic UI","Yu Gothic",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:96px}
+    a{color:inherit}.app{max-width:980px;margin:auto;padding:14px 16px 40px}
+    .hero{position:relative;min-height:72vh;border-radius:32px;overflow:hidden;padding:28px;display:flex;align-items:flex-end;color:#fff;background:radial-gradient(circle at 78% 16%,rgba(224,183,111,.42),transparent 24%),linear-gradient(145deg,#0d2d27,#174b3e 55%,#7e673f 130%);box-shadow:var(--shadow)}
+    .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(30deg,transparent 48%,rgba(255,255,255,.05) 49%,rgba(255,255,255,.05) 51%,transparent 52%),linear-gradient(150deg,transparent 48%,rgba(255,255,255,.04) 49%,rgba(255,255,255,.04) 51%,transparent 52%);background-size:84px 84px}
+    .hero-inner{position:relative;z-index:1;width:100%}.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;opacity:.78}.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(54px,12vw,104px);line-height:.9;margin:20px 0 18px}.subtitle{font-size:clamp(16px,3.5vw,23px);line-height:1.7;opacity:.92}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}.stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(14px);border-radius:20px;padding:15px}.stat small{display:block;opacity:.72;margin-bottom:5px}.stat strong{font-size:17px}
+    .screen{display:none;padding-top:30px}.screen.active{display:block}.screen-title{margin-bottom:16px}.label{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.screen h2{font-family:Georgia,"Times New Roman",serif;font-size:42px;font-weight:500;margin:7px 0 6px}.note{color:var(--muted);line-height:1.8}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:25px;padding:20px;box-shadow:0 8px 25px rgba(22,50,43,.045)}.half{grid-column:span 6}.third{grid-column:span 4}
+    .big{font-family:Georgia,"Times New Roman",serif;font-size:31px;margin:7px 0}.pill{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 11px;background:#eaf2ee;font-size:12px;font-weight:800}.pill:before{content:"";width:7px;height:7px;border-radius:50%;background:#287b5d}
+    .timeline{position:relative;padding-left:25px}.timeline:before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--line)}.day{position:relative;padding:0 0 23px}.day:last-child{padding-bottom:0}.day:before{content:"";position:absolute;left:-24px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--card);border:3px solid var(--gold)}.day b{display:block}.day span{display:block;color:var(--muted);font-size:14px;line-height:1.6;margin-top:4px}
+    .res h3{font-family:Georgia,"Times New Roman",serif;font-size:27px;margin:8px 0}.row{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-top:1px solid var(--line)}.row span:first-child{color:var(--muted)}
+    .btns{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.btn{display:inline-flex;text-decoration:none;justify-content:center;align-items:center;border-radius:999px;padding:11px 15px;background:var(--green);color:#fff;font-weight:800}.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+    .check{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}.check:last-child{border:0}.check input{margin-top:3px;width:18px;height:18px;accent-color:var(--green)}
+    textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:18px;background:#fffefb;padding:14px;font:inherit;color:var(--ink);resize:vertical}
+    .nav{position:fixed;z-index:20;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));display:flex;background:rgba(255,253,248,.92);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:0 12px 35px rgba(22,50,43,.17);border-radius:999px;padding:6px;max-width:calc(100vw - 24px)}.nav button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:800;padding:11px 15px;border-radius:999px;white-space:nowrap}.nav button.active{background:var(--green);color:#fff}
+    .quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick a{text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;font-weight:800}.quick small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+    @media(max-width:700px){.app{padding:10px 10px 30px}.hero{min-height:76vh;border-radius:24px;padding:24px 20px}.stats{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.half,.third{grid-column:auto}.screen h2{font-size:36px}.row{display:block}.row strong{display:block;margin-top:4px}.nav button{padding:10px 12px;font-size:12px}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="eyebrow">Project España 2026 · Beta 0.1</div>
+          <h1>Our First<br>Adventure</h1>
+          <div class="subtitle">Yuta & Yuko — Madrid · Barcelona<br>October 2026</div>
+          <div class="stats">
+            <div class="stat"><small>Departure</small><strong>8 October 2026</strong></div>
+            <div class="stat"><small>Countdown</small><strong id="countdown">Calculating…</strong></div>
+            <div class="stat"><small>Journey</small><strong>8 days · 2 cities</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="screen-title" style="margin-top:30px"><div class="label">Dashboard</div><h2>旅の準備</h2><p class="note">旅行前は準備、旅行中は今日の予定、帰国後は二人の思い出へ変わるアプリです。</p></div>
+      <div class="grid">
+        <article class="card third"><div class="label">Madrid</div><div class="big">2 nights</div><p class="note">街歩き、美術、フラメンコ。</p></article>
+        <article class="card third"><div class="label">Barcelona</div><div class="big">3 nights</div><p class="note">ガウディ建築と特別な食事。</p></article>
+        <article class="card third"><div class="label">Next action</div><div class="big">Sagrada</div><p class="note">10月13日午前を第一候補に予約。</p></article>
+      </div>
+      <div class="screen-title" style="margin-top:30px"><div class="label">Quick access</div><h2>すぐ使う</h2></div>
+      <div class="quick">
+        <a href="https://maps.google.com/?q=Sagrada+Familia+Barcelona" target="_blank">サグラダ地図<small>Google Maps</small></a>
+        <a href="https://sagradafamilia.org/" target="_blank">公式予約<small>Sagrada Família</small></a>
+        <a href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank">フラメンコ地図<small>Madrid</small></a>
+        <a href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank">レストラン地図<small>Barcelona</small></a>
+      </div>
+    </section>
+
+    <section id="plan" class="screen">
+      <div class="screen-title"><div class="label">Itinerary</div><h2>日程</h2><p class="note">確定済みの移動と予約を中心に整理しています。</p></div>
+      <div class="grid">
+        <article class="card half">
+          <div class="timeline">
+            <div class="day"><b>10/8（木） 成田 → ドーハ</b><span>Qatar Airways QR809</span></div>
+            <div class="day"><b>10/9（金） ドーハ → マドリード</b><span>QR147 · Madrid泊</span></div>
+            <div class="day"><b>10/10（土） マドリード</b><span>21:30 Corral de la Morería</span></div>
+            <div class="day"><b>10/11（日） マドリード → バルセロナ</b><span>AVE · Atocha → Sants</span></div>
+            <div class="day"><b>10/12（月） バルセロナ</b><span>祝日。街歩きとガウディ建築</span></div>
+            <div class="day"><b>10/13（火） バルセロナ</b><span>午前 サグラダ候補 · 19:00 Cinc Sentits</span></div>
+            <div class="day"><b>10/14（水） バルセロナ → ドーハ</b><span>16:35 QR146</span></div>
+            <div class="day"><b>10/15（木） ドーハ → 成田</b><span>QR806 · 19:10到着</span></div>
+          </div>
+        </article>
+        <aside class="card half"><div class="label">Next booking</div><div class="big">Sagrada Família</div><p class="note">塔付き・受難のファサード・日本語オーディオガイド。10月13日（火）午前を第一候補。</p><div class="pill">予約前</div><div class="btns"><a class="btn" href="https://sagradafamilia.org/" target="_blank">公式サイト</a><a class="btn alt" href="https://maps.google.com/?q=Sagrada+Familia+Barcelona" target="_blank">地図</a></div></aside>
+      </div>
+    </section>
+
+    <section id="booked" class="screen">
+      <div class="screen-title"><div class="label">Reservations</div><h2>予約</h2><p class="note">当日に必要な情報をまとめています。</p></div>
+      <div class="grid">
+        <article class="card half res"><span class="pill">予約済み</span><div class="label" style="margin-top:15px">Madrid · 10 Oct · 21:30</div><h3>Corral de la Morería</h3><p class="note">Dinner + Show。ショー代支払い済み。レストラン最低利用額あり。</p><div class="row"><span>予約番号</span><strong>W10102026084153</strong></div><div class="row"><span>注意</span><strong>座席保持 15分</strong></div><div class="btns"><a class="btn" href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank">Google Maps</a></div></article>
+        <article class="card half res"><span class="pill">予約済み</span><div class="label" style="margin-top:15px">Barcelona · 13 Oct · 19:00</div><h3>Cinc Sentits</h3><p class="note">ハネムーン連絡済み。18:50頃到着。二人そろって入店。</p><div class="row"><span>住所</span><strong>Carrer d'Entença, 60</strong></div><div class="row"><span>電話</span><strong>+34 93 323 94 90</strong></div><div class="btns"><a class="btn" href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank">Google Maps</a><a class="btn alt" href="https://cincsentits.com/" target="_blank">公式サイト</a></div></article>
+      </div>
+    </section>
+
+    <section id="prepare" class="screen">
+      <div class="screen-title"><div class="label">Prepare</div><h2>準備</h2><p class="note">チェック内容とメモは、この端末内に保存されます。</p></div>
+      <div class="grid">
+        <article class="card half"><div class="label">Checklist</div><label class="check"><input type="checkbox" data-key="sagrada"><span>サグラダ・ファミリアを予約</span></label><label class="check"><input type="checkbox" data-key="ave"><span>AVEの並び席を確認</span></label><label class="check"><input type="checkbox" data-key="hotel"><span>ホテルの正式情報を登録</span></label><label class="check"><input type="checkbox" data-key="sim"><span>海外通信方法を決める</span></label><label class="check"><input type="checkbox" data-key="insurance"><span>旅行保険の補償内容を最終確認</span></label></article>
+        <article class="card half"><div class="label">Private note</div><div class="big">旅行メモ</div><textarea id="notes" placeholder="ここにメモを追加…"></textarea></article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav" aria-label="メインナビゲーション">
+    <button class="active" data-target="home">Home</button>
+    <button data-target="plan">Plan</button>
+    <button data-target="booked">Booked</button>
+    <button data-target="prepare">Prepare</button>
+  </nav>
+
+  <script>
+    const buttons=[...document.querySelectorAll('.nav button')];
+    const screens=[...document.querySelectorAll('.screen')];
+    function show(id){screens.forEach(s=>s.classList.toggle('active',s.id===id));buttons.forEach(b=>b.classList.toggle('active',b.dataset.target===id));scrollTo({top:0,behavior:'instant'});location.hash=id;}
+    buttons.forEach(b=>b.addEventListener('click',()=>show(b.dataset.target)));
+    const initial=location.hash.replace('#',''); if(['home','plan','booked','prepare'].includes(initial)) show(initial);
+    const start=new Date('2026-10-08T00:00:00+09:00'); const now=new Date(); const d=Math.ceil((start-now)/86400000); document.getElementById('countdown').textContent=d>0?`${d} days`:d===0?'Today':'Journey started';
+    document.querySelectorAll('[data-key]').forEach(el=>{const k='espana-'+el.dataset.key;el.checked=localStorage.getItem(k)==='1';el.addEventListener('change',()=>localStorage.setItem(k,el.checked?'1':'0'));});
+    const notes=document.getElementById('notes');notes.value=localStorage.getItem('espana-notes')||'';notes.addEventListener('input',()=>localStorage.setItem('espana-notes',notes.value));
+  </script>
+</body>
+</html>
