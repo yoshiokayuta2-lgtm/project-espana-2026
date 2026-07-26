@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.1">
+<link rel="stylesheet" href="css/style.css?v=4.2">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -50,14 +50,20 @@
 <section id="home" class="screen active">
   <section class="hero reveal">
     <div class="hero-copy">
+      <div class="hero-kicker"><span>Honeymoon Journey</span><b>Spain · 2026</b></div>
       <p class="eyebrow">A journey for two</p>
       <h1>Hola, Yuko.</h1>
       <p class="lead">私たちのスペイン旅行が、いよいよ近づいてきたね。<br>一緒に、最高の8日間にしよう。</p>
       <div class="countdown"><strong id="countdown">—</strong><span>days to go</span></div>
-      <p class="dates">Oct 8, 2026 – Oct 15, 2026</p>
-      <button class="pill-button" data-route="plan">旅程を確認する <span>›</span></button>
+      <div class="hero-meta"><p class="dates">Oct 8–15, 2026</p><p>Madrid <span>→</span> Barcelona</p></div>
+      <div class="hero-actions"><button class="pill-button" data-route="plan">旅程を見る <span>›</span></button><button class="text-button" data-route="today">今日を開く</button></div>
     </div>
     <figure class="hero-art"><img src="images/planning.png" alt="二人でスペイン旅行を計画している線画"></figure>
+  </section>
+  <section class="next-event reveal" aria-label="次の予定">
+    <div class="next-event-date"><small>Next Event</small><strong>Oct 8</strong><span>Thursday</span></div>
+    <div class="next-event-main"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><div><p>Departure Day</p><h2>Narita → Doha → Madrid</h2><span>QR809 · 成田空港から旅が始まる</span></div></div>
+    <button data-route="flight">Flight details <span>›</span></button>
   </section>
   <section class="quickbar reveal" aria-label="クイックメニュー">
     <button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><b>Plan</b><small>旅程</small></button>
@@ -217,6 +223,6 @@
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-bag"></use></svg><small>Prepare</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.1"></script>
+<script src="js/app.js?v=4.2"></script>
 </body>
 </html>
