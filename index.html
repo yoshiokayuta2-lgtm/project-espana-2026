@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#fbf8f3">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="description" content="Yuta & Yuko のスペイン新婚旅行プランナー">
+  <meta name="description" content="Yuta & Yuko のスペイン新婚旅行。旅程・予約・準備をひとつにまとめた二人の旅のページ。">
   <title>Project España 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,7 @@
 
   <main>
     <section id="home" class="screen active">
+      <div class="release-note" aria-label="共有版"><span>PRIVATE JOURNEY</span><b>Yuta &amp; Yuko</b></div>
       <div class="hero-wrap">
         <div class="hero-copy">
           <p class="kicker">Our First Adventure</p>
@@ -63,8 +64,7 @@
           <button class="quick-card" data-route="hotel"><span>▤</span><b>ホテル</b><small>宿泊先を確認</small></button>
           <button class="quick-card" data-route="flight"><span>✈</span><b>航空券</b><small>フライト情報</small></button>
           <button class="quick-card" data-route="restaurant"><span>♢</span><b>レストラン</b><small>食事の計画</small></button>
-          <button class="quick-card" data-route="budget"><span>◫</span><b>予算</b><small>支出を管理</small></button>
-          <button class="quick-card" data-route="memories"><span>◉</span><b>思い出</b><small>写真と日記</small></button>
+          
         </div>
       </section>
 
@@ -86,7 +86,7 @@
           <div class="panel-head"><div><p class="eyebrow">BOOKED</p><h2>予約一覧</h2></div><button data-route="booked">すべて見る →</button></div>
           <div class="booking-list">
             <button data-route="restaurant"><span class="round-photo coral">♪</span><p><b>Corral de la Morería</b><small>2026.10.10 21:30</small></p><i>確定</i></button>
-            <button data-route="restaurant"><span class="round-photo sagrada">⌂</span><p><b>サグラダ・ファミリア</b><small>2026.10.13 午前候補</small></p><i class="pending">予約前</i></button>
+            <button data-route="prepare"><span class="round-photo sagrada">⌂</span><p><b>サグラダ・ファミリア</b><small>2026.10.13 午前候補</small></p><i class="pending">予約準備中</i></button>
             <button data-route="hotel"><span class="round-photo hotel">H</span><p><b>ホテル（マドリード）</b><small>2026.10.9–10.11</small></p><i>確定</i></button>
             <button data-route="hotel"><span class="round-photo hotel">H</span><p><b>ホテル（バルセロナ）</b><small>2026.10.11–10.14</small></p><i>確定</i></button>
           </div>
@@ -176,7 +176,7 @@
       </div>
     </section>
 
-    <section id="budget" class="screen inner-screen">
+    <section id="budget" class="screen inner-screen private-feature" hidden>
       <div class="page-head"><p class="eyebrow">BUDGET</p><h2>旅の支出</h2><p>入力内容はこの端末に保存されます。</p></div>
       <article class="budget-card">
         <label>項目<input id="expenseName" type="text" placeholder="例：ランチ"></label>
@@ -187,7 +187,7 @@
       </article>
     </section>
 
-    <section id="memories" class="screen inner-screen">
+    <section id="memories" class="screen inner-screen private-feature" hidden>
       <div class="page-head"><p class="eyebrow">MEMORIES</p><h2>旅の思い出</h2><p>帰国後は、この画面が二人のアルバムになります。</p></div>
       <article class="memory-placeholder"><span>♡</span><div><h3>Our memories begin here.</h3><p>写真と短い日記を追加できる機能を次の更新で実装します。</p></div></article>
     </section>
@@ -213,7 +213,7 @@
     <button data-route="today"><span>☼</span>Today</button>
   </nav>
 
-  <footer class="site-footer">© 2026 Project España 2026 <span>｜</span> Yuta &amp; Yuko</footer>
+  <footer class="site-footer">Made for our first adventure <span>♡</span> Yuta &amp; Yuko</footer>
   <script src="js/app.js"></script>
 </body>
 </html>
