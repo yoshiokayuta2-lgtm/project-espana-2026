@@ -11,3 +11,10 @@ GitHub Pages向けの静的Webアプリです。
 
 ## 公開
 このフォルダの中身をGitHubリポジトリのルートへ上書きしてください。
+
+
+## v4.1
+- iPhone Safari responsive layout repaired
+- Original illustrations preserved and displayed with contain/auto height
+- SVG icon sizing stabilized
+- Service worker cache updated to prevent stale CSS/JS

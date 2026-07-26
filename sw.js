@@ -1,1 +1,13 @@
-const CACHE='espana-v4.0';const ASSETS=['./','index.html','css/style.css','js/app.js','manifest.webmanifest','images/planning.png','images/madrid.png','images/corral.png','images/sagrada.png','images/selfie.png','images/departure.png','images/flight.png','images/couple.png'];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
+const CACHE='espana-v4.1';
+const ASSETS=['./','index.html','css/style.css?v=4.1','js/app.js?v=4.1','manifest.webmanifest','images/planning.png','images/madrid.png','images/corral.png','images/sagrada.png','images/selfie.png','images/departure.png','images/flight.png','images/couple.png'];
+self.addEventListener('install',event=>{self.skipWaiting();event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)))});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',event=>{
+  const request=event.request;
+  if(request.method!=='GET')return;
+  if(request.mode==='navigate'){
+    event.respondWith(fetch(request).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put('./',copy));return response}).catch(()=>caches.match('./')));
+    return;
+  }
+  event.respondWith(fetch(request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(request,copy))}return response}).catch(()=>caches.match(request)));
+});
