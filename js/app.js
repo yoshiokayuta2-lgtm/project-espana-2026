@@ -3,11 +3,17 @@ const routeButtons=[...document.querySelectorAll('[data-route]')];
 function show(route,smooth=true){const target=document.getElementById(route)?route:'home';screens.forEach(s=>s.classList.toggle('active',s.id===target));document.querySelectorAll('.bottom-nav [data-route]').forEach(b=>b.classList.toggle('active',b.dataset.route===target));history.replaceState(null,'',`#${target}`);window.scrollTo({top:0,behavior:smooth?'smooth':'auto'});setTimeout(observeReveals,60)}
 routeButtons.forEach(b=>b.addEventListener('click',e=>{e.preventDefault();show(b.dataset.route)}));window.addEventListener('hashchange',()=>show(location.hash.slice(1),false));show(location.hash.slice(1)||'home',false);
 const departure=new Date('2026-10-08T00:00:00+09:00');const days=Math.max(0,Math.ceil((departure-new Date())/86400000));document.getElementById('countdown').textContent=days;
-const checks={passport:'パスポートの有効期限',insurance:'海外旅行保険',sagrada:'サグラダ・ファミリア予約',ave:'AVEの並び席',esim:'eSIM・海外通信'};
+const packingGroups={
+  '貴重品':{icon:'◇',fixed:{passport:'パスポートの有効期限',insurance:'海外旅行保険'}},
+  '予約・手続き':{icon:'✓',fixed:{sagrada:'サグラダ・ファミリア予約',ave:'AVEの並び席'}},
+  'ガジェット':{icon:'⌁',fixed:{esim:'eSIM・海外通信'}},
+  '衣類':{icon:'○',fixed:{}},'洗面・ケア':{icon:'＋',fixed:{}},'機内・移動':{icon:'→',fixed:{}},'その他':{icon:'·',fixed:{}}
+};
+const checks=Object.assign({},...Object.values(packingGroups).map(group=>group.fixed));
 const checklist=document.getElementById('checklist');
 const packingStorageKey='espana-packing-v1';
 let customPacking=[];
-try{customPacking=JSON.parse(localStorage.getItem(packingStorageKey)||'[]');if(!Array.isArray(customPacking))customPacking=[]}catch{customPacking=[]}
+try{customPacking=JSON.parse(localStorage.getItem(packingStorageKey)||'[]');if(!Array.isArray(customPacking))customPacking=[];customPacking=customPacking.map(item=>({...item,category:item.category||'その他'}))}catch{customPacking=[]}
 function progressCounts(){
   const fixedDone=Object.keys(checks).filter(k=>localStorage.getItem(`espana-${k}`)==='1').length;
   const customDone=customPacking.filter(x=>x.done).length;
@@ -15,35 +21,45 @@ function progressCounts(){
 }
 function updateProgress(){
   const {done,total}=progressCounts();
-  document.getElementById('checkProgress').textContent=`${done} / ${total}`;
-  const detail=document.getElementById('checkProgressDetail');if(detail)detail.textContent=`${done} / ${total}`;
+  const text=`${done} / ${total}`;
+  document.getElementById('checkProgress').textContent=text;
+  const detail=document.getElementById('checkProgressDetail');if(detail)detail.textContent=text;
+  const percent=total?Math.round(done/total*100):0;
+  const bar=document.getElementById('packingProgressBar');if(bar)bar.style.width=`${percent}%`;
+  const copy=document.getElementById('packingProgressCopy');if(copy)copy.textContent=percent===100?'準備完了。Buen viaje!':percent>=70?'あと少しで準備完了':percent?`Packing ${percent}% complete`:'準備を始めよう';
 }
-Object.entries(checks).forEach(([key,text])=>{
+function fixedRow(key,text){
   const label=document.createElement('label');label.innerHTML=`<input type="checkbox"><span>${text}</span>`;
   const input=label.querySelector('input');input.checked=localStorage.getItem(`espana-${key}`)==='1';
-  input.addEventListener('change',()=>{localStorage.setItem(`espana-${key}`,input.checked?'1':'0');updateProgress()});checklist.appendChild(label)
-});
+  input.addEventListener('change',()=>{localStorage.setItem(`espana-${key}`,input.checked?'1':'0');updateProgress()});return label;
+}
 const customPackingEl=document.getElementById('customPacking');
 const packingEmpty=document.getElementById('packingEmpty');
-function savePacking(){localStorage.setItem(packingStorageKey,JSON.stringify(customPacking));renderPacking()}
+function customRow(item){
+  const row=document.createElement('div');row.className=`packing-item${item.done?' done':''}`;
+  const label=document.createElement('label');const input=document.createElement('input');input.type='checkbox';input.checked=!!item.done;
+  const span=document.createElement('span');span.textContent=item.text;input.addEventListener('change',()=>{item.done=input.checked;savePacking()});label.append(input,span);
+  const remove=document.createElement('button');remove.type='button';remove.textContent='×';remove.setAttribute('aria-label',`${item.text}を削除`);remove.addEventListener('click',()=>{customPacking=customPacking.filter(x=>x.id!==item.id);savePacking()});
+  row.append(label,remove);return row;
+}
 function renderPacking(){
-  customPackingEl.textContent='';
-  customPacking.forEach(item=>{
-    const row=document.createElement('div');row.className=`packing-item${item.done?' done':''}`;
-    const label=document.createElement('label');
-    const input=document.createElement('input');input.type='checkbox';input.checked=!!item.done;
-    const span=document.createElement('span');span.textContent=item.text;
-    input.addEventListener('change',()=>{item.done=input.checked;savePacking()});
-    label.append(input,span);
-    const remove=document.createElement('button');remove.type='button';remove.textContent='×';remove.setAttribute('aria-label',`${item.text}を削除`);
-    remove.addEventListener('click',()=>{customPacking=customPacking.filter(x=>x.id!==item.id);savePacking()});
-    row.append(label,remove);customPackingEl.appendChild(row);
+  checklist.textContent='';customPackingEl.textContent='';
+  Object.entries(packingGroups).forEach(([category,group])=>{
+    const fixedEntries=Object.entries(group.fixed);const customItems=customPacking.filter(item=>item.category===category);
+    if(!fixedEntries.length&&!customItems.length)return;
+    const section=document.createElement('section');section.className='packing-group';
+    const head=document.createElement('div');head.className='packing-group-head';
+    const total=fixedEntries.length+customItems.length;const done=fixedEntries.filter(([key])=>localStorage.getItem(`espana-${key}`)==='1').length+customItems.filter(x=>x.done).length;
+    head.innerHTML=`<div><span>${group.icon}</span><b>${category}</b></div><small>${done} / ${total}</small>`;
+    const body=document.createElement('div');body.className='packing-group-body';fixedEntries.forEach(([key,text])=>body.appendChild(fixedRow(key,text)));customItems.forEach(item=>body.appendChild(customRow(item)));
+    section.append(head,body);checklist.appendChild(section);
   });
   packingEmpty.hidden=customPacking.length>0;updateProgress();
 }
+function savePacking(){localStorage.setItem(packingStorageKey,JSON.stringify(customPacking));renderPacking()}
 document.getElementById('packingForm').addEventListener('submit',e=>{
   e.preventDefault();const input=document.getElementById('packingInput');const text=input.value.trim();if(!text)return;
-  customPacking.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),text,done:false});input.value='';savePacking();input.focus();
+  const category=document.getElementById('packingCategory').value||'その他';customPacking.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),text,category,done:false});input.value='';savePacking();input.focus();
 });
 renderPacking();
 const notes=document.getElementById('notes');notes.value=localStorage.getItem('espana-notes')||'';notes.addEventListener('input',()=>localStorage.setItem('espana-notes',notes.value));
@@ -57,7 +73,7 @@ function closeOpening(){
   clearTimeout(openingTimer);
   opening.classList.add('closing');
   setTimeout(()=>{opening.className='opening';opening.setAttribute('aria-hidden','true');document.body.style.overflow=''},560);
-  localStorage.setItem('espana-opening-v431','seen');
+  localStorage.setItem('espana-opening-v432','seen');
 }
 function openOpening(mode='full'){
   clearTimeout(openingTimer);
@@ -69,7 +85,7 @@ function openOpening(mode='full'){
 document.getElementById('openingSkip').addEventListener('click',closeOpening);
 document.getElementById('replayOpening').addEventListener('click',()=>openOpening('full'));
 opening.addEventListener('click',event=>{if(event.target===opening&&opening.classList.contains('short'))closeOpening()});
-openOpening(localStorage.getItem('espana-opening-v431')?'short':'full');
+openOpening(localStorage.getItem('espana-opening-v432')?'short':'full');
 function observeReveals(){const els=document.querySelectorAll('.screen.active .reveal:not(.visible)');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('visible'));return}const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}}),{threshold:.12});els.forEach(e=>obs.observe(e))}observeReveals();
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 
@@ -157,7 +173,7 @@ updateEmergencyCallLinks();
 const memoryDbName='espana-memories-db';
 const memoryStore='photos';
 const memoryDayLabels={
-  '2026-10-08':'Day 1 · Oct 8','2026-10-09':'Day 2 · Oct 9','2026-10-10':'Day 3 · Oct 10','2026-10-11':'Day 4 · Oct 11',
+  'day0':'Day 0 · Preparation','2026-10-08':'Day 1 · Oct 8','2026-10-09':'Day 2 · Oct 9','2026-10-10':'Day 3 · Oct 10','2026-10-11':'Day 4 · Oct 11',
   '2026-10-12':'Day 5 · Oct 12','2026-10-13':'Day 6 · Oct 13','2026-10-14':'Day 7 · Oct 14','2026-10-15':'Day 8 · Oct 15'
 };
 function openMemoryDb(){return new Promise((resolve,reject)=>{const req=indexedDB.open(memoryDbName,1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(memoryStore)){const store=db.createObjectStore(memoryStore,{keyPath:'id'});store.createIndex('day','day')}};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}

@@ -24,3 +24,9 @@ GitHub Pages向けの静的Webアプリです。
 - Cinematic opening: stars, dawn, flight route, Spain map and title.
 - Full opening on first launch, short title opening thereafter.
 - Replay Opening always launches the full sequence.
+
+
+## v4.3.2
+- Opening animation: removed the airplane illustration and replaced it with a subtle traveling light.
+- Packing list: fixed mobile overflow, added categories and progress indicator.
+- Memories: added Day 0 · Preparation.

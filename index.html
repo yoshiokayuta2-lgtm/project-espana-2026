@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.3.1">
+<link rel="stylesheet" href="css/style.css?v=4.3.2">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -44,7 +44,7 @@
     </svg>
     <span class="opening-city opening-tokyo">Tokyo</span>
     <span class="opening-city opening-spain">España</span>
-    <span class="opening-plane">✈</span>
+    <span class="opening-glow" aria-hidden="true"></span>
   </div>
   <div class="opening-map" aria-hidden="true">
     <svg viewBox="0 0 320 250">
@@ -147,10 +147,14 @@
   <div class="prepare-grid">
     <article class="detail-card packing-card">
       <div class="card-heading"><div><p class="section-label">Packing</p><h2>持ち物リスト</h2></div><b id="checkProgressDetail">0 / 0</b></div>
-      <div id="checklist" class="checklist"></div>
+      <div class="packing-progress" aria-label="荷造り進捗"><span id="packingProgressBar"></span></div>
+      <p class="packing-progress-copy" id="packingProgressCopy">準備を始めよう</p>
+      <div id="checklist" class="checklist packing-groups"></div>
       <form id="packingForm" class="packing-form">
-        <input id="packingInput" maxlength="50" required placeholder="持ち物を追加　例：変換プラグ">
-        <button type="submit" aria-label="持ち物を追加">＋</button>
+        <select id="packingCategory" aria-label="持ち物カテゴリー">
+          <option value="貴重品">貴重品</option><option value="ガジェット">ガジェット</option><option value="衣類">衣類</option><option value="洗面・ケア">洗面・ケア</option><option value="機内・移動">機内・移動</option><option value="その他">その他</option>
+        </select>
+        <div class="packing-add-row"><input id="packingInput" maxlength="50" required placeholder="例：変換プラグ"><button type="submit" aria-label="持ち物を追加">＋</button></div>
       </form>
       <div id="customPacking" class="checklist custom-packing"></div>
       <p id="packingEmpty" class="empty-state">追加した持ち物はここに表示されます。</p>
@@ -244,7 +248,7 @@
 </section>
 
 <section id="memories" class="screen inner memories-screen">
-  <header class="page-head"><p class="eyebrow">MEMORIES</p><h1>Our Spain Memories</h1><p>撮った写真を日ごとに残す、二人だけの端末内アルバム。</p></header>
+  <header class="page-head"><p class="eyebrow">MEMORIES</p><h1>Our Spain Memories</h1><p>準備の日から旅の終わりまで残せる、二人だけの端末内アルバム。</p></header>
   <div class="memory-intro">
     <div><p class="section-label">Before → After</p><h2>イラストの旅が、本当の思い出になっていく。</h2><p>写真は自動で縮小し、この端末のブラウザ内に保存します。別端末への共有や自動同期は行いません。</p></div>
     <img src="images/selfie.png" alt="スペインで写真を撮る二人">
@@ -252,7 +256,7 @@
   <article class="detail-card memory-upload-card">
     <div class="card-heading"><div><p class="section-label">Add photos</p><h2>写真を追加</h2></div><b id="memoryCount">0枚</b></div>
     <form id="memoryForm" class="memory-form">
-      <label><span>日付</span><select id="memoryDay"><option value="2026-10-08">Day 1 · Oct 8</option><option value="2026-10-09">Day 2 · Oct 9</option><option value="2026-10-10">Day 3 · Oct 10</option><option value="2026-10-11">Day 4 · Oct 11</option><option value="2026-10-12">Day 5 · Oct 12</option><option value="2026-10-13">Day 6 · Oct 13</option><option value="2026-10-14">Day 7 · Oct 14</option><option value="2026-10-15">Day 8 · Oct 15</option></select></label>
+      <label><span>日付</span><select id="memoryDay"><option value="day0">Day 0 · Preparation</option><option value="2026-10-08">Day 1 · Oct 8</option><option value="2026-10-09">Day 2 · Oct 9</option><option value="2026-10-10">Day 3 · Oct 10</option><option value="2026-10-11">Day 4 · Oct 11</option><option value="2026-10-12">Day 5 · Oct 12</option><option value="2026-10-13">Day 6 · Oct 13</option><option value="2026-10-14">Day 7 · Oct 14</option><option value="2026-10-15">Day 8 · Oct 15</option></select></label>
       <label><span>ひとこと</span><input id="memoryCaption" maxlength="80" placeholder="例：マドリード最初の夜"></label>
       <label class="photo-picker"><input id="memoryFiles" type="file" accept="image/*" multiple><span>写真を選ぶ</span><small>複数選択できます</small></label>
       <button class="wide-button" type="submit">アルバムに追加 <span>＋</span></button>
@@ -260,13 +264,13 @@
     <p class="save-status" id="memoryStatus">写真はこの端末だけに保存されます。</p>
   </article>
   <div id="memoryGallery" class="memory-gallery"></div>
-  <p id="memoryEmpty" class="empty-state">まだ写真がありません。旅が始まったら最初の一枚を追加しよう。</p>
+  <p id="memoryEmpty" class="empty-state">まだ写真がありません。Day 0に準備の一枚を追加して、旅の物語を始めよう。</p>
 </section>
 <div id="memoryModal" class="memory-modal" hidden><button id="memoryModalClose" aria-label="閉じる">×</button><img id="memoryModalImage" alt="思い出の写真"><p id="memoryModalCaption"></p></div>
 <section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">Yuta</p><img src="images/couple.png" alt="二人の線画"></div></section>
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.3.1"></script>
+<script src="js/app.js?v=4.3.2"></script>
 </body>
 </html>
