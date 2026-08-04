@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.3.2">
+<link rel="stylesheet" href="css/style.css?v=4.4.0">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -30,6 +30,9 @@
 <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v10H2V9a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></symbol>
 <symbol id="i-fun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M7.8 7.2c1.1-1 2.5-1.6 4.2-1.6 2.7 0 4.8 1.4 4.8 3.5 0 1.8-1.5 2.8-4.8 2.8s-4.8 1-4.8 2.8c0 2.1 2.1 3.5 4.8 3.5 1.7 0 3.1-.6 4.2-1.6"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 5-2 8 3 5-2v13l-5 2-8-3-5 2zM8 4v13M16 7v13"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3h3l1.2 5-2 1.3a15 15 0 0 0 5.5 5.5l1.3-2 5 1.2v3c0 2-1.6 3.5-3.6 3.3C10 19.7 4.3 14 3.7 6.6 3.5 4.6 5 3 7 3Z"/></symbol>
+<symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="16" rx="3"/><path d="M8 7h8M8 12h8M8 19l-2 2M16 19l2 2M9 16h.01M15 16h.01"/></symbol>
 </svg>
 
 <div class="opening" id="opening" aria-hidden="true">
@@ -116,7 +119,7 @@
       <article class="quick-info card">
         <div class="card-heading"><div><p class="section-label">Quick Info</p><h2>ひと目で確認</h2></div></div>
         <div class="info-grid">
-          <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><small>Reservations</small><b>4件</b></button>
+          <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><small>Reservations</small><b>5件</b></button>
           <button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-check"></use></svg><small>Checklist</small><b id="checkProgress">0 / 5</b></button>
           <button data-route="flight"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><small>Flights</small><b>4便</b></button>
           <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><small>Emergency</small><b>緊急連絡</b></button>
@@ -135,13 +138,72 @@
     <article class="story-step reverse"><img src="images/madrid.png" alt="マドリード"><div><time>10.9–10 <small>Fri–Sat</small></time><p class="eyebrow">Madrid</p><h2>芸術と街歩き</h2><p>王宮、美術館、そして夜はフラメンコ。</p></div></article>
     <article class="story-step"><img src="images/corral.png" alt="フラメンコ"><div><time>10.10 <small>Sat</small></time><p class="eyebrow">Flamenco</p><h2>Corral de la Morería</h2><p>ディナーとショー。スペインらしい特別な夜。</p></div></article>
     <article class="story-step reverse"><img src="images/sagrada.png" alt="サグラダ・ファミリア"><div><time>10.11–14 <small>Sun–Wed</small></time><p class="eyebrow">Barcelona</p><h2>ガウディの街へ</h2><p>AVEで移動。サグラダ・ファミリアとCinc Sentits。</p></div></article>
-    <article class="story-step"><img src="images/selfie.png" alt="思い出"><div><time>10.15 <small>Thu</small></time><p class="eyebrow">Return</p><h2>思い出を持ち帰る</h2><p>ドーハ経由で成田へ。最初の冒険をアルバムに。</p></div></article>
+    <article class="story-step"><img src="images/selfie.png" alt="帰国後の東京滞在"><div><time>10.15 <small>Thu</small></time><p class="eyebrow">Return & Stay</p><h2>成田から新浦安へ</h2><p>19:10に成田へ到着。オリエンタルホテル東京ベイで一泊して、旅の余韻を楽しむ。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
   </div>
 </section>
 <section id="flight" class="screen inner"><header class="page-head"><p class="eyebrow">FLIGHTS</p><h1>空の旅</h1><p>搭乗日に必要な情報を、すぐ見つけられる形で。</p></header><div class="feature-image"><img src="images/flight.png" alt="機内で過ごす二人"></div><div class="ticket-grid"><article class="ticket"><div><small>NRT → DOH</small><h2>QR809</h2><p>Oct 8 · Narita</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → MAD</small><h2>QR147</h2><p>Oct 9 · Doha</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>BCN → DOH</small><h2>QR146</h2><p>Oct 14 · 16:35</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → NRT</small><h2>QR806</h2><p>Oct 15 · 19:10着</p></div><strong>Qatar Airways</strong></article></div></section>
-<section id="hotel" class="screen inner"><header class="page-head"><p class="eyebrow">HOTELS</p><h1>二つの街の拠点</h1><p>どちらも街歩きに便利な中心エリア。</p></header><div class="detail-grid"><article class="detail-card"><p class="eyebrow">MADRID · OCT 9–11</p><h2>Puerta del Sol 周辺</h2><dl><div><dt>泊数</dt><dd>2泊</dd></div><div><dt>エリア</dt><dd>マドリード中心部</dd></div><div><dt>確認</dt><dd>正式ホテル名・予約番号</dd></div></dl></article><article class="detail-card"><p class="eyebrow">BARCELONA · OCT 11–14</p><h2>Plaça Catalunya 周辺</h2><dl><div><dt>泊数</dt><dd>3泊</dd></div><div><dt>エリア</dt><dd>バルセロナ中心部</dd></div><div><dt>確認</dt><dd>正式ホテル名・予約番号</dd></div></dl></article></div></section>
+<section id="hotel" class="screen inner">
+<header class="page-head"><p class="eyebrow">HOTELS</p><h1>旅の拠点</h1><p>スペインの二都市と、帰国後の新浦安で過ごすホテル。</p></header>
+<div class="detail-grid hotel-grid">
+  <article class="detail-card"><p class="eyebrow">MADRID · OCT 9–11</p><h2>Puerta del Sol 周辺</h2><dl><div><dt>泊数</dt><dd>2泊</dd></div><div><dt>エリア</dt><dd>マドリード中心部</dd></div><div><dt>状況</dt><dd>詳細確認中</dd></div></dl></article>
+  <article class="detail-card"><p class="eyebrow">BARCELONA · OCT 11–14</p><h2>Plaça Catalunya 周辺</h2><dl><div><dt>泊数</dt><dd>3泊</dd></div><div><dt>エリア</dt><dd>バルセロナ中心部</dd></div><div><dt>状況</dt><dd>詳細確認中</dd></div></dl></article>
+  <article class="detail-card hotel-confirmed">
+    <span class="badge">予約確定</span>
+    <p class="eyebrow">SHIN-URAYASU · OCT 15–16</p>
+    <h2>オリエンタルホテル東京ベイ</h2>
+    <p class="hotel-subtitle">成田到着後の一泊。新浦安駅直結。</p>
+    <dl>
+      <div><dt>予約番号</dt><dd>TC57C3A2AABDA</dd></div>
+      <div><dt>チェックイン</dt><dd>10月15日 14:00〜</dd></div>
+      <div><dt>チェックアウト</dt><dd>10月16日 12:00まで</dd></div>
+      <div><dt>部屋</dt><dd>オリエンタル・デラックス<br>42㎡・禁煙</dd></div>
+      <div><dt>設備</dt><dd>セミダブル3台<br>シャワー・バスタブなし</dd></div>
+      <div><dt>特典</dt><dd>専用カウンター<br>ミネラルウォーター</dd></div>
+      <div><dt>支払い</dt><dd>現地決済</dd></div>
+    </dl>
+    <div class="action-row">
+      <a class="action-button primary" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Google Maps</a>
+      <a class="action-button" href="https://maps.apple.com/?q=%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Apple Maps</a>
+      <a class="action-button" href="tel:0473508111"><svg class="line-icon"><use href="#i-phone"></use></svg>ホテルへ電話</a>
+    </div>
+    <p class="hotel-address">〒279-0011 千葉県浦安市美浜1-8-2</p>
+  </article>
+</div>
+</section>
+
 <section id="restaurant" class="screen inner"><header class="page-head"><p class="eyebrow">DINING</p><h1>スペインの夜</h1><p>食事も、この旅の大切な思い出に。</p></header><div class="feature-image"><img src="images/corral.png" alt="ワインとフラメンコを楽しむ二人"></div><div class="detail-grid"><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">MADRID · OCT 10 · 21:30</p><h2>Corral de la Morería</h2><dl><div><dt>予約番号</dt><dd>W10102026084153</dd></div><div><dt>内容</dt><dd>Dinner + Show</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank" rel="noopener">Google Maps</a></article><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">BARCELONA · OCT 13 · 19:00</p><h2>Cinc Sentits</h2><dl><div><dt>住所</dt><dd>Carrer d'Entença, 60</dd></div><div><dt>内容</dt><dd>Tasting Menu</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank" rel="noopener">Google Maps</a></article></div></section>
-<section id="booked" class="screen inner"><header class="page-head"><p class="eyebrow">BOOKED</p><h1>予約一覧</h1><p>当日必要な予約をまとめて確認。</p></header><div class="reservation-list"><button data-route="restaurant"><span>10.10</span><div><b>Corral de la Morería</b><small>21:30 · Dinner + Show</small></div><em>確定</em></button><button data-route="restaurant"><span>10.13</span><div><b>Cinc Sentits</b><small>19:00 · Tasting Menu</small></div><em>確定</em></button><button data-route="hotel"><span>10.9</span><div><b>Madrid Hotel</b><small>Puerta del Sol 周辺</small></div><em>確認中</em></button><button data-route="hotel"><span>10.11</span><div><b>Barcelona Hotel</b><small>Plaça Catalunya 周辺</small></div><em>確認中</em></button></div></section>
+<section id="booked" class="screen inner">
+<header class="page-head"><p class="eyebrow">TRAVEL CONCIERGE</p><h1>予約コンシェルジュ</h1><p>旅行中に必要な予約を、種類ごとにすぐ確認。</p></header>
+<div class="concierge-summary">
+  <div><strong>5</strong><span>Reservations</span></div>
+  <div><strong>4</strong><span>Flights</span></div>
+  <div><strong>3</strong><span>Hotels</span></div>
+  <div><strong>2</strong><span>Dining</span></div>
+</div>
+<div class="concierge-sections">
+  <section class="concierge-group">
+    <header><svg class="line-icon"><use href="#i-flight"></use></svg><div><p class="eyebrow">FLIGHTS</p><h2>空の予約</h2></div></header>
+    <button class="wallet-card navy" data-route="flight"><span class="wallet-date">10.8–15</span><div><small>Qatar Airways</small><b>Narita · Doha · Madrid · Barcelona</b><em>4便の詳細を見る</em></div><i>›</i></button>
+  </section>
+  <section class="concierge-group">
+    <header><svg class="line-icon"><use href="#i-hotel"></use></svg><div><p class="eyebrow">HOTELS</p><h2>宿泊予約</h2></div></header>
+    <button class="wallet-card featured" data-route="hotel"><span class="wallet-date">10.15</span><div><small>CONFIRMED · 1 NIGHT</small><b>オリエンタルホテル東京ベイ</b><em>予約番号 TC57C3A2AABDA</em></div><i>›</i></button>
+    <button class="wallet-card muted" data-route="hotel"><span class="wallet-date">10.9</span><div><small>MADRID · 2 NIGHTS</small><b>Puerta del Sol 周辺</b><em>詳細確認中</em></div><i>›</i></button>
+    <button class="wallet-card muted" data-route="hotel"><span class="wallet-date">10.11</span><div><small>BARCELONA · 3 NIGHTS</small><b>Plaça Catalunya 周辺</b><em>詳細確認中</em></div><i>›</i></button>
+  </section>
+  <section class="concierge-group">
+    <header><svg class="line-icon"><use href="#i-food"></use></svg><div><p class="eyebrow">DINING</p><h2>レストラン予約</h2></div></header>
+    <button class="wallet-card" data-route="restaurant"><span class="wallet-date">10.10</span><div><small>MADRID · 21:30</small><b>Corral de la Morería</b><em>Dinner + Show · 確定</em></div><i>›</i></button>
+    <button class="wallet-card" data-route="restaurant"><span class="wallet-date">10.13</span><div><small>BARCELONA · 19:00</small><b>Cinc Sentits</b><em>Tasting Menu · 確定</em></div><i>›</i></button>
+  </section>
+  <section class="concierge-group">
+    <header><svg class="line-icon"><use href="#i-train"></use></svg><div><p class="eyebrow">TRANSPORT</p><h2>都市間移動</h2></div></header>
+    <button class="wallet-card muted" data-route="plan"><span class="wallet-date">10.11</span><div><small>AVE</small><b>Madrid → Barcelona</b><em>並び席を最終確認</em></div><i>›</i></button>
+  </section>
+</div>
+<div class="ready-card"><svg class="line-icon"><use href="#i-check"></use></svg><div><small>TRIP STATUS</small><h2>Ready for the journey.</h2><p>予約情報が追加されるたび、このページが旅のコンシェルジュとして育ちます。</p></div></div>
+</section>
+
 <section id="prepare" class="screen inner">
   <header class="page-head"><p class="eyebrow">PREPARE</p><h1>旅の準備</h1><p>持ち物もメモも、この端末に自動保存されます。</p></header>
   <div class="prepare-grid">
@@ -271,6 +333,6 @@
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.3.2"></script>
+<script src="js/app.js?v=4.4.0"></script>
 </body>
 </html>
