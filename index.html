@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.4.0">
+<link rel="stylesheet" href="css/style.css?v=4.4.1">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -157,16 +157,32 @@
       <div><dt>チェックイン</dt><dd>10月15日 14:00〜</dd></div>
       <div><dt>チェックアウト</dt><dd>10月16日 12:00まで</dd></div>
       <div><dt>部屋</dt><dd>オリエンタル・デラックス<br>42㎡・禁煙</dd></div>
-      <div><dt>設備</dt><dd>セミダブル3台<br>シャワー・バスタブなし</dd></div>
-      <div><dt>特典</dt><dd>専用カウンター<br>ミネラルウォーター</dd></div>
+      <div><dt>ベッド</dt><dd>幅120cm × 3台<br>補助ベッド 幅100cm × 1台</dd></div>
+      <div><dt>バスルーム</dt><dd>バスタブあり<br>洗い場・ハンドシャワーあり</dd></div>
+      <div><dt>特典</dt><dd>14:00アーリーチェックイン<br>専用カウンター・ミネラルウォーター</dd></div>
       <div><dt>支払い</dt><dd>現地決済</dd></div>
     </dl>
     <div class="action-row">
       <a class="action-button primary" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Google Maps</a>
       <a class="action-button" href="https://maps.apple.com/?q=%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Apple Maps</a>
       <a class="action-button" href="tel:0473508111"><svg class="line-icon"><use href="#i-phone"></use></svg>ホテルへ電話</a>
+      <a class="action-button" href="https://www.oriental-hotel.co.jp/" target="_blank" rel="noopener">公式サイト</a>
     </div>
     <p class="hotel-address">〒279-0011 千葉県浦安市美浜1-8-2</p>
+    <section class="hotel-nearby" aria-labelledby="hotel-nearby-title">
+      <div class="hotel-section-heading"><p class="eyebrow">NEARBY & ACCESS</p><h3 id="hotel-nearby-title">周辺・移動メモ</h3></div>
+      <div class="nearby-grid">
+        <a href="https://maps.apple.com/?q=%E6%96%B0%E6%B5%A6%E5%AE%89%E9%A7%85" target="_blank" rel="noopener"><b>新浦安駅</b><span>北口からデッキ直結・徒歩約1分</span></a>
+        <a href="https://www.oriental-hotel.co.jp/access/" target="_blank" rel="noopener"><b>ディズニーシャトル</b><span>ランド／シーへ約15分・時刻表は当日確認</span></a>
+        <a href="https://maps.google.com/?q=%E3%83%AD%E3%83%BC%E3%82%BD%E3%83%B3+%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><b>館内ローソン</b><span>ホテル2階・24時間営業</span></a>
+        <a href="https://maps.google.com/?q=%E3%82%A2%E3%83%88%E3%83%AC%E6%96%B0%E6%B5%A6%E5%AE%89" target="_blank" rel="noopener"><b>買い物</b><span>アトレ・MONA・イオンが駅周辺</span></a>
+      </div>
+    </section>
+    <section class="hotel-personal-memo" aria-labelledby="hotel-memo-title">
+      <div class="hotel-section-heading"><p class="eyebrow">PRIVATE NOTE</p><h3 id="hotel-memo-title">ホテルメモ</h3></div>
+      <textarea id="orientalHotelMemo" placeholder="例：朝はシャトル時刻を確認／荷物を預ける／2階のローソンで飲み物を買う"></textarea>
+      <p id="orientalHotelMemoStatus" class="save-status">この端末に自動保存されます。</p>
+    </section>
   </article>
 </div>
 </section>
@@ -333,6 +349,6 @@
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.4.0"></script>
+<script src="js/app.js?v=4.4.1"></script>
 </body>
 </html>

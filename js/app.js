@@ -248,3 +248,21 @@ if(coinFlipButton){
     },1150);
   });
 }
+
+
+// v4.4.1 Oriental Hotel private memo
+const orientalHotelMemo=document.getElementById('orientalHotelMemo');
+const orientalHotelMemoStatus=document.getElementById('orientalHotelMemoStatus');
+const orientalHotelMemoKey='espana-oriental-hotel-memo-v1';
+if(orientalHotelMemo){
+  orientalHotelMemo.value=localStorage.getItem(orientalHotelMemoKey)||'';
+  let orientalMemoTimer;
+  orientalHotelMemo.addEventListener('input',()=>{
+    window.clearTimeout(orientalMemoTimer);
+    if(orientalHotelMemoStatus)orientalHotelMemoStatus.textContent='保存中…';
+    orientalMemoTimer=window.setTimeout(()=>{
+      localStorage.setItem(orientalHotelMemoKey,orientalHotelMemo.value);
+      if(orientalHotelMemoStatus)orientalHotelMemoStatus.textContent='この端末に保存しました。';
+    },300);
+  });
+}
