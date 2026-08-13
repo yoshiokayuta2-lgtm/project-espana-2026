@@ -1,19 +1,12 @@
-# Project España 2026 v4.4.1
+# Project España 2026 v4.4.2
 
-## 更新内容
-- オリエンタル・デラックスのバスルーム情報を修正
-  - バスタブあり
-  - 洗い場あり
-  - ハンドシャワーあり
-- ベッド構成を整理
-- 公式サイトへの導線を追加
-- 周辺・アクセスカードを追加
-  - 新浦安駅
-  - ディズニーシャトル
-  - 館内ローソン
-  - 駅周辺の商業施設
-- ホテル専用の自由メモを追加
-- メモは端末内に自動保存
-- CSS / JavaScript / Service Worker を v4.4.1 に更新
+GitHub Pages upload-ready release.
 
-GitHub Pagesのリポジトリ直下へ、ZIP内の全ファイルを上書きしてください。
+## v4.4.2
+- Sagrada Família reservation confirmed: Oct 13, Basilica 09:30 / Nativity Tower 10:15 / 2 guests / audioguide
+- Added Gaudí Quest: 3-minute pre-study, five on-site missions, post-visit answer review
+- Gaudí Explorer achievement stored locally after completing all missions
+- Updated Today / Journey / Booked / Packing states for the confirmed reservation
+- Service worker cache bumped to v4.4.2
+
+Upload all files in this folder to the repository root.

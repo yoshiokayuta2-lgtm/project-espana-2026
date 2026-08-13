@@ -5,7 +5,7 @@ routeButtons.forEach(b=>b.addEventListener('click',e=>{e.preventDefault();show(b
 const departure=new Date('2026-10-08T00:00:00+09:00');const days=Math.max(0,Math.ceil((departure-new Date())/86400000));document.getElementById('countdown').textContent=days;
 const packingGroups={
   '貴重品':{icon:'◇',fixed:{passport:'パスポートの有効期限',insurance:'海外旅行保険'}},
-  '予約・手続き':{icon:'✓',fixed:{sagrada:'サグラダ・ファミリア予約',ave:'AVEの並び席'}},
+  '予約・手続き':{icon:'✓',fixed:{sagrada:'サグラダ公式アプリ・イヤホン・身分証',ave:'AVEの並び席'}},
   'ガジェット':{icon:'⌁',fixed:{esim:'eSIM・海外通信'}},
   '衣類':{icon:'○',fixed:{}},'洗面・ケア':{icon:'＋',fixed:{}},'機内・移動':{icon:'→',fixed:{}},'その他':{icon:'·',fixed:{}}
 };
@@ -63,9 +63,9 @@ document.getElementById('packingForm').addEventListener('submit',e=>{
 });
 renderPacking();
 const notes=document.getElementById('notes');notes.value=localStorage.getItem('espana-notes')||'';notes.addEventListener('input',()=>localStorage.setItem('espana-notes',notes.value));
-const tripDays={'2026-10-08':{city:'Tokyo / Narita',title:'出発の日',img:'images/departure.png',items:[['Day','東京で過ごす','夜便に備えて余裕を持って移動'],['22:30','QR809 成田発','ドーハへ向けて出発']]},'2026-10-09':{city:'Madrid',title:'マドリード到着',img:'images/madrid.png',items:[['Morning','QR147','ドーハからマドリードへ'],['Afternoon','ホテルへ','Puerta del Sol 周辺'],['Evening','最初の街歩き','無理のないペースで']]},'2026-10-10':{city:'Madrid',title:'芸術とフラメンコ',img:'images/corral.png',items:[['Morning','王宮・美術館','マドリードの文化を楽しむ'],['21:30','Corral de la Morería','Dinner + Show']]},'2026-10-11':{city:'Madrid → Barcelona',title:'AVEで移動',img:'images/madrid.png',items:[['Morning','Atochaへ','余裕をもって駅へ'],['Train','AVE','Madrid → Barcelona']]},'2026-10-12':{city:'Barcelona',title:'バルセロナを歩く',img:'images/madrid.png',items:[['Morning','旧市街散策','ゴシック地区候補'],['Afternoon','ガウディ建築','街の空気を楽しむ']]},'2026-10-13':{city:'Barcelona',title:'旅のハイライト',img:'images/sagrada.png',items:[['Morning','サグラダ・ファミリア','受難のファサード候補'],['19:00','Cinc Sentits','特別なディナー']]},'2026-10-14':{city:'Barcelona → Doha',title:'スペイン最終日',img:'images/selfie.png',items:[['Morning','最後の街歩き','買い物とカフェ'],['16:35','QR146','ドーハへ']]},'2026-10-15':{city:'Doha → Narita → Shin-Urayasu',title:'帰国と東京ベイ滞在',img:'images/flight.png',items:[['Flight','QR806','ドーハから成田へ'],['19:10','成田到着','入国・荷物受け取り'],['Night','オリエンタルホテル東京ベイ','新浦安駅直結・予約確定']]}};
+const tripDays={'2026-10-08':{city:'Tokyo / Narita',title:'出発の日',img:'images/departure.png',items:[['Day','東京で過ごす','夜便に備えて余裕を持って移動'],['22:30','QR809 成田発','ドーハへ向けて出発']]},'2026-10-09':{city:'Madrid',title:'マドリード到着',img:'images/madrid.png',items:[['Morning','QR147','ドーハからマドリードへ'],['Afternoon','ホテルへ','Puerta del Sol 周辺'],['Evening','最初の街歩き','無理のないペースで']]},'2026-10-10':{city:'Madrid',title:'芸術とフラメンコ',img:'images/corral.png',items:[['Morning','王宮・美術館','マドリードの文化を楽しむ'],['21:30','Corral de la Morería','Dinner + Show']]},'2026-10-11':{city:'Madrid → Barcelona',title:'AVEで移動',img:'images/madrid.png',items:[['Morning','Atochaへ','余裕をもって駅へ'],['Train','AVE','Madrid → Barcelona']]},'2026-10-12':{city:'Barcelona',title:'バルセロナを歩く',img:'images/madrid.png',items:[['Morning','旧市街散策','ゴシック地区候補'],['Afternoon','ガウディ建築','街の空気を楽しむ']]},'2026-10-13':{city:'Barcelona',title:'サグラダと特別なディナー',img:'images/sagrada.png',items:[['09:30','Sagrada Família','Basilica入場 · Quiet Hour'],['10:15','Nativity Tower','生誕のファサードの塔'],['19:00','Cinc Sentits','特別なディナー']]},'2026-10-14':{city:'Barcelona → Doha',title:'スペイン最終日',img:'images/selfie.png',items:[['Morning','最後の街歩き','買い物とカフェ'],['16:35','QR146','ドーハへ']]},'2026-10-15':{city:'Doha → Narita → Shin-Urayasu',title:'帰国と東京ベイ滞在',img:'images/flight.png',items:[['Flight','QR806','ドーハから成田へ'],['19:10','成田到着','入国・荷物受け取り'],['Night','オリエンタルホテル東京ベイ','新浦安駅直結・予約確定']]}};
 function key(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}function renderItems(el,items){el.innerHTML='';items.forEach(([time,title,desc])=>{const li=document.createElement('li');li.innerHTML=`<time>${time}</time><div><b>${title}</b><small>${desc}</small></div>`;el.appendChild(li)})}
-function renderToday(){const now=new Date(),day=tripDays[key(now)];let data;if(day)data=day;else if(now<departure)data={city:'Before the journey',title:'旅が始まるまで',img:'images/planning.png',items:[['Next','サグラダ予約','10月13日午前候補'],['Check','AVEの並び席','2名並びを確認'],['Pack','通信と荷物','eSIM・変換プラグ']]};else data={city:'Our memories',title:'旅を振り返る',img:'images/selfie.png',items:[['Photos','写真を選ぶ','お気に入りをアルバムへ'],['Diary','言葉を残す','旅の空気を短い日記に']]};document.getElementById('todayPlace').textContent=data.city;document.getElementById('todayHomeTitle').textContent=data.title;document.getElementById('todayChip').textContent=day?key(now).slice(5).replace('-','/'):days+' days';document.getElementById('todayHomeImage').src=data.img;renderItems(document.getElementById('todayList'),data.items);document.getElementById('todayCity').textContent=data.city;document.getElementById('todayTitle').textContent=data.title;document.getElementById('todayHero').src=data.img;renderItems(document.getElementById('todaySchedule'),data.items)}renderToday();
+function renderToday(){const now=new Date(),day=tripDays[key(now)];let data;if(day)data=day;else if(now<departure)data={city:'Before the journey',title:'旅が始まるまで',img:'images/planning.png',items:[['Next','サグラダの事前準備','公式アプリ・イヤホン・身分証'],['Learn','Gaudí Quest','生誕のファサードを3分予習'],['Check','AVEの並び席','2名並びを確認']]};else data={city:'Our memories',title:'旅を振り返る',img:'images/selfie.png',items:[['Photos','写真を選ぶ','お気に入りをアルバムへ'],['Diary','言葉を残す','旅の空気を短い日記に']]};document.getElementById('todayPlace').textContent=data.city;document.getElementById('todayHomeTitle').textContent=data.title;document.getElementById('todayChip').textContent=day?key(now).slice(5).replace('-','/'):days+' days';document.getElementById('todayHomeImage').src=data.img;renderItems(document.getElementById('todayList'),data.items);document.getElementById('todayCity').textContent=data.city;document.getElementById('todayTitle').textContent=data.title;document.getElementById('todayHero').src=data.img;renderItems(document.getElementById('todaySchedule'),data.items)}renderToday();
 const opening=document.getElementById('opening');
 let openingTimer=0;
 function closeOpening(){
@@ -266,3 +266,28 @@ if(orientalHotelMemo){
     },300);
   });
 }
+
+
+// v4.4.2 Gaudí Quest
+const gaudiMissionKey='espana-gaudi-quest-v1';
+const gaudiAnswerKey='espana-gaudi-answers-v1';
+const gaudiMissionEls=[...document.querySelectorAll('[data-gaudi-mission]')];
+let gaudiMissionState={};
+try{gaudiMissionState=JSON.parse(localStorage.getItem(gaudiMissionKey)||'{}')||{}}catch{gaudiMissionState={}}
+function updateGaudiQuest(){
+  const done=gaudiMissionEls.filter(label=>{const input=label.querySelector('input');return input&&input.checked}).length;
+  const total=gaudiMissionEls.length||5;
+  const bar=document.getElementById('gaudiProgressBar');if(bar)bar.style.width=`${Math.round(done/total*100)}%`;
+  const text=document.getElementById('gaudiProgressText');if(text)text.textContent=`${done} / ${total}`;
+  const achievement=document.getElementById('gaudiAchievement');if(achievement)achievement.hidden=done<total;
+}
+gaudiMissionEls.forEach(label=>{
+  const key=label.dataset.gaudiMission;const input=label.querySelector('input');
+  input.checked=!!gaudiMissionState[key];label.classList.toggle('done',input.checked);
+  input.addEventListener('change',()=>{gaudiMissionState[key]=input.checked;label.classList.toggle('done',input.checked);localStorage.setItem(gaudiMissionKey,JSON.stringify(gaudiMissionState));updateGaudiQuest()});
+});
+updateGaudiQuest();
+const gaudiReveal=document.getElementById('gaudiRevealAnswers');
+const gaudiAnswers=document.getElementById('gaudiAnswers');
+function setGaudiAnswers(open){if(!gaudiAnswers||!gaudiReveal)return;gaudiAnswers.hidden=!open;gaudiReveal.classList.toggle('open',open);gaudiReveal.innerHTML=open?'答え合わせを閉じる <span>−</span>':'答え合わせを開く <span>＋</span>';localStorage.setItem(gaudiAnswerKey,open?'1':'0')}
+if(gaudiReveal&&gaudiAnswers){setGaudiAnswers(localStorage.getItem(gaudiAnswerKey)==='1');gaudiReveal.addEventListener('click',()=>setGaudiAnswers(gaudiAnswers.hidden));}

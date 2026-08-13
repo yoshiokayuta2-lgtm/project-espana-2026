@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.4.1">
+<link rel="stylesheet" href="css/style.css?v=4.4.2">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -33,6 +33,7 @@
 <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 5-2 8 3 5-2v13l-5 2-8-3-5 2zM8 4v13M16 7v13"/></symbol>
 <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3h3l1.2 5-2 1.3a15 15 0 0 0 5.5 5.5l1.3-2 5 1.2v3c0 2-1.6 3.5-3.6 3.3C10 19.7 4.3 14 3.7 6.6 3.5 4.6 5 3 7 3Z"/></symbol>
 <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="16" rx="3"/><path d="M8 7h8M8 12h8M8 19l-2 2M16 19l2 2M9 16h.01M15 16h.01"/></symbol>
+<symbol id="i-learn" viewBox="0 0 24 24"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H12v18H7.5A3.5 3.5 0 0 0 4 23zM20 5.5A3.5 3.5 0 0 0 16.5 2H12v18h4.5A3.5 3.5 0 0 1 20 23z"/><path d="M7 7h2.5M14.5 7H17M7 11h2.5M14.5 11H17"/></symbol>
 </svg>
 
 <div class="opening" id="opening" aria-hidden="true">
@@ -96,6 +97,7 @@
     <button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><b>Today</b><small>今日</small></button>
     <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><b>Emergency</b><small>緊急時</small></button>
     <button data-route="souvenirs"><svg class="line-icon" aria-hidden="true"><use href="#i-gift"></use></svg><b>Souvenirs</b><small>お土産</small></button>
+    <button data-route="gaudi"><svg class="line-icon" aria-hidden="true"><use href="#i-learn"></use></svg><b>Gaudí Quest</b><small>サグラダ予習</small></button>
     <button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><b>Memories</b><small>写真</small></button>
   </section>
   <section class="home-grid reveal">
@@ -113,13 +115,13 @@
           <button data-route="flight"><img src="images/departure.png" alt="出発"><span><small>Oct 8</small><b>出発</b><em>ドーハ経由でマドリードへ</em></span></button>
           <button data-route="plan"><img src="images/madrid.png" alt="マドリード"><span><small>Oct 9–11</small><b>Madrid</b><em>芸術と街歩きを満喫</em></span></button>
           <button data-route="restaurant"><img src="images/corral.png" alt="フラメンコ"><span><small>Oct 10</small><b>Flamenco</b><em>Corral de la Morería</em></span></button>
-          <button data-route="plan"><img src="images/sagrada.png" alt="バルセロナ"><span><small>Oct 11–14</small><b>Barcelona</b><em>サグラダ・ファミリアへ</em></span></button>
+          <button data-route="gaudi"><img src="images/sagrada.png" alt="バルセロナ"><span><small>Oct 13 · 09:30</small><b>Sagrada Família</b><em>10:15 生誕のファサードの塔</em></span></button>
         </div>
       </article>
       <article class="quick-info card">
         <div class="card-heading"><div><p class="section-label">Quick Info</p><h2>ひと目で確認</h2></div></div>
         <div class="info-grid">
-          <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><small>Reservations</small><b>5件</b></button>
+          <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><small>Reservations</small><b>6件</b></button>
           <button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-check"></use></svg><small>Checklist</small><b id="checkProgress">0 / 5</b></button>
           <button data-route="flight"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><small>Flights</small><b>4便</b></button>
           <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><small>Emergency</small><b>緊急連絡</b></button>
@@ -137,7 +139,7 @@
     <article class="story-step"><img src="images/departure.png" alt="出発"><div><time>10.8 <small>Thu</small></time><p class="eyebrow">Departure</p><h2>成田からドーハへ</h2><p>QR809で夜の空へ。旅の始まり。</p></div></article>
     <article class="story-step reverse"><img src="images/madrid.png" alt="マドリード"><div><time>10.9–10 <small>Fri–Sat</small></time><p class="eyebrow">Madrid</p><h2>芸術と街歩き</h2><p>王宮、美術館、そして夜はフラメンコ。</p></div></article>
     <article class="story-step"><img src="images/corral.png" alt="フラメンコ"><div><time>10.10 <small>Sat</small></time><p class="eyebrow">Flamenco</p><h2>Corral de la Morería</h2><p>ディナーとショー。スペインらしい特別な夜。</p></div></article>
-    <article class="story-step reverse"><img src="images/sagrada.png" alt="サグラダ・ファミリア"><div><time>10.11–14 <small>Sun–Wed</small></time><p class="eyebrow">Barcelona</p><h2>ガウディの街へ</h2><p>AVEで移動。サグラダ・ファミリアとCinc Sentits。</p></div></article>
+    <article class="story-step reverse"><img src="images/sagrada.png" alt="サグラダ・ファミリア"><div><time>10.13 <small>Tue</small></time><p class="eyebrow">Sagrada Família</p><h2>9:30 聖堂 → 10:15 生誕の塔</h2><p>塔付き＋公式オーディオガイド。朝の生誕のファサードを楽しむ。</p><button class="story-link" data-route="gaudi">Gaudí Questで予習する <span>›</span></button></div></article>
     <article class="story-step"><img src="images/selfie.png" alt="帰国後の東京滞在"><div><time>10.15 <small>Thu</small></time><p class="eyebrow">Return & Stay</p><h2>成田から新浦安へ</h2><p>19:10に成田へ到着。オリエンタルホテル東京ベイで一泊して、旅の余韻を楽しむ。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
   </div>
 </section>
@@ -191,7 +193,7 @@
 <section id="booked" class="screen inner">
 <header class="page-head"><p class="eyebrow">TRAVEL CONCIERGE</p><h1>予約コンシェルジュ</h1><p>旅行中に必要な予約を、種類ごとにすぐ確認。</p></header>
 <div class="concierge-summary">
-  <div><strong>5</strong><span>Reservations</span></div>
+  <div><strong>6</strong><span>Reservations</span></div>
   <div><strong>4</strong><span>Flights</span></div>
   <div><strong>3</strong><span>Hotels</span></div>
   <div><strong>2</strong><span>Dining</span></div>
@@ -206,6 +208,10 @@
     <button class="wallet-card featured" data-route="hotel"><span class="wallet-date">10.15</span><div><small>CONFIRMED · 1 NIGHT</small><b>オリエンタルホテル東京ベイ</b><em>予約番号 TC57C3A2AABDA</em></div><i>›</i></button>
     <button class="wallet-card muted" data-route="hotel"><span class="wallet-date">10.9</span><div><small>MADRID · 2 NIGHTS</small><b>Puerta del Sol 周辺</b><em>詳細確認中</em></div><i>›</i></button>
     <button class="wallet-card muted" data-route="hotel"><span class="wallet-date">10.11</span><div><small>BARCELONA · 3 NIGHTS</small><b>Plaça Catalunya 周辺</b><em>詳細確認中</em></div><i>›</i></button>
+  </section>
+  <section class="concierge-group">
+    <header><svg class="line-icon"><use href="#i-ticket"></use></svg><div><p class="eyebrow">TICKETS</p><h2>観光チケット</h2></div></header>
+    <button class="wallet-card featured" data-route="gaudi"><span class="wallet-date">10.13</span><div><small>BARCELONA · BOOKED</small><b>Sagrada Família + Nativity Tower</b><em>09:30 Basilica · 10:15 Tower · 2名</em></div><i>›</i></button>
   </section>
   <section class="concierge-group">
     <header><svg class="line-icon"><use href="#i-food"></use></svg><div><p class="eyebrow">DINING</p><h2>レストラン予約</h2></div></header>
@@ -325,6 +331,50 @@
   </article>
 </section>
 
+<section id="gaudi" class="screen inner gaudi-screen">
+  <header class="page-head"><p class="eyebrow">GAUDÍ QUEST</p><h1>生誕のファサードを、もっと楽しむ。</h1><p>暗記ではなく「現地で見つける」ための3分予習。見学後は答え合わせで完成。</p></header>
+
+  <article class="gaudi-ticket reveal">
+    <img src="images/sagrada.png" alt="サグラダ・ファミリアを楽しむ二人">
+    <div class="gaudi-ticket-copy"><p class="eyebrow">BOOKED · OCT 13</p><h2>Sagrada Família</h2><div class="gaudi-time-row"><span><small>BASILICA</small><b>09:30</b></span><i>→</i><span><small>NATIVITY TOWER</small><b>10:15</b></span></div><p>塔付き＋公式オーディオガイド · 2名 · 入場 C/ Marina</p><div class="gaudi-alert"><b>朝のポイント</b><span>9:30〜10:00はQuiet Hour。イヤホンを使い、静かに見学。公式アプリは前日までにDL、スマホは満充電に。</span></div></div>
+  </article>
+
+  <section class="gaudi-learn reveal">
+    <div class="section-head-simple"><p class="eyebrow">BEFORE VISIT · 3 MIN</p><h2>これだけ知っておけばOK</h2></div>
+    <div class="gaudi-fact-grid">
+      <article><span>01</span><h3>朝日を受けるファサード</h3><p>生誕のファサードは東向き。ガウディはキリストの誕生を「生命の喜び」と自然の輝きに重ねた。</p></article>
+      <article><span>02</span><h3>3つの入口</h3><p>左から「希望・慈愛・信仰」。それぞれヨセフ・イエス・マリアと結びついている。</p></article>
+      <article><span>03</span><h3>石なのに、自然だらけ</h3><p>鳥、植物、昆虫、両生類まで登場する。建物を見るというより「石の森」を観察する気分で。</p></article>
+      <article><span>04</span><h3>塔は“遠く”だけ見ない</h3><p>生誕の塔からはバルセロナ東側を望める。上りはエレベーター、下りは階段。高さにある彫刻の近さも楽しもう。</p></article>
+    </div>
+  </section>
+
+  <section class="gaudi-missions reveal">
+    <div class="section-head-simple"><p class="eyebrow">FIND IT! · ON SITE</p><h2>現地ミッション</h2><p>見つけたらタップ。答えは先に見なくても楽しめる。</p></div>
+    <div id="gaudiMissionList" class="gaudi-mission-list">
+      <label data-gaudi-mission="turtles"><input type="checkbox"><span><b>Mission 1</b><strong>2種類の「カメ」を探す</strong><small>海側と山側で違いがある。</small></span></label>
+      <label data-gaudi-mission="portals"><input type="checkbox"><span><b>Mission 2</b><strong>3つのポータルを見分ける</strong><small>Hope / Charity / Faith。</small></span></label>
+      <label data-gaudi-mission="star"><input type="checkbox"><span><b>Mission 3</b><strong>ベツレヘムの星を探す</strong><small>中央の「誕生」の場面を上へたどってみる。</small></span></label>
+      <label data-gaudi-mission="nature"><input type="checkbox"><span><b>Mission 4</b><strong>好きな動物・植物を3つ見つける</strong><small>一番「ガウディっぽい」と思ったものを覚えておく。</small></span></label>
+      <label data-gaudi-mission="tower"><input type="checkbox"><span><b>Mission 5</b><strong>塔で“地上から見えなかったもの”を1つ発見</strong><small>景色だけでなく、建築そのものを近くで見る。</small></span></label>
+    </div>
+    <div class="gaudi-progress"><div><span id="gaudiProgressBar"></span></div><p><b id="gaudiProgressText">0 / 5</b> discovered</p></div>
+    <div id="gaudiAchievement" class="gaudi-achievement" hidden><span>◇</span><div><small>ACHIEVEMENT UNLOCKED</small><b>Gaudí Explorer</b><p>5つの発見をコンプリート。</p></div></div>
+  </section>
+
+  <section class="gaudi-after reveal">
+    <div class="section-head-simple"><p class="eyebrow">AFTER VISIT</p><h2>答え合わせ</h2><p>見学後に開くと「あれはそういう意味だったのか」が分かる。</p></div>
+    <button id="gaudiRevealAnswers" class="gaudi-reveal-button" type="button">答え合わせを開く <span>＋</span></button>
+    <div id="gaudiAnswers" class="gaudi-answers" hidden>
+      <article><b>01 · カメ</b><p>海側の柱はウミガメ、山側の柱はリクガメ（tortoise）。ファサードの立地と、ヨセフ／マリアに対応している。</p></article>
+      <article><b>02 · 3つのポータル</b><p>左から希望（Hope）・慈愛（Charity）・信仰（Faith）。中央の慈愛のポータルが最大で、イエスの誕生が主題。</p></article>
+      <article><b>03 · 中央の物語</b><p>中央には誕生、羊飼いと東方三博士、ベツレヘムの星、音楽を奏でる天使たちなどが重なっている。</p></article>
+      <article><b>04 · 自然</b><p>生誕のファサードは生命と創造の喜びを表すため、植物や動物が驚くほど多い。朝日に照らされる東向きなのも、その考えとつながる。</p></article>
+      <article><b>05 · 塔</b><p>生誕の塔はバルセロナ東側の眺め。上りはリフト、下りは階段。遠景と同時に、地上からは見上げるしかなかった造形の距離感も体験できる。</p></article>
+    </div>
+  </section>
+</section>
+
 <section id="memories" class="screen inner memories-screen">
   <header class="page-head"><p class="eyebrow">MEMORIES</p><h1>Our Spain Memories</h1><p>準備の日から旅の終わりまで残せる、二人だけの端末内アルバム。</p></header>
   <div class="memory-intro">
@@ -349,6 +399,6 @@
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.4.1"></script>
+<script src="js/app.js?v=4.4.2"></script>
 </body>
 </html>
