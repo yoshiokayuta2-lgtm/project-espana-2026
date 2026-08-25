@@ -10,3 +10,12 @@ GitHub Pages upload-ready release.
 - Service worker cache bumped to v4.4.2
 
 Upload all files in this folder to the repository root.
+
+## v4.4.3
+- New Project España app icon (Concept A)
+- iOS 180px Apple touch icon / Android PWA icons / maskable icon
+- Improved manifest and standalone PWA settings
+- Smart Add to Home guide for iPhone and Android
+- Native install prompt support on compatible Android browsers
+- Install guide auto-hides after installation and can be reopened from footer
+- Cache version bumped to v4.4.3

@@ -74,6 +74,7 @@ function closeOpening(){
   opening.classList.add('closing');
   setTimeout(()=>{opening.className='opening';opening.setAttribute('aria-hidden','true');document.body.style.overflow=''},560);
   localStorage.setItem('espana-opening-v432','seen');
+  window.setTimeout(()=>{if(window.ProjectEspanaInstall)window.ProjectEspanaInstall.maybeShow();},420);
 }
 function openOpening(mode='full'){
   clearTimeout(openingTimer);
@@ -87,7 +88,45 @@ document.getElementById('replayOpening').addEventListener('click',()=>openOpenin
 opening.addEventListener('click',event=>{if(event.target===opening&&opening.classList.contains('short'))closeOpening()});
 openOpening(localStorage.getItem('espana-opening-v432')?'short':'full');
 function observeReveals(){const els=document.querySelectorAll('.screen.active .reveal:not(.visible)');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('visible'));return}const obs=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}}),{threshold:.12});els.forEach(e=>obs.observe(e))}observeReveals();
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js?v=4.4.3').catch(()=>{}));
+
+// v4.4.3 PWA install guide
+(function setupPwaInstall(){
+  const guide=document.getElementById('installGuide');
+  const footerButton=document.getElementById('installAppButton');
+  const nativeButton=document.getElementById('nativeInstallButton');
+  const iosSteps=document.getElementById('iosInstallSteps');
+  const androidSteps=document.getElementById('androidInstallSteps');
+  const platform=document.getElementById('installGuidePlatform');
+  if(!guide||!footerButton)return;
+  const dismissedKey='espana-install-guide-dismissed-v443';
+  let deferredPrompt=null;
+  const ua=navigator.userAgent||'';
+  const isIOS=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const isAndroid=/Android/i.test(ua);
+  const isMobile=isIOS||isAndroid||/Mobile/i.test(ua);
+  const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+  function renderGuide(){
+    const installed=isStandalone();
+    footerButton.hidden=installed;
+    if(installed){guide.hidden=true;guide.setAttribute('aria-hidden','true');document.body.classList.remove('install-guide-open');return;}
+    iosSteps.hidden=true;androidSteps.hidden=true;nativeButton.hidden=true;
+    if(isIOS){platform.textContent='iPhone · Safari';iosSteps.hidden=false;}
+    else if(isAndroid){platform.textContent='Android · Chrome';if(deferredPrompt)nativeButton.hidden=false;else androidSteps.hidden=false;}
+    else{platform.textContent='スマートフォンで開くと追加できます';androidSteps.hidden=false;}
+  }
+  function openGuide(){renderGuide();if(isStandalone())return;guide.hidden=false;guide.setAttribute('aria-hidden','false');document.body.classList.add('install-guide-open');}
+  function closeGuide(markDismissed=true){guide.hidden=true;guide.setAttribute('aria-hidden','true');document.body.classList.remove('install-guide-open');if(markDismissed)localStorage.setItem(dismissedKey,'1');}
+  function maybeShow(){if(!isMobile||isStandalone()||localStorage.getItem(dismissedKey))return;openGuide();}
+  guide.querySelectorAll('[data-install-close]').forEach(el=>el.addEventListener('click',()=>closeGuide(true)));
+  footerButton.addEventListener('click',()=>openGuide());
+  window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredPrompt=event;renderGuide();});
+  if(nativeButton)nativeButton.addEventListener('click',async()=>{if(!deferredPrompt){renderGuide();return;}deferredPrompt.prompt();try{await deferredPrompt.userChoice}catch{}deferredPrompt=null;closeGuide(false);});
+  window.addEventListener('appinstalled',()=>{deferredPrompt=null;localStorage.setItem(dismissedKey,'1');renderGuide();});
+  window.ProjectEspanaInstall={maybeShow,openGuide,renderGuide};
+  renderGuide();
+})();
+
 
 // Souvenir list: stored only on this device.
 const souvenirStorageKey='espana-souvenirs-v1';

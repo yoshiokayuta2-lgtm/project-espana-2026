@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#fbf6ee">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Project España">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="description" content="YutaとYukoのスペイン新婚旅行アプリ">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <title>Project España 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.4.2">
+<link rel="stylesheet" href="css/style.css?v=4.4.3">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -398,7 +400,30 @@
 <section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">Yuta</p><img src="images/couple.png" alt="二人の線画"></div></section>
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
-<footer><button id="replayOpening">Replay opening</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<script src="js/app.js?v=4.4.2"></script>
+<footer><button id="replayOpening">Replay opening</button><button id="installAppButton" class="install-footer-button" type="button">Add to Home</button><button data-route="letter" class="footer-heart">♡</button></footer>
+<div class="install-guide" id="installGuide" hidden aria-hidden="true">
+  <div class="install-guide-backdrop" data-install-close></div>
+  <section class="install-guide-card" role="dialog" aria-modal="true" aria-labelledby="installGuideTitle">
+    <button class="install-guide-close" type="button" data-install-close aria-label="閉じる">×</button>
+    <div class="install-guide-icon-wrap"><img src="icons/icon-180.png" alt="Project España アプリアイコン"></div>
+    <p class="eyebrow">PROJECT ESPAÑA APP</p>
+    <h2 id="installGuideTitle">ホーム画面に追加しよう</h2>
+    <p class="install-guide-lead">追加するとURLバーなしで開けて、Project Españaを普通のアプリのように使えます。</p>
+    <div class="install-guide-platform" id="installGuidePlatform"></div>
+    <button id="nativeInstallButton" class="wide-button install-native" type="button" hidden>アプリとして追加 <span>＋</span></button>
+    <div class="install-steps" id="iosInstallSteps" hidden>
+      <div><b>1</b><span>Safari下部の<strong>共有</strong>ボタンをタップ</span></div>
+      <div><b>2</b><span><strong>「ホーム画面に追加」</strong>を選ぶ</span></div>
+      <div><b>3</b><span>右上の<strong>「追加」</strong>で完了</span></div>
+    </div>
+    <div class="install-steps" id="androidInstallSteps" hidden>
+      <div><b>1</b><span>Chrome右上の<strong>︙</strong>をタップ</span></div>
+      <div><b>2</b><span><strong>「ホーム画面に追加」</strong>または<strong>「アプリをインストール」</strong></span></div>
+      <div><b>3</b><span>確認画面で<strong>追加</strong></span></div>
+    </div>
+    <p class="install-guide-note">追加後は、この案内は自動で表示されません。</p>
+  </section>
+</div>
+<script src="js/app.js?v=4.4.3"></script>
 </body>
 </html>
