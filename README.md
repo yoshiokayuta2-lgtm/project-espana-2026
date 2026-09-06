@@ -11,6 +11,13 @@ GitHub Pages upload-ready release.
 
 Upload all files in this folder to the repository root.
 
+## v4.4.4
+- Added The Tokyo Station Hotel (Oct 16–17): Double Room, breakfast included, BOOKED
+- Added Oct 16 suitcase shipment to Gifu and Disney → Tokyo Station flow
+- Extended Journey/Today/Memories through Oct 17
+- Reservation summary updated to 7 reservations / 4 hotels
+- Cache version bumped to v4.4.4
+
 ## v4.4.3
 - New Project España app icon (Concept A)
 - iOS 180px Apple touch icon / Android PWA icons / maskable icon
