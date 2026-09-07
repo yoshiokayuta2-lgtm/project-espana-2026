@@ -1,451 +1,71 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fbf6ee">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Project España">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="description" content="YutaとYukoのスペイン新婚旅行アプリ">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-<title>Project España 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.4.3">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>GUCHIの歴史添削隊</title>
+  <meta name="theme-color" content="#173f6b" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6.2.0" />
 </head>
 <body>
-<svg class="icon-sprite" aria-hidden="true" focusable="false">
-<symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11.2 12 4l8.5 7.2v8.3H15v-5h-6v5H3.5z"/></symbol>
-<symbol id="i-plan" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="m14.8 9.2-1.9 3.7-3.7 1.9 1.9-3.7z"/></symbol>
-<symbol id="i-flight" viewBox="0 0 24 24"><path d="m3 14 7.2-1.8 3.5-7.3 2 .5-1.1 6 4.8-1.2c1.2-.3 2.3.4 2.6 1.6.3 1.2-.4 2.3-1.6 2.6l-5 1.2-4.4 4.2-1.8.5 1.4-4-5.8 1.4z"/></symbol>
-<symbol id="i-hotel" viewBox="0 0 24 24"><path d="M4 20V5h10v15M14 10h6v10M7 8h1M11 8h1M7 12h1M11 12h1M7 16h1M11 16h1M17 13h1M17 16h1M2 20h20"/></symbol>
-<symbol id="i-food" viewBox="0 0 24 24"><path d="M6 3v8M3.5 3v5.5A2.5 2.5 0 0 0 6 11v10M8.5 3v5.5A2.5 2.5 0 0 1 6 11M16 3c-2.2 2.5-2.2 7.5 0 10v8M20 3v18"/></symbol>
-<symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3 7.5h18v4a2.5 2.5 0 0 0 0 5v4H3v-4a2.5 2.5 0 0 0 0-5zM9 8v12"/></symbol>
-<symbol id="i-bag" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14" rx="2"/><path d="M9 7V5a3 3 0 0 1 6 0v2M8 11v6M16 11v6"/></symbol>
-<symbol id="i-today" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7 3v4M17 3v4M3.5 9.5h17M8 14h8M8 17h5"/></symbol>
-<symbol id="i-emergency" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></symbol>
-<symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M2 9h20v-4H2zM12 5v16M12 5c-1.5-3.5-6-3.2-6 0 0 2.2 3.2 2.5 6 0ZM12 5c1.5-3.5 6-3.2 6 0 0 2.2-3.2 2.5-6 0Z"/></symbol>
-<symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v10H2V9a2 2 0 0 1 2-2Z"/><circle cx="12" cy="13" r="4"/></symbol>
-<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></symbol>
-<symbol id="i-fun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M7.8 7.2c1.1-1 2.5-1.6 4.2-1.6 2.7 0 4.8 1.4 4.8 3.5 0 1.8-1.5 2.8-4.8 2.8s-4.8 1-4.8 2.8c0 2.1 2.1 3.5 4.8 3.5 1.7 0 3.1-.6 4.2-1.6"/></symbol>
-<symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 5-2 8 3 5-2v13l-5 2-8-3-5 2zM8 4v13M16 7v13"/></symbol>
-<symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3h3l1.2 5-2 1.3a15 15 0 0 0 5.5 5.5l1.3-2 5 1.2v3c0 2-1.6 3.5-3.6 3.3C10 19.7 4.3 14 3.7 6.6 3.5 4.6 5 3 7 3Z"/></symbol>
-<symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="16" rx="3"/><path d="M8 7h8M8 12h8M8 19l-2 2M16 19l2 2M9 16h.01M15 16h.01"/></symbol>
-<symbol id="i-learn" viewBox="0 0 24 24"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H12v18H7.5A3.5 3.5 0 0 0 4 23zM20 5.5A3.5 3.5 0 0 0 16.5 2H12v18h4.5A3.5 3.5 0 0 1 20 23z"/><path d="M7 7h2.5M14.5 7H17M7 11h2.5M14.5 11H17"/></symbol>
-</svg>
+  <div id="app"></div>
+  <script src="config.js?v=6.2.0"></script>
+  <script>
+    (function(){
+      const cdnCandidates = [
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
+        "https://unpkg.com/@supabase/supabase-js@2"
+      ];
 
-<div class="opening" id="opening" aria-hidden="true">
-  <button class="opening-skip" id="openingSkip" type="button">Skip</button>
-  <div class="opening-sky" aria-hidden="true">
-    <span class="star star-1"></span><span class="star star-2"></span><span class="star star-3"></span><span class="star star-4"></span><span class="star star-5"></span><span class="star star-6"></span>
-    <div class="opening-dawn"></div>
-  </div>
-  <div class="opening-flight" aria-hidden="true">
-    <svg class="opening-route" viewBox="0 0 760 220" role="img">
-      <path class="route-line" d="M45 166 C190 54 390 38 600 112 C660 133 700 120 716 91 C725 74 714 60 698 67 C684 73 684 93 699 103 C714 113 731 99 725 83"/>
-    </svg>
-    <span class="opening-city opening-tokyo">Tokyo</span>
-    <span class="opening-city opening-spain">España</span>
-    <span class="opening-glow" aria-hidden="true"></span>
-  </div>
-  <div class="opening-map" aria-hidden="true">
-    <svg viewBox="0 0 320 250">
-      <path d="M42 74 76 48l41 8 24-18 39 18 34-8 29 25 37 8-5 35 17 20-24 26-4 31-36 7-17 25-36-2-23 22-39-18-39 2-19-27-30-15 13-34-16-27 20-22Z"/>
-      <circle cx="132" cy="116" r="5"/><circle cx="226" cy="142" r="5"/>
-      <path class="map-link" d="M132 116 C164 106 194 118 226 142"/>
-    </svg>
-  </div>
-  <div class="opening-title">
-    <p>Yuta &amp; Yuko</p>
-    <h1>Project España</h1>
-    <span>Our First Journey Together</span>
-  </div>
-</div>
-<header class="topbar">
-  <button class="brand" data-route="home"><span>Project España</span><small>2026</small></button>
-  <p class="script">Our First Adventure</p>
-  <button class="couple-pill" data-route="letter">Yuta &amp; Yuko <span>♡</span></button>
-</header>
-<main>
-<section id="home" class="screen active">
-  <section class="hero reveal">
-    <div class="hero-copy">
-      <div class="hero-kicker"><span>Honeymoon Journey</span><b>Spain · 2026</b></div>
-      <p class="eyebrow">A journey for two</p>
-      <h1>Hola, Yuko.</h1>
-      <p class="lead">私たちのスペイン旅行が、いよいよ近づいてきたね。<br>一緒に、最高の8日間にしよう。</p>
-      <div class="countdown"><strong id="countdown">—</strong><span>days to go</span></div>
-      <div class="hero-meta"><p class="dates">Oct 8–15, 2026</p><p>Madrid <span>→</span> Barcelona</p></div>
-      <div class="hero-actions"><button class="pill-button" data-route="plan">旅程を見る <span>›</span></button><button class="text-button" data-route="today">今日を開く</button></div>
-    </div>
-    <figure class="hero-art"><img src="images/planning.png" alt="二人でスペイン旅行を計画している線画"></figure>
-  </section>
-  <section class="next-event reveal" aria-label="次の予定">
-    <div class="next-event-date"><small>Next Event</small><strong>Oct 8</strong><span>Thursday</span></div>
-    <div class="next-event-main"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><div><p>Departure Day</p><h2>Narita → Doha → Madrid</h2><span>QR809 · 成田空港から旅が始まる</span></div></div>
-    <button data-route="flight">Flight details <span>›</span></button>
-  </section>
-  <section class="quickbar reveal" aria-label="クイックメニュー">
-    <button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><b>Plan</b><small>旅程</small></button>
-    <button data-route="flight"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><b>Flight</b><small>フライト</small></button>
-    <button data-route="hotel"><svg class="line-icon" aria-hidden="true"><use href="#i-hotel"></use></svg><b>Hotel</b><small>ホテル</small></button>
-    <button data-route="restaurant"><svg class="line-icon" aria-hidden="true"><use href="#i-food"></use></svg><b>Restaurant</b><small>レストラン</small></button>
-    <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><b>Booked</b><small>予約</small></button>
-    <button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-bag"></use></svg><b>Prepare</b><small>準備</small></button>
-    <button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><b>Today</b><small>今日</small></button>
-    <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><b>Emergency</b><small>緊急時</small></button>
-    <button data-route="souvenirs"><svg class="line-icon" aria-hidden="true"><use href="#i-gift"></use></svg><b>Souvenirs</b><small>お土産</small></button>
-    <button data-route="gaudi"><svg class="line-icon" aria-hidden="true"><use href="#i-learn"></use></svg><b>Gaudí Quest</b><small>サグラダ予習</small></button>
-    <button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><b>Memories</b><small>写真</small></button>
-  </section>
-  <section class="home-grid reveal">
-    <article class="today-card card">
-      <div class="card-heading"><div><p class="section-label">Today</p><h2 id="todayHomeTitle">旅が始まるまで</h2></div><span class="date-chip" id="todayChip">Planning</span></div>
-      <img id="todayHomeImage" src="images/madrid.png" alt="今日のイラスト">
-      <div class="place"><span>⌖</span><b id="todayPlace">Before the journey</b></div>
-      <ul id="todayList"></ul>
-      <button class="wide-button" data-route="today">今日の詳細を見る <span>›</span></button>
-    </article>
-    <div class="side-stack">
-      <article class="upcoming card">
-        <div class="card-heading"><div><p class="section-label">Upcoming</p><h2>旅のストーリー</h2></div><button data-route="plan">全体を見る ›</button></div>
-        <div class="storyline">
-          <button data-route="flight"><img src="images/departure.png" alt="出発"><span><small>Oct 8</small><b>出発</b><em>ドーハ経由でマドリードへ</em></span></button>
-          <button data-route="plan"><img src="images/madrid.png" alt="マドリード"><span><small>Oct 9–11</small><b>Madrid</b><em>芸術と街歩きを満喫</em></span></button>
-          <button data-route="restaurant"><img src="images/corral.png" alt="フラメンコ"><span><small>Oct 10</small><b>Flamenco</b><em>Corral de la Morería</em></span></button>
-          <button data-route="gaudi"><img src="images/sagrada.png" alt="バルセロナ"><span><small>Oct 13 · 09:30</small><b>Sagrada Família</b><em>10:15 生誕のファサードの塔</em></span></button>
-        </div>
-      </article>
-      <article class="quick-info card">
-        <div class="card-heading"><div><p class="section-label">Quick Info</p><h2>ひと目で確認</h2></div></div>
-        <div class="info-grid">
-          <button data-route="booked"><svg class="line-icon" aria-hidden="true"><use href="#i-ticket"></use></svg><small>Reservations</small><b>6件</b></button>
-          <button data-route="prepare"><svg class="line-icon" aria-hidden="true"><use href="#i-check"></use></svg><small>Checklist</small><b id="checkProgress">0 / 5</b></button>
-          <button data-route="flight"><svg class="line-icon" aria-hidden="true"><use href="#i-flight"></use></svg><small>Flights</small><b>4便</b></button>
-          <button data-route="emergency"><svg class="line-icon" aria-hidden="true"><use href="#i-emergency"></use></svg><small>Emergency</small><b>緊急連絡</b></button>
-          <button data-route="souvenirs"><svg class="line-icon" aria-hidden="true"><use href="#i-gift"></use></svg><small>Souvenirs</small><b id="souvenirProgress">0件</b></button>
-          <button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Memories</small><b id="memoryProgress">0枚</b></button>
-        </div>
-      </article>
-    </div>
-  </section>
-  <blockquote class="quote reveal">The best thing in life is the people we love, the places we’ve been,<br>and the memories we’ve made along the way. <span>♡</span></blockquote>
-</section>
-<section id="plan" class="screen inner">
-  <header class="page-head"><p class="eyebrow">ITINERARY</p><h1>旅の流れ</h1><p>移動・街歩き・食事を、一つのストーリーに。</p></header>
-  <div class="timeline-story">
-    <article class="story-step"><img src="images/departure.png" alt="出発"><div><time>10.8 <small>Thu</small></time><p class="eyebrow">Departure</p><h2>成田からドーハへ</h2><p>QR809で夜の空へ。旅の始まり。</p></div></article>
-    <article class="story-step reverse"><img src="images/madrid.png" alt="マドリード"><div><time>10.9–10 <small>Fri–Sat</small></time><p class="eyebrow">Madrid</p><h2>芸術と街歩き</h2><p>王宮、美術館、そして夜はフラメンコ。</p></div></article>
-    <article class="story-step"><img src="images/corral.png" alt="フラメンコ"><div><time>10.10 <small>Sat</small></time><p class="eyebrow">Flamenco</p><h2>Corral de la Morería</h2><p>ディナーとショー。スペインらしい特別な夜。</p></div></article>
-    <article class="story-step reverse"><img src="images/sagrada.png" alt="サグラダ・ファミリア"><div><time>10.13 <small>Tue</small></time><p class="eyebrow">Sagrada Família</p><h2>9:30 聖堂 → 10:15 生誕の塔</h2><p>塔付き＋公式オーディオガイド。朝の生誕のファサードを楽しむ。</p><button class="story-link" data-route="gaudi">Gaudí Questで予習する <span>›</span></button></div></article>
-    <article class="story-step"><img src="images/selfie.png" alt="帰国後の東京滞在"><div><time>10.15 <small>Thu</small></time><p class="eyebrow">Return & Stay</p><h2>成田から新浦安へ</h2><p>19:10に成田へ到着。オリエンタルホテル東京ベイで一泊して、旅の余韻を楽しむ。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
-    <article class="story-step reverse"><img src="images/couple.png" alt="東京で過ごす旅の最終夜"><div><time>10.16 <small>Fri</small></time><p class="eyebrow">Disney & Final Stay</p><h2>Disneyから東京駅へ</h2><p>朝、大型スーツケースは岐阜の自宅へ発送。身軽にDisneyを楽しんだあと、The Tokyo Station Hotelで旅の最終夜。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
-  </div>
-</section>
-<section id="flight" class="screen inner"><header class="page-head"><p class="eyebrow">FLIGHTS</p><h1>空の旅</h1><p>搭乗日に必要な情報を、すぐ見つけられる形で。</p></header><div class="feature-image"><img src="images/flight.png" alt="機内で過ごす二人"></div><div class="ticket-grid"><article class="ticket"><div><small>NRT → DOH</small><h2>QR809</h2><p>Oct 8 · Narita</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → MAD</small><h2>QR147</h2><p>Oct 9 · Doha</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>BCN → DOH</small><h2>QR146</h2><p>Oct 14 · 16:35</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → NRT</small><h2>QR806</h2><p>Oct 15 · 19:10着</p></div><strong>Qatar Airways</strong></article></div></section>
-<section id="hotel" class="screen inner">
-<header class="page-head"><p class="eyebrow">HOTELS</p><h1>旅の拠点</h1><p>スペインの二都市と、帰国後の東京で過ごすホテル。</p></header>
-<div class="detail-grid hotel-grid">
-  <article class="detail-card"><p class="eyebrow">MADRID · OCT 9–11</p><h2>Puerta del Sol 周辺</h2><dl><div><dt>泊数</dt><dd>2泊</dd></div><div><dt>エリア</dt><dd>マドリード中心部</dd></div><div><dt>状況</dt><dd>詳細確認中</dd></div></dl></article>
-  <article class="detail-card"><p class="eyebrow">BARCELONA · OCT 11–14</p><h2>Plaça Catalunya 周辺</h2><dl><div><dt>泊数</dt><dd>3泊</dd></div><div><dt>エリア</dt><dd>バルセロナ中心部</dd></div><div><dt>状況</dt><dd>詳細確認中</dd></div></dl></article>
-  <article class="detail-card hotel-confirmed">
-    <span class="badge">予約確定</span>
-    <p class="eyebrow">SHIN-URAYASU · OCT 15–16</p>
-    <h2>オリエンタルホテル東京ベイ</h2>
-    <p class="hotel-subtitle">成田到着後の一泊。新浦安駅直結。</p>
-    <dl>
-      <div><dt>予約番号</dt><dd>TC57C3A2AABDA</dd></div>
-      <div><dt>チェックイン</dt><dd>10月15日 14:00〜</dd></div>
-      <div><dt>チェックアウト</dt><dd>10月16日 12:00まで</dd></div>
-      <div><dt>部屋</dt><dd>オリエンタル・デラックス<br>42㎡・禁煙</dd></div>
-      <div><dt>ベッド</dt><dd>幅120cm × 3台<br>補助ベッド 幅100cm × 1台</dd></div>
-      <div><dt>バスルーム</dt><dd>バスタブあり<br>洗い場・ハンドシャワーあり</dd></div>
-      <div><dt>特典</dt><dd>14:00アーリーチェックイン<br>専用カウンター・ミネラルウォーター</dd></div>
-      <div><dt>支払い</dt><dd>現地決済</dd></div>
-    </dl>
-    <div class="action-row">
-      <a class="action-button primary" href="https://www.google.com/maps/search/?api=1&query=%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Google Maps</a>
-      <a class="action-button" href="https://maps.apple.com/?q=%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Apple Maps</a>
-      <a class="action-button" href="tel:0473508111"><svg class="line-icon"><use href="#i-phone"></use></svg>ホテルへ電話</a>
-      <a class="action-button" href="https://www.oriental-hotel.co.jp/" target="_blank" rel="noopener">公式サイト</a>
-    </div>
-    <p class="hotel-address">〒279-0011 千葉県浦安市美浜1-8-2</p>
-    <section class="hotel-nearby" aria-labelledby="hotel-nearby-title">
-      <div class="hotel-section-heading"><p class="eyebrow">NEARBY & ACCESS</p><h3 id="hotel-nearby-title">周辺・移動メモ</h3></div>
-      <div class="nearby-grid">
-        <a href="https://maps.apple.com/?q=%E6%96%B0%E6%B5%A6%E5%AE%89%E9%A7%85" target="_blank" rel="noopener"><b>新浦安駅</b><span>北口からデッキ直結・徒歩約1分</span></a>
-        <a href="https://www.oriental-hotel.co.jp/access/" target="_blank" rel="noopener"><b>ディズニーシャトル</b><span>ランド／シーへ約15分・時刻表は当日確認</span></a>
-        <a href="https://maps.google.com/?q=%E3%83%AD%E3%83%BC%E3%82%BD%E3%83%B3+%E3%82%AA%E3%83%AA%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%86%E3%83%AB%E6%9D%B1%E4%BA%AC%E3%83%99%E3%82%A4" target="_blank" rel="noopener"><b>館内ローソン</b><span>ホテル2階・24時間営業</span></a>
-        <a href="https://maps.google.com/?q=%E3%82%A2%E3%83%88%E3%83%AC%E6%96%B0%E6%B5%A6%E5%AE%89" target="_blank" rel="noopener"><b>買い物</b><span>アトレ・MONA・イオンが駅周辺</span></a>
-      </div>
-    </section>
-    <section class="hotel-personal-memo" aria-labelledby="hotel-memo-title">
-      <div class="hotel-section-heading"><p class="eyebrow">PRIVATE NOTE</p><h3 id="hotel-memo-title">ホテルメモ</h3></div>
-      <textarea id="orientalHotelMemo" placeholder="例：朝はシャトル時刻を確認／荷物を預ける／2階のローソンで飲み物を買う"></textarea>
-      <p id="orientalHotelMemoStatus" class="save-status">この端末に自動保存されます。</p>
-    </section>
-  </article>
-  <article class="detail-card hotel-confirmed">
-    <span class="badge">予約確定</span>
-    <p class="eyebrow">TOKYO · OCT 16–17</p>
-    <h2>The Tokyo Station Hotel</h2>
-    <p class="hotel-subtitle">Disneyのあとは東京駅へ。新婚旅行を締めくくる最後の一泊。</p>
-    <dl>
-      <div><dt>予約番号</dt><dd>1770813576</dd></div>
-      <div><dt>泊数</dt><dd>1泊</dd></div>
-      <div><dt>部屋</dt><dd>Double Room</dd></div>
-      <div><dt>朝食</dt><dd>あり</dd></div>
-      <div><dt>10月16日 朝</dt><dd>大型スーツケースを岐阜の自宅へ発送</dd></div>
-      <div><dt>夜の流れ</dt><dd>Disney → 東京駅 → Hotel</dd></div>
-    </dl>
-    <div class="action-row">
-      <a class="action-button primary" href="https://www.google.com/maps/search/?api=1&query=The+Tokyo+Station+Hotel" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Google Maps</a>
-      <a class="action-button" href="https://maps.apple.com/?q=The+Tokyo+Station+Hotel" target="_blank" rel="noopener"><svg class="line-icon"><use href="#i-map"></use></svg>Apple Maps</a>
-      <a class="action-button" href="https://www.tokyostationhotel.jp/" target="_blank" rel="noopener">公式サイト</a>
-    </div>
-    <p class="hotel-address">東京駅 丸の内駅舎内</p>
-  </article>
-</div>
-</section>
+      function loadScript(src, timeoutMs = 9000){
+        return new Promise((resolve, reject) => {
+          const el = document.createElement("script");
+          let done = false;
+          const finish = (fn, value) => {
+            if(done) return;
+            done = true;
+            clearTimeout(timer);
+            fn(value);
+          };
+          const timer = setTimeout(() => finish(reject, new Error(`timeout: ${src}`)), timeoutMs);
+          el.src = src;
+          el.crossOrigin = "anonymous";
+          el.onload = () => finish(resolve, src);
+          el.onerror = () => finish(reject, new Error(`load failed: ${src}`));
+          document.head.appendChild(el);
+        });
+      }
 
-<section id="restaurant" class="screen inner"><header class="page-head"><p class="eyebrow">DINING</p><h1>スペインの夜</h1><p>食事も、この旅の大切な思い出に。</p></header><div class="feature-image"><img src="images/corral.png" alt="ワインとフラメンコを楽しむ二人"></div><div class="detail-grid"><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">MADRID · OCT 10 · 21:30</p><h2>Corral de la Morería</h2><dl><div><dt>予約番号</dt><dd>W10102026084153</dd></div><div><dt>内容</dt><dd>Dinner + Show</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank" rel="noopener">Google Maps</a></article><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">BARCELONA · OCT 13 · 19:00</p><h2>Cinc Sentits</h2><dl><div><dt>住所</dt><dd>Carrer d'Entença, 60</dd></div><div><dt>内容</dt><dd>Tasting Menu</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank" rel="noopener">Google Maps</a></article></div></section>
-<section id="booked" class="screen inner">
-<header class="page-head"><p class="eyebrow">TRAVEL CONCIERGE</p><h1>予約コンシェルジュ</h1><p>旅行中に必要な予約を、種類ごとにすぐ確認。</p></header>
-<div class="concierge-summary">
-  <div><strong>7</strong><span>Reservations</span></div>
-  <div><strong>4</strong><span>Flights</span></div>
-  <div><strong>4</strong><span>Hotels</span></div>
-  <div><strong>2</strong><span>Dining</span></div>
-</div>
-<div class="concierge-sections">
-  <section class="concierge-group">
-    <header><svg class="line-icon"><use href="#i-flight"></use></svg><div><p class="eyebrow">FLIGHTS</p><h2>空の予約</h2></div></header>
-    <button class="wallet-card navy" data-route="flight"><span class="wallet-date">10.8–15</span><div><small>Qatar Airways</small><b>Narita · Doha · Madrid · Barcelona</b><em>4便の詳細を見る</em></div><i>›</i></button>
-  </section>
-  <section class="concierge-group">
-    <header><svg class="line-icon"><use href="#i-hotel"></use></svg><div><p class="eyebrow">HOTELS</p><h2>宿泊予約</h2></div></header>
-    <button class="wallet-card featured" data-route="hotel"><span class="wallet-date">10.15</span><div><small>CONFIRMED · 1 NIGHT</small><b>オリエンタルホテル東京ベイ</b><em>予約番号 TC57C3A2AABDA</em></div><i>›</i></button>
-    <button class="wallet-card featured" data-route="hotel"><span class="wallet-date">10.16</span><div><small>TOKYO · BOOKED · BREAKFAST</small><b>The Tokyo Station Hotel</b><em>Double Room · 1 Night</em></div><i>›</i></button>
-    <button class="wallet-card muted" data-route="hotel"><span class="wallet-date">10.9</span><div><small>MADRID · 2 NIGHTS</small><b>Puerta del Sol 周辺</b><em>詳細確認中</em></div><i>›</i></button>
-    <button class="wallet-card muted" data-route="hotel"><span class="wallet-date">10.11</span><div><small>BARCELONA · 3 NIGHTS</small><b>Plaça Catalunya 周辺</b><em>詳細確認中</em></div><i>›</i></button>
-  </section>
-  <section class="concierge-group">
-    <header><svg class="line-icon"><use href="#i-ticket"></use></svg><div><p class="eyebrow">TICKETS</p><h2>観光チケット</h2></div></header>
-    <button class="wallet-card featured" data-route="gaudi"><span class="wallet-date">10.13</span><div><small>BARCELONA · BOOKED</small><b>Sagrada Família + Nativity Tower</b><em>09:30 Basilica · 10:15 Tower · 2名</em></div><i>›</i></button>
-  </section>
-  <section class="concierge-group">
-    <header><svg class="line-icon"><use href="#i-food"></use></svg><div><p class="eyebrow">DINING</p><h2>レストラン予約</h2></div></header>
-    <button class="wallet-card" data-route="restaurant"><span class="wallet-date">10.10</span><div><small>MADRID · 21:30</small><b>Corral de la Morería</b><em>Dinner + Show · 確定</em></div><i>›</i></button>
-    <button class="wallet-card" data-route="restaurant"><span class="wallet-date">10.13</span><div><small>BARCELONA · 19:00</small><b>Cinc Sentits</b><em>Tasting Menu · 確定</em></div><i>›</i></button>
-  </section>
-  <section class="concierge-group">
-    <header><svg class="line-icon"><use href="#i-train"></use></svg><div><p class="eyebrow">TRANSPORT</p><h2>都市間移動</h2></div></header>
-    <button class="wallet-card muted" data-route="plan"><span class="wallet-date">10.11</span><div><small>AVE</small><b>Madrid → Barcelona</b><em>並び席を最終確認</em></div><i>›</i></button>
-  </section>
-</div>
-<div class="ready-card"><svg class="line-icon"><use href="#i-check"></use></svg><div><small>TRIP STATUS</small><h2>Ready for the journey.</h2><p>予約情報が追加されるたび、このページが旅のコンシェルジュとして育ちます。</p></div></div>
-</section>
-
-<section id="prepare" class="screen inner">
-  <header class="page-head"><p class="eyebrow">PREPARE</p><h1>旅の準備</h1><p>持ち物もメモも、この端末に自動保存されます。</p></header>
-  <div class="prepare-grid">
-    <article class="detail-card packing-card">
-      <div class="card-heading"><div><p class="section-label">Packing</p><h2>持ち物リスト</h2></div><b id="checkProgressDetail">0 / 0</b></div>
-      <div class="packing-progress" aria-label="荷造り進捗"><span id="packingProgressBar"></span></div>
-      <p class="packing-progress-copy" id="packingProgressCopy">準備を始めよう</p>
-      <div id="checklist" class="checklist packing-groups"></div>
-      <form id="packingForm" class="packing-form">
-        <select id="packingCategory" aria-label="持ち物カテゴリー">
-          <option value="貴重品">貴重品</option><option value="ガジェット">ガジェット</option><option value="衣類">衣類</option><option value="洗面・ケア">洗面・ケア</option><option value="機内・移動">機内・移動</option><option value="その他">その他</option>
-        </select>
-        <div class="packing-add-row"><input id="packingInput" maxlength="50" required placeholder="例：変換プラグ"><button type="submit" aria-label="持ち物を追加">＋</button></div>
-      </form>
-      <div id="customPacking" class="checklist custom-packing"></div>
-      <p id="packingEmpty" class="empty-state">追加した持ち物はここに表示されます。</p>
-    </article>
-    <article class="detail-card"><h2>Memo</h2><textarea id="notes" placeholder="二人で相談したいこと、買いたいもの、行きたい場所…"></textarea><button class="link-button emergency-jump" data-route="emergency">緊急時ページを確認する</button></article>
-  </div>
-</section>
-<section id="souvenirs" class="screen inner">
-  <header class="page-head"><p class="eyebrow">SOUVENIRS</p><h1>お土産リスト</h1><p>それぞれの端末に自動保存。思いついたらすぐ追加できます。</p></header>
-  <div class="souvenir-layout">
-    <article class="detail-card souvenir-form-card">
-      <div class="card-heading"><div><p class="section-label">Add</p><h2>渡す人を追加</h2></div></div>
-      <form id="souvenirForm" class="souvenir-form">
-        <label><span>渡す相手</span><input id="souvenirPerson" maxlength="40" required placeholder="例：母、職場のみんな"></label>
-        <div class="form-row">
-          <label><span>担当</span><select id="souvenirOwner"><option value="Yuta">Yuta</option><option value="Yuko">Yuko</option><option value="Together">Together</option></select></label>
-          <label><span>個数</span><input id="souvenirQty" type="number" min="1" max="99" value="1"></label>
-        </div>
-        <label><span>お土産候補</span><input id="souvenirItem" maxlength="60" placeholder="例：個包装のお菓子"></label>
-        <label><span>メモ</span><input id="souvenirMemo" maxlength="100" placeholder="好み、予算、買う場所など"></label>
-        <button class="wide-button" type="submit">リストに追加 <span>＋</span></button>
-      </form>
-    </article>
-    <article class="detail-card souvenir-list-card">
-      <div class="souvenir-toolbar">
-        <div><p class="section-label">List</p><h2>買うもの</h2></div>
-        <div class="souvenir-filters" id="souvenirFilters">
-          <button class="active" data-filter="all">すべて</button><button data-filter="open">未購入</button><button data-filter="Yuta">Yuta</button><button data-filter="Yuko">Yuko</button>
-        </div>
-      </div>
-      <div class="souvenir-summary"><b id="souvenirSummary">0件</b><span>購入済みは下にまとまります</span></div>
-      <div id="souvenirList" class="souvenir-list"></div>
-      <p id="souvenirEmpty" class="empty-state">まだ登録がありません。最初の一人を追加してみよう。</p>
-    </article>
-  </div>
-</section>
-<section id="emergency" class="screen inner emergency-screen">
-  <header class="page-head"><p class="eyebrow">EMERGENCY</p><h1>緊急時ページ</h1><p>慌てたときに、上から順番に確認。主要情報はオフラインでも表示できます。</p></header>
-  <div class="emergency-hero">
-    <div><p class="section-label">Spain emergency number</p><h2>警察・救急・消防</h2><p>スペイン国内では共通の緊急番号です。</p></div>
-    <a class="emergency-call" href="tel:112"><small>Tap to call</small><strong>112</strong></a>
-  </div>
-  <div class="emergency-grid">
-    <article class="detail-card emergency-card"><span class="emergency-number">01</span><h2>パスポートを紛失</h2><ol><li>警察で盗難・紛失証明を取得</li><li>顔写真、身元確認資料を準備</li><li>大使館・総領事館へ電話</li></ol><p class="emergency-note">帰国日が迫っている場合は、最初の電話で日程を伝える。</p></article>
-    <article class="detail-card emergency-card"><span class="emergency-number">02</span><h2>カード・財布を紛失</h2><ol><li>カード会社へ利用停止を連絡</li><li>盗難なら警察へ届け出</li><li>海外旅行保険にも連絡</li></ol><a id="cardCallLink" class="mini-call disabled" href="#">カード会社に電話 <span id="cardCallLabel">番号を登録</span></a></article>
-    <article class="detail-card emergency-card"><span class="emergency-number">03</span><h2>病気・けが</h2><ol><li>緊急なら112へ電話</li><li>保険会社の日本語窓口へ連絡</li><li>診断書・領収書を保管</li></ol><a id="insuranceCallLink" class="mini-call disabled" href="#">保険会社に電話 <span id="insuranceCallLabel">番号を登録</span></a></article>
-  </div>
-  <div class="detail-grid embassy-grid">
-    <article class="detail-card contact-card"><p class="eyebrow">MADRID</p><h2>在スペイン日本国大使館</h2><p>Calle Serrano 109, 28006 Madrid</p><div class="contact-actions"><a href="tel:+34915907600">＋34 91 590 7600</a><a href="https://maps.google.com/?q=Embajada+del+Japon+Madrid" target="_blank" rel="noopener">Map</a></div><small>人身事故などの緊急時は夜間・休日も代表番号で対応。</small></article>
-    <article class="detail-card contact-card"><p class="eyebrow">BARCELONA</p><h2>在バルセロナ日本国総領事館</h2><p>Av. Diagonal 640, 2a planta D, Barcelona</p><div class="contact-actions"><a href="tel:+34932803433">＋34 93 280 3433</a><a href="https://maps.google.com/?q=Consulado+General+del+Japon+Barcelona" target="_blank" rel="noopener">Map</a></div><small>人命に関わる緊急時は夜間・休日も電話対応。</small></article>
-  </div>
-  <article class="detail-card emergency-personal">
-    <div class="card-heading"><div><p class="section-label">My information</p><h2>自分たちの連絡先</h2></div><span>端末保存</span></div>
-    <div class="emergency-form">
-      <label><span>海外旅行保険の電話番号</span><input data-emergency-field="insurancePhone" inputmode="tel" placeholder="例：+81 ..."></label>
-      <label><span>保険証券番号</span><input data-emergency-field="insurancePolicy" placeholder="証券番号・契約番号"></label>
-      <label><span>カード会社の紛失窓口</span><input data-emergency-field="cardPhone" inputmode="tel" placeholder="例：+81 ..."></label>
-      <label><span>旅行会社・担当者</span><input data-emergency-field="agency" placeholder="会社名、電話番号など"></label>
-      <label class="full"><span>日本の緊急連絡先</span><input data-emergency-field="homeContact" placeholder="名前、続柄、電話番号"></label>
-    </div>
-    <p class="save-status" id="emergencySaveStatus">入力すると自動保存されます。</p>
-  </article>
-  <p class="source-note">連絡先確認：在スペイン日本国大使館・在バルセロナ日本国総領事館（2026年7月確認）。渡航直前にも公式情報をご確認ください。</p>
-</section>
-<section id="today" class="screen inner"><header class="page-head"><p class="eyebrow">TODAY</p><h1 id="todayTitle">今日の物語</h1><p id="todayLead">旅の時期に合わせて自動で切り替わります。</p></header><div class="feature-image"><img id="todayHero" src="images/departure.png" alt="今日のイラスト"></div><article class="detail-card today-detail"><h2 id="todayCity">Before the journey</h2><ul id="todaySchedule"></ul></article></section>
-
-<section id="fun" class="screen inner fun-screen">
-  <header class="page-head"><p class="eyebrow">FUN</p><h1>Just for Us</h1><p>迷ったときは、コインに任せてみよう。</p></header>
-  <article class="coin-card reveal">
-    <div class="coin-copy">
-      <p class="section-label">Coin Flip</p>
-      <h2>今日はどっちが決める？</h2>
-      <p>決めたいテーマを選んで、コインをタップ。</p>
-      <label class="coin-topic-label" for="coinTopic">何を決める？</label>
-      <select id="coinTopic" class="coin-topic">
-        <option value="Dinner">レストラン</option>
-        <option value="Wine">ワイン</option>
-        <option value="Dessert">デザート</option>
-        <option value="Souvenir">お土産</option>
-        <option value="Next place">次に行く場所</option>
-        <option value="Cafe">カフェ</option>
-        <option value="Photo spot">写真スポット</option>
-      </select>
-    </div>
-    <div class="coin-stage">
-      <button id="coinFlip" class="coin" type="button" aria-label="コインを投げる"><span class="coin-front">Y</span><span class="coin-back">Y</span></button>
-      <p class="coin-hint">Tap the coin</p>
-      <div id="coinResult" class="coin-result" aria-live="polite"><small>READY</small><strong>Yuta or Yuko?</strong><span>コインが二人の代わりに決めます。</span></div>
-    </div>
-  </article>
-</section>
-
-<section id="gaudi" class="screen inner gaudi-screen">
-  <header class="page-head"><p class="eyebrow">GAUDÍ QUEST</p><h1>生誕のファサードを、もっと楽しむ。</h1><p>暗記ではなく「現地で見つける」ための3分予習。見学後は答え合わせで完成。</p></header>
-
-  <article class="gaudi-ticket reveal">
-    <img src="images/sagrada.png" alt="サグラダ・ファミリアを楽しむ二人">
-    <div class="gaudi-ticket-copy"><p class="eyebrow">BOOKED · OCT 13</p><h2>Sagrada Família</h2><div class="gaudi-time-row"><span><small>BASILICA</small><b>09:30</b></span><i>→</i><span><small>NATIVITY TOWER</small><b>10:15</b></span></div><p>塔付き＋公式オーディオガイド · 2名 · 入場 C/ Marina</p><div class="gaudi-alert"><b>朝のポイント</b><span>9:30〜10:00はQuiet Hour。イヤホンを使い、静かに見学。公式アプリは前日までにDL、スマホは満充電に。</span></div></div>
-  </article>
-
-  <section class="gaudi-learn reveal">
-    <div class="section-head-simple"><p class="eyebrow">BEFORE VISIT · 3 MIN</p><h2>これだけ知っておけばOK</h2></div>
-    <div class="gaudi-fact-grid">
-      <article><span>01</span><h3>朝日を受けるファサード</h3><p>生誕のファサードは東向き。ガウディはキリストの誕生を「生命の喜び」と自然の輝きに重ねた。</p></article>
-      <article><span>02</span><h3>3つの入口</h3><p>左から「希望・慈愛・信仰」。それぞれヨセフ・イエス・マリアと結びついている。</p></article>
-      <article><span>03</span><h3>石なのに、自然だらけ</h3><p>鳥、植物、昆虫、両生類まで登場する。建物を見るというより「石の森」を観察する気分で。</p></article>
-      <article><span>04</span><h3>塔は“遠く”だけ見ない</h3><p>生誕の塔からはバルセロナ東側を望める。上りはエレベーター、下りは階段。高さにある彫刻の近さも楽しもう。</p></article>
-    </div>
-  </section>
-
-  <section class="gaudi-missions reveal">
-    <div class="section-head-simple"><p class="eyebrow">FIND IT! · ON SITE</p><h2>現地ミッション</h2><p>見つけたらタップ。答えは先に見なくても楽しめる。</p></div>
-    <div id="gaudiMissionList" class="gaudi-mission-list">
-      <label data-gaudi-mission="turtles"><input type="checkbox"><span><b>Mission 1</b><strong>2種類の「カメ」を探す</strong><small>海側と山側で違いがある。</small></span></label>
-      <label data-gaudi-mission="portals"><input type="checkbox"><span><b>Mission 2</b><strong>3つのポータルを見分ける</strong><small>Hope / Charity / Faith。</small></span></label>
-      <label data-gaudi-mission="star"><input type="checkbox"><span><b>Mission 3</b><strong>ベツレヘムの星を探す</strong><small>中央の「誕生」の場面を上へたどってみる。</small></span></label>
-      <label data-gaudi-mission="nature"><input type="checkbox"><span><b>Mission 4</b><strong>好きな動物・植物を3つ見つける</strong><small>一番「ガウディっぽい」と思ったものを覚えておく。</small></span></label>
-      <label data-gaudi-mission="tower"><input type="checkbox"><span><b>Mission 5</b><strong>塔で“地上から見えなかったもの”を1つ発見</strong><small>景色だけでなく、建築そのものを近くで見る。</small></span></label>
-    </div>
-    <div class="gaudi-progress"><div><span id="gaudiProgressBar"></span></div><p><b id="gaudiProgressText">0 / 5</b> discovered</p></div>
-    <div id="gaudiAchievement" class="gaudi-achievement" hidden><span>◇</span><div><small>ACHIEVEMENT UNLOCKED</small><b>Gaudí Explorer</b><p>5つの発見をコンプリート。</p></div></div>
-  </section>
-
-  <section class="gaudi-after reveal">
-    <div class="section-head-simple"><p class="eyebrow">AFTER VISIT</p><h2>答え合わせ</h2><p>見学後に開くと「あれはそういう意味だったのか」が分かる。</p></div>
-    <button id="gaudiRevealAnswers" class="gaudi-reveal-button" type="button">答え合わせを開く <span>＋</span></button>
-    <div id="gaudiAnswers" class="gaudi-answers" hidden>
-      <article><b>01 · カメ</b><p>海側の柱はウミガメ、山側の柱はリクガメ（tortoise）。ファサードの立地と、ヨセフ／マリアに対応している。</p></article>
-      <article><b>02 · 3つのポータル</b><p>左から希望（Hope）・慈愛（Charity）・信仰（Faith）。中央の慈愛のポータルが最大で、イエスの誕生が主題。</p></article>
-      <article><b>03 · 中央の物語</b><p>中央には誕生、羊飼いと東方三博士、ベツレヘムの星、音楽を奏でる天使たちなどが重なっている。</p></article>
-      <article><b>04 · 自然</b><p>生誕のファサードは生命と創造の喜びを表すため、植物や動物が驚くほど多い。朝日に照らされる東向きなのも、その考えとつながる。</p></article>
-      <article><b>05 · 塔</b><p>生誕の塔はバルセロナ東側の眺め。上りはリフト、下りは階段。遠景と同時に、地上からは見上げるしかなかった造形の距離感も体験できる。</p></article>
-    </div>
-  </section>
-</section>
-
-<section id="memories" class="screen inner memories-screen">
-  <header class="page-head"><p class="eyebrow">MEMORIES</p><h1>Our Spain Memories</h1><p>準備の日から旅の終わりまで残せる、二人だけの端末内アルバム。</p></header>
-  <div class="memory-intro">
-    <div><p class="section-label">Before → After</p><h2>イラストの旅が、本当の思い出になっていく。</h2><p>写真は自動で縮小し、この端末のブラウザ内に保存します。別端末への共有や自動同期は行いません。</p></div>
-    <img src="images/selfie.png" alt="スペインで写真を撮る二人">
-  </div>
-  <article class="detail-card memory-upload-card">
-    <div class="card-heading"><div><p class="section-label">Add photos</p><h2>写真を追加</h2></div><b id="memoryCount">0枚</b></div>
-    <form id="memoryForm" class="memory-form">
-      <label><span>日付</span><select id="memoryDay"><option value="day0">Day 0 · Preparation</option><option value="2026-10-08">Day 1 · Oct 8</option><option value="2026-10-09">Day 2 · Oct 9</option><option value="2026-10-10">Day 3 · Oct 10</option><option value="2026-10-11">Day 4 · Oct 11</option><option value="2026-10-12">Day 5 · Oct 12</option><option value="2026-10-13">Day 6 · Oct 13</option><option value="2026-10-14">Day 7 · Oct 14</option><option value="2026-10-15">Day 8 · Oct 15</option><option value="2026-10-16">Day 9 · Oct 16</option><option value="2026-10-17">Day 10 · Oct 17</option></select></label>
-      <label><span>ひとこと</span><input id="memoryCaption" maxlength="80" placeholder="例：マドリード最初の夜"></label>
-      <label class="photo-picker"><input id="memoryFiles" type="file" accept="image/*" multiple><span>写真を選ぶ</span><small>複数選択できます</small></label>
-      <button class="wide-button" type="submit">アルバムに追加 <span>＋</span></button>
-    </form>
-    <p class="save-status" id="memoryStatus">写真はこの端末だけに保存されます。</p>
-  </article>
-  <div id="memoryGallery" class="memory-gallery"></div>
-  <p id="memoryEmpty" class="empty-state">まだ写真がありません。Day 0に準備の一枚を追加して、旅の物語を始めよう。</p>
-</section>
-<div id="memoryModal" class="memory-modal" hidden><button id="memoryModalClose" aria-label="閉じる">×</button><img id="memoryModalImage" alt="思い出の写真"><p id="memoryModalCaption"></p></div>
-<section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">Yuta</p><img src="images/couple.png" alt="二人の線画"></div></section>
-</main>
-<nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
-<footer><button id="replayOpening">Replay opening</button><button id="installAppButton" class="install-footer-button" type="button">Add to Home</button><button data-route="letter" class="footer-heart">♡</button></footer>
-<div class="install-guide" id="installGuide" hidden aria-hidden="true">
-  <div class="install-guide-backdrop" data-install-close></div>
-  <section class="install-guide-card" role="dialog" aria-modal="true" aria-labelledby="installGuideTitle">
-    <button class="install-guide-close" type="button" data-install-close aria-label="閉じる">×</button>
-    <div class="install-guide-icon-wrap"><img src="icons/icon-180.png" alt="Project España アプリアイコン"></div>
-    <p class="eyebrow">PROJECT ESPAÑA APP</p>
-    <h2 id="installGuideTitle">ホーム画面に追加しよう</h2>
-    <p class="install-guide-lead">追加するとURLバーなしで開けて、Project Españaを普通のアプリのように使えます。</p>
-    <div class="install-guide-platform" id="installGuidePlatform"></div>
-    <button id="nativeInstallButton" class="wide-button install-native" type="button" hidden>アプリとして追加 <span>＋</span></button>
-    <div class="install-steps" id="iosInstallSteps" hidden>
-      <div><b>1</b><span>Safari下部の<strong>共有</strong>ボタンをタップ</span></div>
-      <div><b>2</b><span><strong>「ホーム画面に追加」</strong>を選ぶ</span></div>
-      <div><b>3</b><span>右上の<strong>「追加」</strong>で完了</span></div>
-    </div>
-    <div class="install-steps" id="androidInstallSteps" hidden>
-      <div><b>1</b><span>Chrome右上の<strong>︙</strong>をタップ</span></div>
-      <div><b>2</b><span><strong>「ホーム画面に追加」</strong>または<strong>「アプリをインストール」</strong></span></div>
-      <div><b>3</b><span>確認画面で<strong>追加</strong></span></div>
-    </div>
-    <p class="install-guide-note">追加後は、この案内は自動で表示されません。</p>
-  </section>
-</div>
-<script src="js/app.js?v=4.4.3"></script>
+      async function boot(){
+        const attempts = [];
+        if(!(window.supabase && typeof window.supabase.createClient === "function")){
+          for(const src of cdnCandidates){
+            try{
+              await loadScript(src);
+              attempts.push({src, ok:true});
+              if(window.supabase && typeof window.supabase.createClient === "function") break;
+            }catch(err){
+              attempts.push({src, ok:false, message:String(err && err.message || err)});
+            }
+          }
+        }
+        window.__GUCHI_SUPABASE_SDK_STATUS = {
+          ready: Boolean(window.supabase && typeof window.supabase.createClient === "function"),
+          attempts
+        };
+        const app = document.createElement("script");
+        app.src = "app.js?v=6.2.0";
+        app.onerror = () => {
+          document.getElementById("app").innerHTML = '<div style="max-width:760px;margin:60px auto;font-family:sans-serif;padding:24px"><h2>アプリの読み込みに失敗しました</h2><p>ページを再読み込みしてください。改善しない場合はGitHub Pagesの反映状況を確認してください。</p></div>';
+        };
+        document.body.appendChild(app);
+      }
+      boot();
+    })();
+  </script>
 </body>
 </html>
