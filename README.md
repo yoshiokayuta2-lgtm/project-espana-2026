@@ -26,3 +26,10 @@ Upload all files in this folder to the repository root.
 - Native install prompt support on compatible Android browsers
 - Install guide auto-hides after installation and can be reopened from footer
 - Cache version bumped to v4.4.3
+
+
+## v4.4.5
+- Updated all Qatar Airways flight times from the latest issued itinerary.
+- QR806 arrival at Narita updated from 19:10 to 19:35 on Oct 15.
+- Added confirmed adjacent-seat status for all four flight sectors.
+- Cache version bumped to v4.4.5.
