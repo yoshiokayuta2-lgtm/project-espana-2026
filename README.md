@@ -33,3 +33,11 @@ Upload all files in this folder to the repository root.
 - QR806 arrival at Narita updated from 19:10 to 19:35 on Oct 15.
 - Added confirmed adjacent-seat status for all four flight sectors.
 - Cache version bumped to v4.4.5.
+
+
+## v4.4.6
+- Confirmed Hotel Ópera in Madrid (Oct 9–11) with access, nearby sights, check-in/out and luggage notes.
+- Confirmed HCC Regente in Barcelona (Oct 11–14) with access, nearby Gaudí sights and REG76 Terrace note.
+- Confirmed Madrid → Barcelona train: Oct 11, 11:27 → 15:11.
+- Journey/Today and Travel Concierge updated to match the final hotel and train arrangements.
+- Cache and asset version bumped to v4.4.6.
