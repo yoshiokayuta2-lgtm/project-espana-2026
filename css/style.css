@@ -267,3 +267,15 @@ img,svg{max-width:100%}
 .install-guide-note{font-size:11px;color:var(--muted);margin:16px 0 0}
 body.install-guide-open{overflow:hidden}
 @media(max-width:600px){.install-guide{padding:12px}.install-guide-card{padding:28px 20px 22px;border-radius:26px}.install-guide-card h2{font-size:34px}.install-guide-icon-wrap{width:96px;height:96px;border-radius:22px}}
+
+
+/* v4.4.7 iPhone/PWA image stability */
+@media(max-width:900px){
+  .story-step img{height:auto;aspect-ratio:3/2;object-fit:contain;background:#fff}
+  .feature-image{height:auto;aspect-ratio:3/2;min-height:0}
+  .feature-image img{height:100%;object-fit:contain;background:#fff}
+}
+@media(max-width:520px){
+  .story-step img{height:auto;aspect-ratio:3/2;min-height:0}
+  .feature-image{height:auto;aspect-ratio:3/2}
+}

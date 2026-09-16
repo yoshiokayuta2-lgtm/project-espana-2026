@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4.4.6">
+<link rel="stylesheet" href="css/style.css?v=4.4.7">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -82,7 +82,7 @@
       <div class="hero-meta"><p class="dates">Oct 8–15, 2026</p><p>Madrid <span>→</span> Barcelona</p></div>
       <div class="hero-actions"><button class="pill-button" data-route="plan">旅程を見る <span>›</span></button><button class="text-button" data-route="today">今日を開く</button></div>
     </div>
-    <figure class="hero-art"><img src="images/planning.png" alt="二人でスペイン旅行を計画している線画"></figure>
+    <figure class="hero-art"><img src="images/planning.png?v=4.4.7" alt="二人でスペイン旅行を計画している線画"></figure>
   </section>
   <section class="next-event reveal" aria-label="次の予定">
     <div class="next-event-date"><small>Next Event</small><strong>Oct 8</strong><span>Thursday</span></div>
@@ -105,7 +105,7 @@
   <section class="home-grid reveal">
     <article class="today-card card">
       <div class="card-heading"><div><p class="section-label">Today</p><h2 id="todayHomeTitle">旅が始まるまで</h2></div><span class="date-chip" id="todayChip">Planning</span></div>
-      <img id="todayHomeImage" src="images/madrid.png" alt="今日のイラスト">
+      <img id="todayHomeImage" src="images/madrid.png?v=4.4.7" alt="今日のイラスト">
       <div class="place"><span>⌖</span><b id="todayPlace">Before the journey</b></div>
       <ul id="todayList"></ul>
       <button class="wide-button" data-route="today">今日の詳細を見る <span>›</span></button>
@@ -114,10 +114,10 @@
       <article class="upcoming card">
         <div class="card-heading"><div><p class="section-label">Upcoming</p><h2>旅のストーリー</h2></div><button data-route="plan">全体を見る ›</button></div>
         <div class="storyline">
-          <button data-route="flight"><img src="images/departure.png" alt="出発"><span><small>Oct 8</small><b>出発</b><em>ドーハ経由でマドリードへ</em></span></button>
-          <button data-route="plan"><img src="images/madrid.png" alt="マドリード"><span><small>Oct 9–11</small><b>Madrid</b><em>芸術と街歩きを満喫</em></span></button>
-          <button data-route="restaurant"><img src="images/corral.png" alt="フラメンコ"><span><small>Oct 10</small><b>Flamenco</b><em>Corral de la Morería</em></span></button>
-          <button data-route="gaudi"><img src="images/sagrada.png" alt="バルセロナ"><span><small>Oct 13 · 09:30</small><b>Sagrada Família</b><em>10:15 生誕のファサードの塔</em></span></button>
+          <button data-route="flight"><img src="images/departure.png?v=4.4.7" alt="出発"><span><small>Oct 8</small><b>出発</b><em>ドーハ経由でマドリードへ</em></span></button>
+          <button data-route="plan"><img src="images/madrid.png?v=4.4.7" alt="マドリード"><span><small>Oct 9–11</small><b>Madrid</b><em>芸術と街歩きを満喫</em></span></button>
+          <button data-route="restaurant"><img src="images/corral.png?v=4.4.7" alt="フラメンコ"><span><small>Oct 10</small><b>Flamenco</b><em>Corral de la Morería</em></span></button>
+          <button data-route="gaudi"><img src="images/sagrada.png?v=4.4.7" alt="バルセロナ"><span><small>Oct 13 · 09:30</small><b>Sagrada Família</b><em>10:15 生誕のファサードの塔</em></span></button>
         </div>
       </article>
       <article class="quick-info card">
@@ -138,15 +138,15 @@
 <section id="plan" class="screen inner">
   <header class="page-head"><p class="eyebrow">ITINERARY</p><h1>旅の流れ</h1><p>移動・街歩き・食事を、一つのストーリーに。</p></header>
   <div class="timeline-story">
-    <article class="story-step"><img src="images/departure.png" alt="出発"><div><time>10.8 <small>Thu</small></time><p class="eyebrow">Departure</p><h2>成田からドーハへ</h2><p>QR809で夜の空へ。旅の始まり。</p></div></article>
-    <article class="story-step reverse"><img src="images/madrid.png" alt="マドリード"><div><time>10.9–10 <small>Fri–Sat</small></time><p class="eyebrow">Madrid</p><h2>芸術と街歩き</h2><p>王宮、美術館、そして夜はフラメンコ。</p></div></article>
-    <article class="story-step"><img src="images/corral.png" alt="フラメンコ"><div><time>10.10 <small>Sat</small></time><p class="eyebrow">Flamenco</p><h2>Corral de la Morería</h2><p>ディナーとショー。スペインらしい特別な夜。</p></div></article>
-    <article class="story-step reverse"><img src="images/sagrada.png" alt="サグラダ・ファミリア"><div><time>10.13 <small>Tue</small></time><p class="eyebrow">Sagrada Família</p><h2>9:30 聖堂 → 10:15 生誕の塔</h2><p>塔付き＋公式オーディオガイド。朝の生誕のファサードを楽しむ。</p><button class="story-link" data-route="gaudi">Gaudí Questで予習する <span>›</span></button></div></article>
-    <article class="story-step"><img src="images/selfie.png" alt="帰国後の東京滞在"><div><time>10.15 <small>Thu</small></time><p class="eyebrow">Return & Stay</p><h2>成田から新浦安へ</h2><p>19:35に成田へ到着。オリエンタルホテル東京ベイで一泊して、旅の余韻を楽しむ。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
-    <article class="story-step reverse"><img src="images/couple.png" alt="東京で過ごす旅の最終夜"><div><time>10.16 <small>Fri</small></time><p class="eyebrow">Disney & Final Stay</p><h2>Disneyから東京駅へ</h2><p>朝、大型スーツケースは岐阜の自宅へ発送。身軽にDisneyを楽しんだあと、The Tokyo Station Hotelで旅の最終夜。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
+    <article class="story-step"><img src="images/departure.png?v=4.4.7" alt="出発"><div><time>10.8 <small>Thu</small></time><p class="eyebrow">Departure</p><h2>成田からドーハへ</h2><p>QR809で夜の空へ。旅の始まり。</p></div></article>
+    <article class="story-step reverse"><img src="images/madrid.png?v=4.4.7" alt="マドリード"><div><time>10.9–10 <small>Fri–Sat</small></time><p class="eyebrow">Madrid</p><h2>芸術と街歩き</h2><p>王宮、美術館、そして夜はフラメンコ。</p></div></article>
+    <article class="story-step"><img src="images/corral.png?v=4.4.7" alt="フラメンコ"><div><time>10.10 <small>Sat</small></time><p class="eyebrow">Flamenco</p><h2>Corral de la Morería</h2><p>ディナーとショー。スペインらしい特別な夜。</p></div></article>
+    <article class="story-step reverse"><img src="images/sagrada.png?v=4.4.7" alt="サグラダ・ファミリア"><div><time>10.13 <small>Tue</small></time><p class="eyebrow">Sagrada Família</p><h2>9:30 聖堂 → 10:15 生誕の塔</h2><p>塔付き＋公式オーディオガイド。朝の生誕のファサードを楽しむ。</p><button class="story-link" data-route="gaudi">Gaudí Questで予習する <span>›</span></button></div></article>
+    <article class="story-step"><img src="images/selfie.png?v=4.4.7" alt="帰国後の東京滞在"><div><time>10.15 <small>Thu</small></time><p class="eyebrow">Return & Stay</p><h2>成田から新浦安へ</h2><p>19:35に成田へ到着。オリエンタルホテル東京ベイで一泊して、旅の余韻を楽しむ。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
+    <article class="story-step reverse"><img src="images/couple.png?v=4.4.7" alt="東京で過ごす旅の最終夜"><div><time>10.16 <small>Fri</small></time><p class="eyebrow">Disney & Final Stay</p><h2>Disneyから東京駅へ</h2><p>朝、大型スーツケースは岐阜の自宅へ発送。身軽にDisneyを楽しんだあと、The Tokyo Station Hotelで旅の最終夜。</p><button class="story-link" data-route="hotel">ホテル詳細を見る <span>›</span></button></div></article>
   </div>
 </section>
-<section id="flight" class="screen inner"><header class="page-head"><p class="eyebrow">FLIGHTS</p><h1>空の旅</h1><p>搭乗日に必要な情報を、すぐ見つけられる形で。</p></header><div class="feature-image"><img src="images/flight.png" alt="機内で過ごす二人"></div><div class="ticket-grid"><article class="ticket"><div><small>NRT → DOH</small><h2>QR809</h2><p>Oct 8 · 17:25 → 23:05</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → MAD</small><h2>QR147</h2><p>Oct 9 · 01:10 → 07:35</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>BCN → DOH</small><h2>QR146</h2><p>Oct 14 · 16:35 → 23:55</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → NRT</small><h2>QR806</h2><p>Oct 15 · 03:15 → 19:35</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article></div></section>
+<section id="flight" class="screen inner"><header class="page-head"><p class="eyebrow">FLIGHTS</p><h1>空の旅</h1><p>搭乗日に必要な情報を、すぐ見つけられる形で。</p></header><div class="feature-image"><img src="images/flight.png?v=4.4.7" alt="機内で過ごす二人"></div><div class="ticket-grid"><article class="ticket"><div><small>NRT → DOH</small><h2>QR809</h2><p>Oct 8 · 17:25 → 23:05</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → MAD</small><h2>QR147</h2><p>Oct 9 · 01:10 → 07:35</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>BCN → DOH</small><h2>QR146</h2><p>Oct 14 · 16:35 → 23:55</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article><article class="ticket"><div><small>DOH → NRT</small><h2>QR806</h2><p>Oct 15 · 03:15 → 19:35</p><p>✓ Seats together</p></div><strong>Qatar Airways</strong></article></div></section>
 <section id="hotel" class="screen inner">
 <header class="page-head"><p class="eyebrow">HOTELS</p><h1>旅の拠点</h1><p>スペインの二都市と、帰国後の東京で過ごすホテル。</p></header>
 <div class="detail-grid hotel-grid">
@@ -212,7 +212,7 @@
 </div>
 </section>
 
-<section id="restaurant" class="screen inner"><header class="page-head"><p class="eyebrow">DINING</p><h1>スペインの夜</h1><p>食事も、この旅の大切な思い出に。</p></header><div class="feature-image"><img src="images/corral.png" alt="ワインとフラメンコを楽しむ二人"></div><div class="detail-grid"><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">MADRID · OCT 10 · 21:30</p><h2>Corral de la Morería</h2><dl><div><dt>予約番号</dt><dd>W10102026084153</dd></div><div><dt>内容</dt><dd>Dinner + Show</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank" rel="noopener">Google Maps</a></article><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">BARCELONA · OCT 13 · 19:00</p><h2>Cinc Sentits</h2><dl><div><dt>住所</dt><dd>Carrer d'Entença, 60</dd></div><div><dt>内容</dt><dd>Tasting Menu</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank" rel="noopener">Google Maps</a></article></div></section>
+<section id="restaurant" class="screen inner"><header class="page-head"><p class="eyebrow">DINING</p><h1>スペインの夜</h1><p>食事も、この旅の大切な思い出に。</p></header><div class="feature-image"><img src="images/corral.png?v=4.4.7" alt="ワインとフラメンコを楽しむ二人"></div><div class="detail-grid"><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">MADRID · OCT 10 · 21:30</p><h2>Corral de la Morería</h2><dl><div><dt>予約番号</dt><dd>W10102026084153</dd></div><div><dt>内容</dt><dd>Dinner + Show</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Corral+de+la+Moreria+Madrid" target="_blank" rel="noopener">Google Maps</a></article><article class="detail-card"><span class="badge">確定</span><p class="eyebrow">BARCELONA · OCT 13 · 19:00</p><h2>Cinc Sentits</h2><dl><div><dt>住所</dt><dd>Carrer d'Entença, 60</dd></div><div><dt>内容</dt><dd>Tasting Menu</dd></div><div><dt>メモ</dt><dd>ハネムーン連絡済み</dd></div></dl><a class="link-button" href="https://maps.google.com/?q=Cinc+Sentits+Barcelona" target="_blank" rel="noopener">Google Maps</a></article></div></section>
 <section id="booked" class="screen inner">
 <header class="page-head"><p class="eyebrow">TRAVEL CONCIERGE</p><h1>予約コンシェルジュ</h1><p>旅行中に必要な予約を、種類ごとにすぐ確認。</p></header>
 <div class="concierge-summary">
@@ -327,7 +327,7 @@
   </article>
   <p class="source-note">連絡先確認：在スペイン日本国大使館・在バルセロナ日本国総領事館（2026年7月確認）。渡航直前にも公式情報をご確認ください。</p>
 </section>
-<section id="today" class="screen inner"><header class="page-head"><p class="eyebrow">TODAY</p><h1 id="todayTitle">今日の物語</h1><p id="todayLead">旅の時期に合わせて自動で切り替わります。</p></header><div class="feature-image"><img id="todayHero" src="images/departure.png" alt="今日のイラスト"></div><article class="detail-card today-detail"><h2 id="todayCity">Before the journey</h2><ul id="todaySchedule"></ul></article></section>
+<section id="today" class="screen inner"><header class="page-head"><p class="eyebrow">TODAY</p><h1 id="todayTitle">今日の物語</h1><p id="todayLead">旅の時期に合わせて自動で切り替わります。</p></header><div class="feature-image"><img id="todayHero" src="images/departure.png?v=4.4.7" alt="今日のイラスト"></div><article class="detail-card today-detail"><h2 id="todayCity">Before the journey</h2><ul id="todaySchedule"></ul></article></section>
 
 <section id="fun" class="screen inner fun-screen">
   <header class="page-head"><p class="eyebrow">FUN</p><h1>Just for Us</h1><p>迷ったときは、コインに任せてみよう。</p></header>
@@ -359,7 +359,7 @@
   <header class="page-head"><p class="eyebrow">GAUDÍ QUEST</p><h1>生誕のファサードを、もっと楽しむ。</h1><p>暗記ではなく「現地で見つける」ための3分予習。見学後は答え合わせで完成。</p></header>
 
   <article class="gaudi-ticket reveal">
-    <img src="images/sagrada.png" alt="サグラダ・ファミリアを楽しむ二人">
+    <img src="images/sagrada.png?v=4.4.7" alt="サグラダ・ファミリアを楽しむ二人">
     <div class="gaudi-ticket-copy"><p class="eyebrow">BOOKED · OCT 13</p><h2>Sagrada Família</h2><div class="gaudi-time-row"><span><small>BASILICA</small><b>09:30</b></span><i>→</i><span><small>NATIVITY TOWER</small><b>10:15</b></span></div><p>塔付き＋公式オーディオガイド · 2名 · 入場 C/ Marina</p><div class="gaudi-alert"><b>朝のポイント</b><span>9:30〜10:00はQuiet Hour。イヤホンを使い、静かに見学。公式アプリは前日までにDL、スマホは満充電に。</span></div></div>
   </article>
 
@@ -403,7 +403,7 @@
   <header class="page-head"><p class="eyebrow">MEMORIES</p><h1>Our Spain Memories</h1><p>準備の日から旅の終わりまで残せる、二人だけの端末内アルバム。</p></header>
   <div class="memory-intro">
     <div><p class="section-label">Before → After</p><h2>イラストの旅が、本当の思い出になっていく。</h2><p>写真は自動で縮小し、この端末のブラウザ内に保存します。別端末への共有や自動同期は行いません。</p></div>
-    <img src="images/selfie.png" alt="スペインで写真を撮る二人">
+    <img src="images/selfie.png?v=4.4.7" alt="スペインで写真を撮る二人">
   </div>
   <article class="detail-card memory-upload-card">
     <div class="card-heading"><div><p class="section-label">Add photos</p><h2>写真を追加</h2></div><b id="memoryCount">0枚</b></div>
@@ -419,7 +419,7 @@
   <p id="memoryEmpty" class="empty-state">まだ写真がありません。Day 0に準備の一枚を追加して、旅の物語を始めよう。</p>
 </section>
 <div id="memoryModal" class="memory-modal" hidden><button id="memoryModalClose" aria-label="閉じる">×</button><img id="memoryModalImage" alt="思い出の写真"><p id="memoryModalCaption"></p></div>
-<section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">Yuta</p><img src="images/couple.png" alt="二人の線画"></div></section>
+<section id="letter" class="screen inner letter-screen"><div class="letter-card"><p class="eyebrow">TO YUKO</p><h1>これからも、<br>たくさん旅をしよう。</h1><p>今回のスペインは、僕たちの最初の冒険。</p><p>景色も、食事も、迷った道も、全部ふたりの思い出にしよう。</p><p class="signature">Yuta</p><img src="images/couple.png?v=4.4.7" alt="二人の線画"></div></section>
 </main>
 <nav class="bottom-nav" aria-label="スマートフォンナビゲーション"><button class="active" data-route="home"><svg class="line-icon" aria-hidden="true"><use href="#i-home"></use></svg><small>Home</small></button><button data-route="plan"><svg class="line-icon" aria-hidden="true"><use href="#i-plan"></use></svg><small>Plan</small></button><button data-route="memories"><svg class="line-icon" aria-hidden="true"><use href="#i-camera"></use></svg><small>Photos</small></button><button data-route="today"><svg class="line-icon" aria-hidden="true"><use href="#i-today"></use></svg><small>Today</small></button><button data-route="fun"><svg class="line-icon" aria-hidden="true"><use href="#i-fun"></use></svg><small>Fun</small></button></nav>
 <footer><button id="replayOpening">Replay opening</button><button id="installAppButton" class="install-footer-button" type="button">Add to Home</button><button data-route="letter" class="footer-heart">♡</button></footer>
@@ -446,6 +446,6 @@
     <p class="install-guide-note">追加後は、この案内は自動で表示されません。</p>
   </section>
 </div>
-<script src="js/app.js?v=4.4.6"></script>
+<script src="js/app.js?v=4.4.7"></script>
 </body>
 </html>

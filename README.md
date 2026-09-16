@@ -41,3 +41,9 @@ Upload all files in this folder to the repository root.
 - Confirmed Madrid → Barcelona train: Oct 11, 11:27 → 15:11.
 - Journey/Today and Travel Concierge updated to match the final hotel and train arrangements.
 - Cache and asset version bumped to v4.4.6.
+
+
+## v4.4.7
+- Fixed iPhone/PWA itinerary illustration rendering with image cache-busting.
+- Updated service-worker asset versions to match the current release.
+- Stabilized mobile illustration aspect ratios to prevent oversized blank cards when an image is refreshing.
